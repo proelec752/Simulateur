@@ -326,6 +326,75 @@ footer .lgFull{height:96px;width:auto;display:block;margin:0 auto 10px}
 .partner small{display:block;font-size:11px;color:var(--ink2)}
 .fPartner{margin:18px auto 0;max-width:420px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
 .fPartner .lgCom{height:44px;width:auto;opacity:.95}
+
+/* ===== bright theme ===== */
+.sim,.iso,.sum,.bills,.acc,.cta{color:var(--ink);box-shadow:0 16px 40px rgba(15,23,42,.18)}
+body{background:linear-gradient(180deg,#FFF6EA 0,#EAF4FF 520px,#F3F7FC 1400px,#F3F7FC);color:#0B1B3A}
+.hd{background:rgba(255,255,255,.97);border-bottom:1px solid #E6EAF0;box-shadow:0 4px 18px rgba(15,23,42,.06)}
+.brand small{color:#64748B}
+.lang{background:#F1F5F9;border-color:#E2E8F0}
+.lang button{color:#475569}
+.lang button.on{background:#0B1B3A;color:#fff}
+.isoChips span{color:#B45309;border-color:#FCD9A8;background:#FFF7ED}
+.hero::before{background:radial-gradient(45% 55% at 70% 35%,rgba(255,176,32,.25),transparent 70%)}
+.hero h1{color:#0B1B3A}
+.hero p{color:#475569}
+.hero p b{color:#0B1B3A}
+.btn.sec{background:#fff;border-color:#E2E8F0;color:#0B1B3A;box-shadow:0 4px 14px rgba(15,23,42,.06)}
+.trust span{background:#fff;border-color:#E2E8F0;color:#475569}
+.trust b{color:#0B1B3A}
+.sceneM{margin:16px 0 4px}
+.scene{width:100%;height:auto;display:block;filter:drop-shadow(0 14px 30px rgba(30,64,175,.15))}
+.sunRot{animation:sunr 30s linear infinite}
+@keyframes sunr{to{transform:rotate(360deg)}}
+.flow circle{animation:flw 1.6s ease-in-out infinite}
+.flow circle:nth-child(2){animation-delay:.3s}.flow circle:nth-child(3){animation-delay:.6s}
+@keyframes flw{50%{opacity:.25}}
+.kick{color:#E2600A}
+.sh h2{color:#0B1B3A}
+.swipe{color:#64748B}
+.dots i{background:#CBD5E1}
+/* offers bright */
+.of{background:#fff;border:1px solid #E2E8F0;box-shadow:0 10px 30px rgba(15,23,42,.08);color:#0B1B3A}
+.of.p{border:2px solid #FF2E5E;background:linear-gradient(180deg,#FFF3EC,#fff 55%)}
+.ofMod{color:#475569}.ofMod b{color:#0B1B3A}
+.was{color:#94A3B8}
+.now b{color:#0B1B3A}
+.of.p .now b{background:linear-gradient(90deg,#FF8A00,#E8410A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.now small{color:#64748B}
+.sumPrice .now b{background:linear-gradient(90deg,#FFD45C,#FF8A2A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sumPrice .now small{color:var(--ink2)}
+.saveB{background:#FFE4EA;color:#E11D48;border-color:#FDA4B8}
+.of .monthly{background:#EEF4FF;border-color:#C7D7FE;color:#1E3A8A}
+.of .monthly b{color:#1E3A8A}
+.incl{color:#475569}
+.incl li::before{color:#16A34A}
+.of:not(.p) .ofBtn{background:#0B1B3A;color:#fff}
+/* components */
+.cps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cp{background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:14px;box-shadow:0 6px 20px rgba(15,23,42,.06)}
+.cpI{width:100%;aspect-ratio:1.5;border-radius:16px;display:grid;place-items:center;margin-bottom:10px}
+.cpI svg{width:58%;height:auto}
+.cp b{display:block;font-size:14.5px;line-height:1.3;color:#0B1B3A}
+.cp span{display:block;font-size:12.5px;color:#64748B;margin-top:3px}
+/* stats bright */
+.stats{background:#E2E8F0;border-color:#E2E8F0;box-shadow:0 6px 20px rgba(15,23,42,.05)}
+.st{background:#fff}
+.st span{color:#475569}
+.svs .sv{background:#fff;border-color:#E2E8F0;box-shadow:0 6px 20px rgba(15,23,42,.05)}
+.sv b{color:#0B1B3A}.sv span{color:#475569}
+.disc{color:#64748B}
+footer{color:#64748B}
+.fPartner{border-top-color:#E2E8F0}
+.fPartner span{color:#475569}
+/* results equipment colorful icons */
+.eq .ico{background:#fff;width:48px;height:48px}
+.eq .ico svg{width:36px;height:36px}
+.bb{background:rgba(255,255,255,.97);border-top-color:#E2E8F0;box-shadow:0 -6px 20px rgba(15,23,42,.08)}
+.bb .info b{color:#0B1B3A}.bb .info span{color:#475569}
+@media(min-width:760px){.cps{grid-template-columns:repeat(3,1fr)}.sceneM{display:none}}
+@media(max-width:759px){.heroArt{display:none}}
+@media(min-width:960px){.heroArt{width:440px;aspect-ratio:auto}.heroArt::before{display:none}.heroArt .scene{position:static}.stamp{top:-14px}}
 </style>
 </head>
 <body>
@@ -341,17 +410,91 @@ footer .lgFull{height:96px;width:auto;display:block;margin:0 auto 10px}
 
   <section class="hero">
     <div>
-      <div class="mLogo"><svg class="lgFull" viewBox="0 0 350.2 329.0" role="img" aria-label="PROELEC"><use href="#lgP"/></svg></div>
       <span class="flash"><span class="t">PROMO</span><span data-i="flash">تخفيضات تصل إلى</span><b class="num">−1 000 DT</b></span>
       <h1><span data-i="h1a">فاتورة الستاغ غالية؟</span><br><span class="hl" data-i="h1b">الشمس تخلّصها عليك</span></h1>
       <p data-i="lead" data-html="1">منظومة شمسية كاملة <b>clé en main</b> بداية من <b class="num">9 200 DT</b>، أو <b class="num">163 DT</b> في الشهر مع قرض الستاغ.</p>
+      <div class="sceneM"><svg class="scene" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Installation photovoltaïque">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE3FF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+<radialGradient id="sunG"><stop offset="0" stop-color="#FFE27A"/><stop offset=".6" stop-color="#FFB020"/><stop offset="1" stop-color="#FF8A1F"/></radialGradient>
+<linearGradient id="cell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F7FE0"/><stop offset="1" stop-color="#173F94"/></linearGradient>
+<linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F1E7DA"/></linearGradient>
+<linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7DD87A"/><stop offset="1" stop-color="#3FAE5A"/></linearGradient>
+<pattern id="grid" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="14" height="10" fill="url(#cell)"/><path d="M14 0V10M0 10H14" stroke="#9CC4FF" stroke-width=".8" opacity=".7"/></pattern>
+</defs>
+<rect width="420" height="300" rx="28" fill="url(#sky)"/>
+<g class="sunRot" style="transform-origin:345px 62px"><g stroke="#FFB020" stroke-width="5" stroke-linecap="round" opacity=".85">
+<path d="M345 14v12M345 98v12M297 62h12M381 62h12M311 28l8 8M371 88l8 8M311 96l8-8M371 36l8-8"/></g></g>
+<circle cx="345" cy="62" r="30" fill="url(#sunG)"/>
+<path d="M60 52c8-14 30-14 36 0 14-2 20 14 8 20H56c-12-2-10-20 4-20z" fill="#fff" opacity=".9"/>
+<path d="M190 34c6-10 22-10 26 0 10-1 14 10 6 14h-34c-8-2-7-14 2-14z" fill="#fff" opacity=".8"/>
+<path d="M0 238c80-18 180-18 420 0v34a28 28 0 0 1-28 28H28A28 28 0 0 1 0 272z" fill="url(#grass)"/>
+<!-- house -->
+<rect x="70" y="150" width="190" height="98" fill="url(#wall)" stroke="#D9CBB8"/>
+<path d="M50 152 102 94h126l52 58z" fill="#5B6B82"/>
+<path d="M50 152 102 94h126l52 58" fill="none" stroke="#3E4C61" stroke-width="5" stroke-linejoin="round"/>
+<g stroke="#D5DEEA" stroke-width="2.5" stroke-linejoin="round"><path d="M80 142 110 104h52l-6 38z" fill="url(#grid)"/><path d="M166 142l4-38h52l30 38z" fill="url(#grid)"/></g>
+<path d="M98 132l12-16M188 132l2-16" stroke="#fff" stroke-width="3" opacity=".5" stroke-linecap="round"/>
+<rect x="104" y="196" width="40" height="52" rx="3" fill="#C2410C"/><circle cx="136" cy="223" r="2.5" fill="#FFD27A"/>
+<rect x="170" y="178" width="58" height="40" rx="4" fill="#BFE3FF" stroke="#94A3B8" stroke-width="3"/><path d="M199 178v40M170 198h58" stroke="#94A3B8" stroke-width="3"/>
+<!-- cable roof → inverter -->
+<path d="M262 148c18 8 22 30 22 54" fill="none" stroke="#E11D48" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M266 146c22 8 28 32 28 56" fill="none" stroke="#1F2937" stroke-width="3.5" stroke-linecap="round"/>
+<!-- inverter -->
+<g transform="translate(272 196)"><rect width="44" height="54" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/><rect width="44" height="10" rx="5" fill="#F06A1B"/><rect x="9" y="17" width="26" height="13" rx="2" fill="#0F172A"/><path d="M12 27l5-4 4 2 5-6 6 3" stroke="#34D399" stroke-width="1.8" fill="none"/><circle cx="14" cy="40" r="2.5" fill="#22C55E"/><circle cx="22" cy="40" r="2.5" fill="#FBBF24"/></g>
+<!-- AC/DC box -->
+<g transform="translate(326 206)"><rect width="30" height="38" rx="4" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2"/><rect x="5" y="8" width="8" height="12" rx="1.5" fill="#fff" stroke="#94A3B8"/><rect x="17" y="8" width="8" height="12" rx="1.5" fill="#fff" stroke="#94A3B8"/><rect x="7" y="11" width="4" height="4" fill="#2563EB"/><rect x="19" y="11" width="4" height="4" fill="#DC2626"/><text x="15" y="32" text-anchor="middle" font-size="7" font-weight="700" fill="#475569" font-family="Arial">AC/DC</text></g>
+<path d="M316 224h10" stroke="#1F2937" stroke-width="3"/>
+<!-- energy flow -->
+<g class="flow" fill="#FFB020"><circle cx="300" cy="120" r="3.5"/><circle cx="315" cy="102" r="3"/><circle cx="328" cy="86" r="2.5"/></g>
+<!-- phone app -->
+<g transform="translate(352 120) rotate(8)"><rect width="50" height="92" rx="10" fill="#0F172A"/><rect x="4" y="9" width="42" height="74" rx="6" fill="#fff"/><text x="9" y="22" font-size="7" font-weight="700" fill="#0F172A" font-family="Arial">kWh</text><path d="M8 66 16 54 24 58 32 42 42 36V74H8z" fill="#FFB020" opacity=".35"/><path d="M8 66 16 54 24 58 32 42 42 36" stroke="#F06A1B" stroke-width="2" fill="none"/><rect x="9" y="27" width="22" height="5" rx="2" fill="#22C55E"/></g>
+</svg>
+</div>
       <div class="heroBtns">
         <a class="btn pri" href="#sim"><span data-i="start">احسب توفيرك في 30 ثانية</span></a>
         <a class="btn sec" href="#offres" data-i="seeOff">شوف العروض 🔥</a>
       </div>
       <div class="trust"><span>🛡️ <b data-i="t1">ضمان 30 سنة</b></span><span>🏅 <b>ISO 9001 · 14001 · 45001</b></span><span>📱 <b data-i="t3">تطبيق مراقبة</b></span></div>
     </div>
-    <div class="heroArt"><svg class="lgFull" viewBox="0 0 350.2 329.0" role="img" aria-label="PROELEC"><use href="#lgP"/></svg><div class="stamp"><small>PROMO</small><b class="num">−1 000</b><small>DT</small></div></div>
+    <div class="heroArt"><svg class="scene" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Installation photovoltaïque">
+<defs>
+<linearGradient id="dsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE3FF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+<radialGradient id="dsunG"><stop offset="0" stop-color="#FFE27A"/><stop offset=".6" stop-color="#FFB020"/><stop offset="1" stop-color="#FF8A1F"/></radialGradient>
+<linearGradient id="dcell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F7FE0"/><stop offset="1" stop-color="#173F94"/></linearGradient>
+<linearGradient id="dwall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F1E7DA"/></linearGradient>
+<linearGradient id="dgrass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7DD87A"/><stop offset="1" stop-color="#3FAE5A"/></linearGradient>
+<pattern id="dgrid" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="14" height="10" fill="url(#dcell)"/><path d="M14 0V10M0 10H14" stroke="#9CC4FF" stroke-width=".8" opacity=".7"/></pattern>
+</defs>
+<rect width="420" height="300" rx="28" fill="url(#dsky)"/>
+<g class="sunRot" style="transform-origin:345px 62px"><g stroke="#FFB020" stroke-width="5" stroke-linecap="round" opacity=".85">
+<path d="M345 14v12M345 98v12M297 62h12M381 62h12M311 28l8 8M371 88l8 8M311 96l8-8M371 36l8-8"/></g></g>
+<circle cx="345" cy="62" r="30" fill="url(#dsunG)"/>
+<path d="M60 52c8-14 30-14 36 0 14-2 20 14 8 20H56c-12-2-10-20 4-20z" fill="#fff" opacity=".9"/>
+<path d="M190 34c6-10 22-10 26 0 10-1 14 10 6 14h-34c-8-2-7-14 2-14z" fill="#fff" opacity=".8"/>
+<path d="M0 238c80-18 180-18 420 0v34a28 28 0 0 1-28 28H28A28 28 0 0 1 0 272z" fill="url(#dgrass)"/>
+<!-- house -->
+<rect x="70" y="150" width="190" height="98" fill="url(#dwall)" stroke="#D9CBB8"/>
+<path d="M50 152 102 94h126l52 58z" fill="#5B6B82"/>
+<path d="M50 152 102 94h126l52 58" fill="none" stroke="#3E4C61" stroke-width="5" stroke-linejoin="round"/>
+<g stroke="#D5DEEA" stroke-width="2.5" stroke-linejoin="round"><path d="M80 142 110 104h52l-6 38z" fill="url(#dgrid)"/><path d="M166 142l4-38h52l30 38z" fill="url(#dgrid)"/></g>
+<path d="M98 132l12-16M188 132l2-16" stroke="#fff" stroke-width="3" opacity=".5" stroke-linecap="round"/>
+<rect x="104" y="196" width="40" height="52" rx="3" fill="#C2410C"/><circle cx="136" cy="223" r="2.5" fill="#FFD27A"/>
+<rect x="170" y="178" width="58" height="40" rx="4" fill="#BFE3FF" stroke="#94A3B8" stroke-width="3"/><path d="M199 178v40M170 198h58" stroke="#94A3B8" stroke-width="3"/>
+<!-- cable roof → inverter -->
+<path d="M262 148c18 8 22 30 22 54" fill="none" stroke="#E11D48" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M266 146c22 8 28 32 28 56" fill="none" stroke="#1F2937" stroke-width="3.5" stroke-linecap="round"/>
+<!-- inverter -->
+<g transform="translate(272 196)"><rect width="44" height="54" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/><rect width="44" height="10" rx="5" fill="#F06A1B"/><rect x="9" y="17" width="26" height="13" rx="2" fill="#0F172A"/><path d="M12 27l5-4 4 2 5-6 6 3" stroke="#34D399" stroke-width="1.8" fill="none"/><circle cx="14" cy="40" r="2.5" fill="#22C55E"/><circle cx="22" cy="40" r="2.5" fill="#FBBF24"/></g>
+<!-- AC/DC box -->
+<g transform="translate(326 206)"><rect width="30" height="38" rx="4" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2"/><rect x="5" y="8" width="8" height="12" rx="1.5" fill="#fff" stroke="#94A3B8"/><rect x="17" y="8" width="8" height="12" rx="1.5" fill="#fff" stroke="#94A3B8"/><rect x="7" y="11" width="4" height="4" fill="#2563EB"/><rect x="19" y="11" width="4" height="4" fill="#DC2626"/><text x="15" y="32" text-anchor="middle" font-size="7" font-weight="700" fill="#475569" font-family="Arial">AC/DC</text></g>
+<path d="M316 224h10" stroke="#1F2937" stroke-width="3"/>
+<!-- energy flow -->
+<g class="flow" fill="#FFB020"><circle cx="300" cy="120" r="3.5"/><circle cx="315" cy="102" r="3"/><circle cx="328" cy="86" r="2.5"/></g>
+<!-- phone app -->
+<g transform="translate(352 120) rotate(8)"><rect width="50" height="92" rx="10" fill="#0F172A"/><rect x="4" y="9" width="42" height="74" rx="6" fill="#fff"/><text x="9" y="22" font-size="7" font-weight="700" fill="#0F172A" font-family="Arial">kWh</text><path d="M8 66 16 54 24 58 32 42 42 36V74H8z" fill="#FFB020" opacity=".35"/><path d="M8 66 16 54 24 58 32 42 42 36" stroke="#F06A1B" stroke-width="2" fill="none"/><rect x="9" y="27" width="22" height="5" rx="2" fill="#22C55E"/></g>
+</svg>
+<div class="stamp"><small>PROMO</small><b class="num">−1 000</b><small>DT</small></div></div>
   </section>
 
   <section id="offres">
@@ -360,6 +503,11 @@ footer .lgFull{height:96px;width:auto;display:block;margin:0 auto 10px}
     <div class="dots" id="dots"></div>
   </section>
 
+
+  <section id="kit" class="kit">
+    <div class="sh"><div><div class="kick" data-i="kitK">clé en main · كل شيء مشمول</div><h2 data-i="kitH">شنوّة فيها المنظومة متاعك؟</h2></div></div>
+    <div class="cps"><div class="cp"><div class="cpI" style="background:#E8F1FF"><svg viewBox="0 0 64 64"><defs><linearGradient id="ic1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B8BEB"/><stop offset="1" stop-color="#173F94"/></linearGradient></defs><path d="M10 46 18 12h36l-8 34z" fill="url(#ic1)" stroke="#CBD5E1" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 29h36M12.5 37.5h36M16 20.5h36M30 12l-6 34M42 12l-6 34" stroke="#9CC4FF" stroke-width="1.3"/><path d="M22 16l-3 12" stroke="#fff" stroke-width="2.5" opacity=".6" stroke-linecap="round"/><path d="M26 46v8M38 46v8M20 54h24" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/></svg></div><b data-i="c1">لوحات شمسية AIKO / LONGi</b><span data-i="c1d">N-type عالية المردود</span></div><div class="cp"><div class="cpI" style="background:#FFF1E6"><svg viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2.5"/><path d="M14 13a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v3H14z" fill="#F06A1B"/><rect x="20" y="22" width="24" height="14" rx="2.5" fill="#0F172A"/><path d="M23 32l5-4 4 2 4-5 5 3" stroke="#34D399" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="24" cy="45" r="3" fill="#22C55E"/><circle cx="32" cy="45" r="3" fill="#FBBF24"/><path d="M22 58v3M42 58v3" stroke="#94A3B8" stroke-width="3"/></svg></div><b data-i="c2">مموج ذكي (Onduleur)</b><span data-i="c2d">يحوّل الطاقة ويربطها بالستاغ</span></div><div class="cp"><div class="cpI" style="background:#EEF2F7"><svg viewBox="0 0 64 64"><path d="M8 34 46 16l10 2-38 18z" fill="#3B82F6" opacity=".25"/><path d="M8 34 46 16M18 36 56 18" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/><path d="M14 35v20M50 17v38M14 55 50 27M8 56h48" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/><circle cx="14" cy="35" r="2.5" fill="#F06A1B"/><circle cx="50" cy="17" r="2.5" fill="#F06A1B"/></svg></div><b data-i="c3">هيكل ألمنيوم</b><span data-i="c3d">متين، ما يصدّاش، يقاوم الريح</span></div><div class="cp"><div class="cpI" style="background:#FFF8E1"><svg viewBox="0 0 64 64"><rect x="10" y="8" width="44" height="48" rx="6" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2.5"/><rect x="16" y="16" width="32" height="20" rx="3" fill="#fff" stroke="#CBD5E1"/><rect x="19" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="29" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="39" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="20" y="22" width="4" height="5" fill="#2563EB"/><rect x="30" y="22" width="4" height="5" fill="#DC2626"/><rect x="40" y="22" width="4" height="5" fill="#16A34A"/><path d="m33 40-4 7h5l-3 6" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="c4">صناديق حماية AC / DC</b><span data-i="c4d">قواطع ومانع صواعق لسلامتك</span></div><div class="cp"><div class="cpI" style="background:#FDECEF"><svg viewBox="0 0 64 64"><path d="M6 20c14 0 14 24 28 24h8" stroke="#DC2626" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M6 32c12 0 12 20 26 20h10" stroke="#1F2937" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="40" y="38" width="14" height="10" rx="3" fill="#2563EB"/><rect x="40" y="47" width="14" height="10" rx="3" fill="#64748B"/><path d="M54 43h5M54 52h5" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/><path d="m44 8-6 10h7l-5 9" stroke="#F59E0B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="c5">كابلات solaire + MC4</b><span data-i="c5d">مقاومة للشمس والحرارة</span></div><div class="cp"><div class="cpI" style="background:#E9F9EF"><svg viewBox="0 0 64 64"><rect x="16" y="4" width="32" height="56" rx="7" fill="#0F172A"/><rect x="19" y="10" width="26" height="44" rx="4" fill="#fff"/><path d="M22 42l5-7 5 3 5-9 6-3v19H22z" fill="#FFB020" opacity=".35"/><path d="M22 42l5-7 5 3 5-9 6-3" stroke="#F06A1B" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="22" y="14" width="12" height="4" rx="2" fill="#22C55E"/><rect x="22" y="47" width="20" height="3" rx="1.5" fill="#E2E8F0"/></svg></div><b data-i="c6">تطبيق المراقبة</b><span data-i="c6d">تابع إنتاجك وتوفيرك من تليفونك</span></div></div>
+  </section>
   <div class="stats">
     <div class="st"><b>30 <small data-i="yrs">سنة</small></b><span data-i="s1">ضمان على المنظومة</span></div>
     <div class="st"><b>3 <small>ISO</small></b><span data-i="s2">جودة · بيئة · سلامة</span></div>
@@ -440,7 +588,7 @@ footer .lgFull{height:96px;width:auto;display:block;margin:0 auto 10px}
           <h3 data-i="ctaH">احجز زيارتك التقنية المجانية</h3>
           <ul><li data-i="c1">مهندس من PROELEC يعاين السطح ويدرس فاتورتك</li><li data-i="c2">عرض نهائي مفصّل وواضح</li><li data-i="c3">مجانًا و بلا أي التزام</li></ul>
           <button class="btn wa" id="send" type="button" style="width:100%"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3z"/></svg><span data-i="wa">إرسال الطلب عبر واتساب</span></button>
-          <div class="partner"><svg class="lgCom" viewBox="0 0 429.5 332.2" role="img" aria-label="Service Commercial Photovoltaïque"><use href="#lgC"/></svg><div><span data-i="pk">يتابع طلبك</span><b>Service Commercial Photovoltaïque</b><small data-i="pd">شريك تجاري معتمد لدى PROELEC</small></div></div>
+          <div class="partner"><svg class="lgCom" viewBox="0 0 429.5 332.2" role="img" aria-label="Service Commercial Photovoltaïque"><use href="#lgC"/></svg><div><span data-i="pk">يتابع طلبك فريقنا</span><b>Service Commercial Photovoltaïque</b><small data-i="pd">القسم التجاري · PROELEC</small></div></div>
           <div class="note" data-i="ctaN">نتيجتك مكتوبة وجاهزة في الرسالة — اضغط «إرسال» فقط</div>
         </div>
         <div class="disc" data-i="disc">النتيجة تقديرية (إنتاج 1600 kWh/kWc في السنة، تعريفة الستاغ). العرض النهائي بعد زيارة تقنية مجانية.</div>
@@ -464,7 +612,7 @@ footer .lgFull{height:96px;width:auto;display:block;margin:0 auto 10px}
     <svg class="lgFull" viewBox="0 0 350.2 329.0" role="img" aria-label="PROELEC"><use href="#lgP"/></svg>
     PROELEC · Sfax – Rue Gremda Km 0.5, Imm. VINCI A83<br>WhatsApp <span class="num">+216 53 467 977</span> · <span class="num">contact.proelec17@gmail.com</span><br>
     <span data-i="foot">النتائج تقديرية وغير ملزمة.</span>
-    <div class="fPartner"><span data-i="fp">التسويق والمتابعة التجارية</span><svg class="lgCom" viewBox="0 0 429.5 332.2" role="img" aria-label="Service Commercial Photovoltaïque"><use href="#lgC"/></svg><span data-i="fp2">شريك تجاري معتمد لدى PROELEC</span></div>
+    <div class="fPartner"><span data-i="fp">القسم التجاري للطاقة الشمسية</span><svg class="lgCom" viewBox="0 0 429.5 332.2" role="img" aria-label="Service Commercial Photovoltaïque"><use href="#lgC"/></svg><span data-i="fp2">Service Commercial Photovoltaïque · PROELEC</span></div>
   </footer>
 </main>
 
@@ -526,7 +674,7 @@ const T={ar:{},fr:{
  isoK:"Entreprise certifiée",isoH:"Une qualité reconnue à l'international",isoP:"PROELEC est certifiée ISO 9001, 14001 et 45001 : les standards des grands projets, jusque chez vous.",
  i1:"Qualité",i2:"Environnement",i3:"Santé & sécurité",
  v1:"Étude, pose, raccordement STEG — on s'occupe de tout",v2h:"Appli de monitoring",v2:"Suivez production et économies sur votre téléphone",v3h:"Service après-vente",v3:"Une équipe technique proche de vous",v4h:"Garantie 30 ans",v4:"Une installation garantie sur le long terme",
- foot:"Résultats indicatifs et non contractuels.",pk:"Votre demande est suivie par",pd:"Partenaire commercial agréé PROELEC",fp:"Commercialisation et suivi client",fp2:"Partenaire commercial agréé PROELEC",bbGo:"Calculez vos économies",bbWa:"Réserver",
+ foot:"Résultats indicatifs et non contractuels.",pk:"Votre demande est suivie par notre équipe",pd:"Service commercial · PROELEC",fp:"Service commercial photovoltaïque",fp2:"Service Commercial Photovoltaïque · PROELEC",kitK:"clé en main · tout est inclus",kitH:"Que contient votre installation ?",c1:"Panneaux AIKO / LONGi",c1d:"N-type haut rendement",c2:"Onduleur intelligent",c2d:"Convertit l'énergie et la raccorde à la STEG",c3:"Structure aluminium",c3d:"Robuste, inoxydable, résiste au vent",c4:"Coffrets de protection AC / DC",c4d:"Disjoncteurs et parafoudres pour votre sécurité",c5:"Câbles solaires + MC4",c5d:"Résistants au soleil et à la chaleur",c6:"Application de monitoring",c6d:"Suivez production et économies sur votre téléphone",bbGo:"Calculez vos économies",bbWa:"Réserver",
  errV:"Entrez le montant de votre facture.",errG:"Choisissez votre gouvernorat."}};
 document.querySelectorAll("[data-i]").forEach(e=>T.ar[e.dataset.i]=e.dataset.html?e.innerHTML:e.textContent);
 T.ar.errV="أدخل مبلغ فاتورتك."; T.ar.errG="اختار ولايتك.";
@@ -643,16 +791,14 @@ function drawPay(r){
    <div class="pm"><h4>${a?"الدفع نقدًا":"Comptant"}</h4><div class="big"><span class="num">${fmt(r.ttc)}</span> <small>DT TTC</small></div></div>
    <div class="pm"><h4>${a?"طريقة خلاص أخرى":"Autre mode de règlement"}</h4><div class="big" style="font-size:20px">${a?"قابلة للتفاوض 🤝":"Négociable 🤝"}</div></div>`;
 }
-const ICO={pan:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="1.6"><path d="M3 18 6 6h12l3 12z"/><path d="M4.5 12h15M9 6l-1.5 12M15 6l1.5 12"/></svg>',
- inv:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12c1-1.5 2-1.5 3 0s2 1.5 3 0"/></svg>',
- str:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="1.6"><path d="M3 20h18M5 20l5-12 9 4M10 8v12M15 10v10"/></svg>',
- pro:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="1.6"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m13 7-3 6h4l-3 5"/></svg>'};
+const ICO={pan:`<svg viewBox="0 0 64 64"><defs><linearGradient id="ic1b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B8BEB"/><stop offset="1" stop-color="#173F94"/></linearGradient></defs><path d="M10 46 18 12h36l-8 34z" fill="url(#ic1b)" stroke="#CBD5E1" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 29h36M12.5 37.5h36M16 20.5h36M30 12l-6 34M42 12l-6 34" stroke="#9CC4FF" stroke-width="1.3"/><path d="M22 16l-3 12" stroke="#fff" stroke-width="2.5" opacity=".6" stroke-linecap="round"/><path d="M26 46v8M38 46v8M20 54h24" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/></svg>`,inv:`<svg viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2.5"/><path d="M14 13a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v3H14z" fill="#F06A1B"/><rect x="20" y="22" width="24" height="14" rx="2.5" fill="#0F172A"/><path d="M23 32l5-4 4 2 4-5 5 3" stroke="#34D399" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="24" cy="45" r="3" fill="#22C55E"/><circle cx="32" cy="45" r="3" fill="#FBBF24"/><path d="M22 58v3M42 58v3" stroke="#94A3B8" stroke-width="3"/></svg>`,str:`<svg viewBox="0 0 64 64"><path d="M8 34 46 16l10 2-38 18z" fill="#3B82F6" opacity=".25"/><path d="M8 34 46 16M18 36 56 18" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/><path d="M14 35v20M50 17v38M14 55 50 27M8 56h48" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/><circle cx="14" cy="35" r="2.5" fill="#F06A1B"/><circle cx="50" cy="17" r="2.5" fill="#F06A1B"/></svg>`,box:`<svg viewBox="0 0 64 64"><rect x="10" y="8" width="44" height="48" rx="6" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2.5"/><rect x="16" y="16" width="32" height="20" rx="3" fill="#fff" stroke="#CBD5E1"/><rect x="19" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="29" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="39" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="20" y="22" width="4" height="5" fill="#2563EB"/><rect x="30" y="22" width="4" height="5" fill="#DC2626"/><rect x="40" y="22" width="4" height="5" fill="#16A34A"/><path d="m33 40-4 7h5l-3 6" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,cab:`<svg viewBox="0 0 64 64"><path d="M6 20c14 0 14 24 28 24h8" stroke="#DC2626" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M6 32c12 0 12 20 26 20h10" stroke="#1F2937" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="40" y="38" width="14" height="10" rx="3" fill="#2563EB"/><rect x="40" y="47" width="14" height="10" rx="3" fill="#64748B"/><path d="M54 43h5M54 52h5" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/><path d="m44 8-6 10h7l-5 9" stroke="#F59E0B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,app:`<svg viewBox="0 0 64 64"><rect x="16" y="4" width="32" height="56" rx="7" fill="#0F172A"/><rect x="19" y="10" width="26" height="44" rx="4" fill="#fff"/><path d="M22 42l5-7 5 3 5-9 6-3v19H22z" fill="#FFB020" opacity=".35"/><path d="M22 42l5-7 5 3 5-9 6-3" stroke="#F06A1B" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="22" y="14" width="12" height="4" rx="2" fill="#22C55E"/><rect x="22" y="47" width="20" height="3" rx="1.5" fill="#E2E8F0"/></svg>`};
 function drawEquip(r){
   const a=ar(),s=r.sys,i=r.inv;
   $("equip").innerHTML=[["pan",a?"اللوحات الشمسية":"Modules PV",`${s.n} × ${s.b} ${s.w} Wc`,a?`N-type · ≈ ${fmt(s.n*CFG.m2PerPanel)} m² على السطح`:`N-type · ≈ ${fmt(s.n*CFG.m2PerPanel)} m² de toiture`],
    ["inv",a?"المموج الذكي":"Onduleur intelligent",`${i.kw} kW · ${i.mono?(a?"أحادي الطور":"Monophasé"):(a?"ثلاثي الطور":"Triphasé")}`,a?"مربوط بالشبكة + تطبيق مراقبة":"Réseau + appli de monitoring"],
    ["str",a?"الهيكل":"Structure",a?"ألمنيوم / فولاذ مُغلفن":"Alu / acier galvanisé",a?"سطح خرساني أو صفائح":"Dalle béton ou bac acier"],
-   ["pro",a?"الحماية و الكابلات":"Protections & câblage",a?"صناديق حماية DC / AC":"Coffrets DC / AC",a?"مانع صواعق · تأريض":"Parafoudres · mise à la terre"]]
+   ["box",a?"الحماية و الكابلات":"Protections & câblage",a?"صناديق حماية DC / AC":"Coffrets DC / AC",a?"مانع صواعق · تأريض":"Parafoudres · mise à la terre"]]
+   .concat([["app",a?"تطبيق المراقبة":"Application de monitoring",a?"على تليفونك":"Sur votre téléphone",a?"الإنتاج والتوفير لحظة بلحظة":"Production et économies en temps réel"]])
    .map(x=>`<div class="eq"><div class="ico">${ICO[x[0]]}</div><div><div class="t">${x[1]}</div><div class="v">${x[2]}</div><div class="s">${x[3]}</div></div></div>`).join("");
 }
 function drawQuote(r){
