@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROELEC – محاكي الطاقة الشمسية | Simulateur solaire</title>
+<meta name="description" content="محاكي PROELEC: أدخل فاتورة الستاغ واعرف المنظومة الشمسية المناسبة، الثمن وطرق الخلاص.">
+<meta property="og:title" content="PROELEC ☀️ احسب منظومتك الشمسية في 30 ثانية">
+<meta property="og:description" content="أدخل فاتورة الستاغ متاعك واعرف القدرة المناسبة، الثمن clé en main، وقرض الستاغ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1222; --bg2:#0F1A2E; --card:#13213A; --card2:#182A48; --line:#24395E;
+  --ink:#F3F6FB; --ink2:#B7C3D9; --muted:#7F8FAD;
+  --sun:#FFB020; --sun2:#FF6A3D; --prod:#D07A0C; --cons:#5B8DEF; --ok:#2FBF71;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Readex Pro",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+.num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;display:inline-block}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px;font-size:20px}
+.brand .logo{width:38px;height:38px;border-radius:11px;background:conic-gradient(from 200deg,var(--sun),var(--sun2),var(--sun));display:grid;place-items:center;color:#1a0f00;font-weight:800;font-size:18px;box-shadow:0 0 24px rgba(255,140,40,.45)}
+.brand small{display:block;font-size:11px;font-weight:400;color:var(--muted);letter-spacing:0}
+.lang{display:flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang button{border:0;background:none;color:var(--ink2);font:inherit;font-size:13px;padding:6px 14px;border-radius:999px;cursor:pointer}
+.lang button.on{background:var(--ink);color:var(--bg);font-weight:600}
+
+/* hero */
+.hero{position:relative;padding:34px 0 40px;text-align:center}
+.sunbg{position:absolute;inset:-120px 0 auto 0;height:520px;pointer-events:none;
+  background:radial-gradient(closest-side at 50% 60%,rgba(255,150,40,.38),rgba(255,106,61,.12) 55%,transparent 75%);z-index:0}
+.rays{position:absolute;left:50%;top:-40px;width:620px;height:620px;transform:translateX(-50%);opacity:.18;z-index:0;
+  background:repeating-conic-gradient(from 0deg,rgba(255,190,90,.6) 0 2deg,transparent 2deg 12deg);
+  -webkit-mask:radial-gradient(circle,transparent 18%,#000 19%,transparent 70%);mask:radial-gradient(circle,transparent 18%,#000 19%,transparent 70%);
+  animation:spin 80s linear infinite}
+@keyframes spin{to{transform:translateX(-50%) rotate(360deg)}}
+.hero>*:not(.sunbg):not(.rays){position:relative;z-index:1}
+.pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,176,32,.12);border:1px solid rgba(255,176,32,.35);color:#FFD27A;border-radius:999px;padding:6px 14px;font-size:13px}
+.hero h1{font-size:clamp(30px,6vw,56px);line-height:1.15;margin:18px auto 12px;max-width:820px;font-weight:700}
+.hero h1 .hl{background:linear-gradient(90deg,var(--sun),var(--sun2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--ink2);font-size:clamp(15px,2.2vw,18px);max-width:640px;margin:0 auto}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.badge{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-size:13px;color:var(--ink2)}
+.badge b{color:var(--ink)}
+
+/* form */
+.panel{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:26px;padding:26px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step .lbl{display:flex;align-items:center;gap:10px;font-weight:600;margin-bottom:10px;font-size:15px}
+.step .n{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--sun),var(--sun2));color:#1a0f00;display:grid;place-items:center;font-size:14px;font-weight:700;flex:none}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg button{border:1.5px solid var(--line);background:var(--bg2);color:var(--ink2);font:inherit;font-size:14px;padding:12px 8px;border-radius:14px;cursor:pointer;transition:.15s;display:flex;flex-direction:column;align-items:center;gap:4px}
+.seg button .ic{font-size:22px}
+.seg button.on{border-color:var(--sun);color:var(--ink);background:rgba(255,176,32,.10);box-shadow:inset 0 0 0 1px var(--sun)}
+select.bad{border-color:#FF8A7A}
+select,input[type=number],input[type=text],input[type=tel]{width:100%;background:var(--bg2);border:1.5px solid var(--line);color:var(--ink);font:inherit;font-size:16px;padding:12px 14px;border-radius:14px;outline:none}
+select:focus,input:focus{border-color:var(--sun)}
+.inrow{position:relative}
+.inrow .unit{position:absolute;inset-inline-end:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;pointer-events:none}
+.mini{display:flex;gap:6px;margin-bottom:8px}
+.mini button{flex:1;border:1px solid var(--line);background:none;color:var(--ink2);font:inherit;font-size:12.5px;padding:7px 6px;border-radius:10px;cursor:pointer}
+.mini button.on{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.hint{font-size:12px;color:var(--muted);margin-top:6px}
+.opts{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin-top:22px;padding-top:18px;border-top:1px dashed var(--line)}
+.range{flex:1;min-width:240px}
+.range .t{display:flex;justify-content:space-between;font-size:14px;color:var(--ink2);margin-bottom:6px}
+.range .t b{color:var(--sun)}
+input[type=range]{width:100%;accent-color:var(--sun)}
+.chk{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink2);cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--sun)}
+.go{margin-top:22px;width:100%;border:0;border-radius:16px;padding:17px;font:inherit;font-size:18px;font-weight:700;color:#1a0f00;cursor:pointer;
+  background:linear-gradient(90deg,var(--sun),var(--sun2));box-shadow:0 12px 30px rgba(255,120,40,.35);transition:transform .15s}
+.go:hover{transform:translateY(-2px)}
+.err{color:#FF8A7A;font-size:14px;margin-top:10px;text-align:center;min-height:1px}
+
+/* results */
+#res{display:none;padding:40px 0 10px}
+#res.show{display:block;animation:up .25s ease-out}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.sec-t{font-size:22px;font-weight:700;margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+.sec-t::before{content:"";width:6px;height:24px;border-radius:3px;background:linear-gradient(var(--sun),var(--sun2))}
+.heroRes{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:stretch}
+@media(max-width:820px){.heroRes{grid-template-columns:1fr}}
+.ring{background:radial-gradient(circle at 50% 40%,#22365a,var(--card));border:1px solid var(--line);border-radius:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+.ring svg{width:200px;height:200px}
+.ring .cap{color:var(--ink2);font-size:14px;margin-top:6px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:560px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
+.kpi .k{font-size:12.5px;color:var(--muted)}
+.kpi .v{font-size:24px;font-weight:700;margin-top:4px;line-height:1.2}
+.kpi .v small{font-size:13px;color:var(--ink2);font-weight:400}
+.kpi.big{grid-column:span 3;background:linear-gradient(120deg,rgba(47,191,113,.16),rgba(47,191,113,.04));border-color:rgba(47,191,113,.4)}
+@media(max-width:560px){.kpi.big{grid-column:span 2}}
+.kpi.big .v{font-size:32px;color:#7BE3A8}
+
+.bills{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center}
+@media(max-width:620px){.bills{grid-template-columns:1fr}.bills .arrow{transform:rotate(90deg);justify-self:center}}
+.bill{border-radius:20px;padding:20px;border:1px solid var(--line);background:var(--card)}
+.bill .k{color:var(--ink2);font-size:14px}
+.bill .v{font-size:34px;font-weight:700}
+.bill.after{border-color:rgba(47,191,113,.45);background:linear-gradient(160deg,rgba(47,191,113,.14),var(--card))}
+.bill.after .v{color:#7BE3A8}
+.bill .bar{height:10px;border-radius:5px;background:var(--bg2);margin-top:12px;overflow:hidden}
+.bill .bar i{display:block;height:100%;border-radius:5px;background:var(--cons)}
+.bill.after .bar i{background:var(--ok)}
+.arrow{font-size:28px;color:var(--sun)}
+
+.chartBox{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;position:relative}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink2);margin-bottom:8px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.legend i.l{height:3px;border-radius:2px;width:18px}
+#chart{overflow-x:auto}#chart svg{width:100%;min-width:620px;height:auto;display:block}
+.tip{position:absolute;pointer-events:none;background:#0A1222;border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:12.5px;color:var(--ink);opacity:0;transition:opacity .1s;white-space:nowrap;z-index:5;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.tip b{display:block;margin-bottom:2px}
+.tip .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-inline-end:6px}
+.tblToggle{background:none;border:0;color:var(--muted);font:inherit;font-size:12.5px;text-decoration:underline;cursor:pointer;margin-top:8px}
+.mtbl{display:none;margin-top:8px;font-size:12.5px;width:100%;border-collapse:collapse}
+.mtbl.show{display:table}
+.mtbl td,.mtbl th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:center}
+
+.equip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:820px){.equip{grid-template-columns:1fr 1fr}}
+.eq{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;position:relative;overflow:hidden}
+.eq .ico{width:44px;height:44px;border-radius:12px;background:rgba(255,176,32,.12);display:grid;place-items:center;margin-bottom:10px}
+.eq .t{font-size:12.5px;color:var(--muted)}
+.eq .v{font-weight:600;font-size:15px;margin-top:2px}
+.eq .s{font-size:12.5px;color:var(--ink2);margin-top:4px}
+
+.quote{background:#F7F8FB;color:#14203A;border-radius:22px;padding:24px}
+.qh{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;border-bottom:2px solid #14203A;padding-bottom:14px}
+.qh .co{font-weight:700;font-size:18px}
+.qh .co small{display:block;font-weight:400;font-size:12px;color:#5A6782}
+.qh .ref{font-size:12.5px;color:#5A6782;text-align:end}
+.qh .ref b{color:#14203A;font-size:15px}
+table.q{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+table.q th{text-align:start;font-size:12px;color:#5A6782;font-weight:500;padding:8px 6px;border-bottom:1px solid #DCE1EB}
+table.q td{padding:10px 6px;border-bottom:1px solid #EBEEF4;vertical-align:top}
+table.q td.p{text-align:end;white-space:nowrap;font-weight:600}
+table.q td small{display:block;color:#6B7690;font-size:12px}
+.tot{margin-top:14px;display:grid;gap:6px;justify-content:end;font-size:14px}
+.tot div{display:flex;justify-content:space-between;gap:40px}
+.tot .grand{font-size:20px;font-weight:700;background:#14203A;color:#fff;padding:10px 16px;border-radius:12px}
+.tot .sub{color:#1E8A52;font-weight:600}
+.tot .net{font-size:18px;font-weight:700;color:#C25A00}
+.qnote{font-size:11.5px;color:#6B7690;margin-top:14px;line-height:1.7}
+
+.cta{margin:36px 0 10px;border-radius:26px;padding:28px;text-align:center;background:linear-gradient(120deg,#FF8A1F,#FF5A3D);color:#1a0f00}
+.cta h3{font-size:clamp(22px,4vw,30px);line-height:1.3}
+.cta p{margin:8px 0 18px;font-size:15px}
+.ctaB{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:14px;font-weight:700;text-decoration:none;font-size:16px;border:0;cursor:pointer;font-family:inherit}
+.btn.wa{background:#0A1222;color:#fff}
+.btn.ghost{background:rgba(255,255,255,.25);color:#1a0f00}
+.cta2{margin:36px 0 10px;border-radius:24px;padding:28px 30px;display:grid;grid-template-columns:1.2fr 1fr;gap:26px;align-items:center;
+  background:linear-gradient(135deg,#14243F 0%,#101C33 60%);border:1px solid #2A4270;position:relative;overflow:hidden}
+.cta2::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--sun),var(--sun2))}
+@media(max-width:760px){.cta2{grid-template-columns:1fr;padding:24px 20px}}
+.ctaKick{font-size:12px;letter-spacing:1px;color:var(--sun);font-weight:600;text-transform:uppercase}
+.cta2 h3{font-size:clamp(22px,3.4vw,28px);line-height:1.3;margin:4px 0 12px}
+.cta2 ul{list-style:none;display:grid;gap:8px}
+.cta2 li{display:flex;gap:10px;align-items:flex-start;color:var(--ink2);font-size:14.5px}
+.cta2 li::before{content:"✓";flex:none;width:20px;height:20px;border-radius:50%;background:rgba(47,191,113,.18);color:#7BE3A8;font-size:12px;font-weight:700;display:grid;place-items:center;margin-top:2px}
+.ctaAct{display:flex;flex-direction:column;align-items:stretch;gap:10px;text-align:center}
+.waBtn{display:flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;font:inherit;font-size:17px;font-weight:700;color:#fff;
+  background:#1FA855;border-radius:14px;padding:17px 20px;transition:background .15s,transform .15s}
+.waBtn:hover{background:#1A9149;transform:translateY(-1px)}
+.waBtn:active{transform:none}
+.ctaNote{font-size:12.5px;color:var(--muted)}
+.ctaNum{font-size:13px;color:var(--ink2)}
+.waFab{position:fixed;bottom:16px;inset-inline:16px;z-index:20;display:none;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:15.5px;color:#fff;background:#1FA855;border-radius:14px;padding:14px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+@media(max-width:760px){.waFab.show{display:flex}footer{padding-bottom:96px}}
+.cta .contact{margin-top:14px;font-size:13.5px}
+
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:10px}
+@media(max-width:820px){.why{grid-template-columns:1fr 1fr}}
+.w{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;text-align:center}
+.w .big{font-size:26px;font-weight:700;background:linear-gradient(90deg,var(--sun),var(--sun2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.w .s{font-size:13px;color:var(--ink2)}
+footer{color:var(--muted);font-size:12px;text-align:center;padding:30px 0 40px;line-height:1.8}
+.disc{font-size:12px;color:var(--muted);margin-top:16px;line-height:1.8;background:var(--bg2);border-radius:14px;padding:12px 14px;border:1px solid var(--line)}
+
+.per{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.per button{border:1.5px dashed var(--line);background:none;color:var(--ink2);font:inherit;font-size:13px;padding:8px 4px;border-radius:10px;cursor:pointer}
+.per button.on{border-style:solid;border-color:var(--sun);color:var(--sun);background:rgba(255,176,32,.10);font-weight:600}
+.perLbl{font-size:12.5px;color:var(--ink2);margin-top:10px}
+.perLbl b{color:var(--sun)}
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:14px 10px}
+@media(max-width:900px){.packs{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.packs{grid-template-columns:repeat(2,1fr)}}
+.pk{position:relative;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:16px 12px 14px;text-align:center;cursor:pointer;transition:.15s;font:inherit;color:inherit}
+.pk:hover{border-color:#3A5480;transform:translateY(-2px)}
+.pk .kw{font-size:26px;font-weight:700;line-height:1.1}
+.pk .kw small{font-size:13px;color:var(--sun);font-weight:600}
+.pk .md{font-size:12px;color:var(--ink2);margin-top:6px}
+.pk .pr{font-size:17px;font-weight:700;margin-top:8px}
+.pk .pr small{font-size:11px;color:var(--muted);font-weight:400}
+.pk .promo{position:absolute;top:-10px;inset-inline-start:10px;background:linear-gradient(90deg,#FF3D6E,#FF6A3D);color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.5px}
+.pk .rec{position:absolute;bottom:-11px;left:50%;transform:translateX(-50%);background:var(--ok);color:#06210F;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pk.on{border-color:var(--sun);background:linear-gradient(180deg,rgba(255,176,32,.16),var(--card));box-shadow:0 10px 30px rgba(255,140,40,.18)}
+.pk.custom{border-style:dashed}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:820px){.services{grid-template-columns:1fr 1fr}}
+.sv{border-radius:20px;padding:18px;background:linear-gradient(160deg,#1C2F52,var(--card));border:1px solid var(--line)}
+.sv .e{font-size:30px}
+.sv .h{font-weight:700;font-size:16px;margin-top:6px}
+.sv .d{font-size:13px;color:var(--ink2);margin-top:4px}
+.pay{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px}
+@media(max-width:820px){.pay{grid-template-columns:1fr}}
+.pm{border-radius:22px;padding:20px;background:var(--card);border:1px solid var(--line);position:relative}
+.pm.star{background:linear-gradient(150deg,rgba(91,141,239,.22),var(--card) 70%);border-color:rgba(91,141,239,.55)}
+.pm .tg{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:rgba(91,141,239,.25);color:#BFD3FF}
+.pm .h{font-size:18px;font-weight:700;margin:10px 0 6px}
+.pm .big{font-size:30px;font-weight:700;line-height:1.15}
+.pm .big small{font-size:14px;color:var(--ink2);font-weight:400}
+.pm .ln{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:var(--ink2);padding:6px 0;border-bottom:1px dashed var(--line)}
+.pm .ln b{color:var(--ink)}
+.pm .ok{margin-top:12px;font-size:13px;color:#7BE3A8;background:rgba(47,191,113,.10);border-radius:12px;padding:9px 11px}
+.inc{color:#1E8A52;font-weight:600}
+.promoTag{display:inline-block;background:#FF3D6E;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;margin-inline-start:8px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><div class="logo">P</div><div>PROELEC<small data-i="tag">طاقة شمسية · clé en main</small></div></div>
+    <div class="lang"><button data-l="ar" class="on">عربي</button><button data-l="fr">FR</button></div>
+  </div>
+
+  <header class="hero">
+    <div class="sunbg"></div>
+    <span class="pill">☀️ <span data-i="pill">محاكي مجاني · النتيجة في 30 ثانية</span></span>
+    <h1><span data-i="h1a">فاتورة الستاغ غالية؟</span><br><span class="hl" data-i="h1b">الشمس تخلّصها عليك</span></h1>
+    <p data-i="lead">أدخل مبلغ فاتورتك أو استهلاكك، ونحسبولك القدرة المناسبة (kWc)، المنظومة اللازمة، الثمن وطرق الخلاص.</p>
+    <div class="badges">
+      <span class="badge">🛡️ <b data-i="b1">ضمان 30 سنة</b></span>
+      <span class="badge">🔑 <b>Clé en main</b></span>
+      <span class="badge">📱 <b data-i="b4">مراقبة الإنتاج من تليفونك</b></span>
+      <span class="badge">🛠️ <b data-i="b5">خدمة ما بعد البيع</b></span>
+      <span class="badge">💳 <b data-i="b6">قرض الستاغ متاح</b></span>
+    </div>
+  </header>
+
+  <section class="panel" id="sim">
+    <div class="steps">
+      <div class="step">
+        <div class="lbl"><span class="n">1</span><span data-i="s1">نوع الحريف</span></div>
+        <div class="seg" id="type">
+          <button data-v="res" class="on"><span class="ic">🏠</span><span data-i="res">منزل</span></button>
+          <button data-v="pro"><span class="ic">🏪</span><span data-i="pro">محل / ورشة</span></button>
+        </div>
+      </div>
+      <div class="step">
+        <div class="lbl"><span class="n">2</span><span data-i="s2">الولاية</span></div>
+        <select id="gov"></select>
+        <div class="hint" data-i="govh">من بنزرت لتطاوين — نخدمو في كامل تراب الجمهورية</div>
+      </div>
+      <div class="step">
+        <div class="lbl"><span class="n">3</span><span data-i="s3">فاتورتك</span></div>
+        <div class="mini" id="mode">
+          <button data-v="dt" class="on" data-i="m1">المبلغ (د.ت)</button>
+          <button data-v="kwh" data-i="m2">الاستهلاك (kWh)</button>
+        </div>
+        <div class="inrow"><input type="number" id="val" min="0" inputmode="decimal" placeholder="250"><span class="unit" id="unit">DT</span></div>
+        <div class="perLbl"><span data-i="perQ">الفاتورة هذي متاع قدّاش؟</span></div>
+        <div class="per" id="per">
+          <button data-v="1" data-i="p1">شهر</button>
+          <button data-v="2" class="on" data-i="p2">شهرين</button>
+          <button data-v="3" data-i="p3">3 أشهر</button>
+          <button data-v="12" data-i="p12">سنة</button>
+        </div>
+      </div>
+    </div>
+    <div class="opts">
+      <div class="range">
+        <div class="t"><span data-i="cov">نسبة التغطية المطلوبة</span><b><span class="num" id="covv">100</span>%</b></div>
+        <input type="range" id="cov" min="40" max="100" step="5" value="100">
+      </div>
+    </div>
+    <button class="go" id="go" data-i="go">احسب المنظومة متاعي ☀️</button>
+    <div class="err" id="err"></div>
+  </section>
+
+  <section id="res">
+    <div class="sec-t" data-i="r1">المنظومة المقترحة ليك</div>
+    <div class="heroRes">
+      <div class="ring">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB020"/><stop offset="1" stop-color="#FF6A3D"/></linearGradient></defs>
+          <circle cx="100" cy="100" r="84" fill="none" stroke="#24395E" stroke-width="14"/>
+          <circle id="arc" cx="100" cy="100" r="84" fill="none" stroke="url(#g)" stroke-width="14" stroke-linecap="round" stroke-dasharray="528" stroke-dashoffset="528" transform="rotate(-90 100 100)" style="transition:stroke-dashoffset .4s ease-out"/>
+          <text x="100" y="98" text-anchor="middle" fill="#F3F6FB" font-size="44" font-weight="700" font-family="Readex Pro" id="kwcT">0</text>
+          <text x="100" y="128" text-anchor="middle" fill="#FFB020" font-size="18" font-weight="600" font-family="Readex Pro">kWc</text>
+        </svg>
+        <div class="cap"><span data-i="covd">تغطي</span> <b class="num" id="covR">0%</b> <span data-i="covd2">من استهلاكك السنوي</span></div>
+      </div>
+      <div class="kpis">
+        <div class="kpi big"><div class="k" data-i="k1">التوفير السنوي التقديري</div><div class="v"><span class="num" id="kSave">0</span> <small data-i="dtY">د.ت / سنة</small></div></div>
+        <div class="kpi"><div class="k" data-i="k2">عدد اللوحات</div><div class="v"><span class="num" id="kPan">0</span> <small id="kPanW"></small></div></div>
+        <div class="kpi"><div class="k" data-i="k3">المساحة على السطح</div><div class="v"><span class="num" id="kArea">0</span> <small>m²</small></div></div>
+        <div class="kpi"><div class="k" data-i="k4">الإنتاج السنوي</div><div class="v"><span class="num" id="kProd">0</span> <small>kWh</small></div></div>
+        <div class="kpi"><div class="k" data-i="k5">مدة استرجاع المال</div><div class="v"><span class="num" id="kPay">0</span> <small data-i="yrs">سنوات</small></div></div>
+        <div class="kpi"><div class="k" data-i="k6">الربح على 25 سنة</div><div class="v"><span class="num" id="k25">0</span> <small data-i="dt">د.ت</small></div></div>
+        <div class="kpi"><div class="k" data-i="k7">CO₂ اللي ما يتبعثش</div><div class="v"><span class="num" id="kCo2">0</span> <small data-i="tY">طن / سنة</small></div></div>
+      </div>
+    </div>
+
+    <div class="sec-t" data-i="r6">باقات PROELEC</div>
+    <div class="hint" style="margin:-6px 0 18px" data-i="packH">الباقة المقترحة عليك باللون البرتقالي — تنجم تختار باقة أخرى بالضغط عليها</div>
+    <div class="packs" id="packs"></div>
+
+    <div class="sec-t" data-i="r2">فاتورتك قبل و بعد</div>
+    <div class="bills">
+      <div class="bill"><div class="k"><span data-i="bef">اليوم</span> · <span class="perTxt"></span></div><div class="v"><span class="num" id="bBef">0</span> <small data-i="dt">د.ت</small></div><div class="bar"><i style="width:100%"></i></div></div>
+      <div class="arrow">⟵</div>
+      <div class="bill after"><div class="k"><span data-i="aft">مع الطاقة الشمسية</span> · <span class="perTxt"></span></div><div class="v"><span class="num" id="bAft">0</span> <small data-i="dt">د.ت</small></div><div class="bar"><i id="bAftBar" style="width:10%"></i></div></div>
+    </div>
+
+    <div class="sec-t" data-i="r3">الإنتاج مقابل الاستهلاك، شهر بشهر</div>
+    <div class="chartBox">
+      <div class="legend"><span><i style="background:var(--prod)"></i><span data-i="lgP">الإنتاج الشمسي</span></span><span><i class="l" style="background:var(--cons)"></i><span data-i="lgC">استهلاكك</span></span></div>
+      <div id="chart"></div>
+      <div class="tip" id="tip"></div>
+      <button class="tblToggle" id="tblT" data-i="tbl">عرض الأرقام في جدول</button>
+      <table class="mtbl" id="mtbl"></table>
+    </div>
+
+    <div class="sec-t" data-i="r4">المنظومة الكاملة</div>
+    <div class="equip" id="equip"></div>
+
+    <div class="sec-t" data-i="r7">معاك من الدراسة لين بعد التركيب</div>
+    <div class="services">
+      <div class="sv"><div class="e">🔑</div><div class="h">Clé en main</div><div class="d" data-i="sv1">دراسة، معدات، تركيب، ربط بالستاغ وتشغيل — كل شيء علينا.</div></div>
+      <div class="sv"><div class="e">📱</div><div class="h" data-i="sv2h">تطبيق المراقبة</div><div class="d" data-i="sv2">تتبّع الإنتاج والتوفير متاعك لحظة بلحظة من تليفونك.</div></div>
+      <div class="sv"><div class="e">🛠️</div><div class="h" data-i="sv3h">خدمة ما بعد البيع</div><div class="d" data-i="sv3">فريق تقني قريب منك للصيانة والمتابعة.</div></div>
+      <div class="sv"><div class="e">🛡️</div><div class="h" data-i="sv4h">ضمان 30 سنة</div><div class="d" data-i="sv4">منظومة مضمونة على المدى الطويل.</div></div>
+    </div>
+
+    <div class="sec-t" data-i="r5">تقدير الثمن (Devis estimatif)</div>
+    <div class="quote" dir="ltr" id="quote"></div>
+
+    <div class="sec-t" data-i="r8">طرق الخلاص</div>
+    <div class="pay" id="pay"></div>
+
+    <div class="disc" data-i="disc">⚠️ هذه نتيجة تقديرية مبنية على إنتاج 1600 kWh لكل kWc في السنة وعلى تعريفة الستاغ. العرض النهائي يتعمل بعد زيارة تقنية مجانية للموقع ودراسة فاتورتك بالتفصيل.</div>
+
+    <div class="cta2">
+      <div class="ctaTxt">
+        <div class="ctaKick" data-i="ctaK">الخطوة الجاية</div>
+        <h3 data-i="ctaH">احجز زيارتك التقنية المجانية</h3>
+        <ul>
+          <li data-i="c1">مهندس من PROELEC يعاين السطح ويدرس فاتورتك</li>
+          <li data-i="c2">عرض نهائي مفصّل وواضح</li>
+          <li data-i="c3">مجانًا و بلا أي التزام</li>
+        </ul>
+      </div>
+      <div class="ctaAct">
+        <button class="waBtn" id="send" type="button"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3z"/></svg><span data-i="wa">إرسال الطلب عبر واتساب</span></button>
+        <div class="ctaNote" data-i="ctaN">نتيجتك مكتوبة وجاهزة في الرسالة — ما عليك كان تضغط «إرسال»</div>
+        <div class="ctaNum">WhatsApp · <span class="num">+216 53 467 977</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-t" data-i="whyT">علاش PROELEC؟</div>
+  <div class="why">
+    <div class="w"><div class="big" data-i="w1a">30 سنة</div><div class="s" data-i="w1b">ضمان على المنظومة</div></div>
+    <div class="w"><div class="big">ISO</div><div class="s" data-i="w2b">شركة مُعتمدة في الكهرباء والطاقة الشمسية</div></div>
+    <div class="w"><div class="big">🔑</div><div class="s" data-i="w3b">Clé en main : دراسة، تركيب، ملف الستاغ</div></div>
+    <div class="w"><div class="big">⚡</div><div class="s" data-i="w4b">خبرة في الكهرباء الصناعية والمشاريع الكبرى</div></div>
+  </div>
+
+  <footer>
+    PROELEC · Sfax – Rue Gremda Km 0.5, Imm. VINCI A83 · WhatsApp <span class="num">53 467 977</span> · <span class="num">contact.proelec17@gmail.com</span><br>
+    <span data-i="foot">النتائج تقديرية وغير ملزمة.</span>
+  </footer>
+</div>
+
+<button class="waFab" id="fab" type="button" aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3z"/></svg><span data-i="fab">احجز زيارة مجانية</span></button>
+<script>
+/* =====================================================================
+   CONFIG — PROELEC : tarifs, packs et prix de vente (TTC)
+   ===================================================================== */
+const CFG = {
+  yield: 1600,                             // productible kWh/kWc/an
+  resTariff(m){                            // STEG BT résidentiel (DT, conso mensuelle) — à vérifier
+    if (m <= 50)  return m*0.062;
+    if (m <= 100) return 50*0.062 + (m-50)*0.096;
+    if (m <= 200) return m*0.176;
+    if (m <= 300) return 200*0.181 + (m-200)*0.223;
+    if (m <= 500) return 200*0.181 + 100*0.223 + (m-300)*0.338;
+    return m*0.419;
+  },
+  proRate: 0.391, tvaRes: 0.13, tvaPro: 0.19, taxKwh: 0.005, fixedMonth: 3.0,
+  customKwc: 2080,                         // prix TTC / kWc hors packs
+  customW: 645, customBrand: "AIKO",
+  m2PerPanel: 3.1,
+  escal: 0.03, degr: 0.005, years: 25, co2: 0.45,
+  whatsapp: "21653467977",
+  callmebotKey: "",                       // laisser vide sur claude.ai ; à remplir seulement si la page est hébergée sur le site PROELEC
+  credit: { amount: 10000, per2m: 326, years: 7 },   // crédit STEG
+  prof: [.056,.064,.083,.092,.102,.106,.114,.104,.088,.075,.061,.055]
+};
+const PACKS = [
+  {lab:"3",   n:5,  w:615, b:"LONGi", p:9200},
+  {lab:"4",   n:6,  w:645, b:"AIKO",  p:10000, promo:true},
+  {lab:"4,3", n:7,  w:615, b:"LONGi", p:10600},
+  {lab:"5",   n:8,  w:645, b:"AIKO",  p:11800, promo:true},
+  {lab:"6",   n:10, w:615, b:"LONGi", p:13600},
+  {lab:"10",  n:16, w:645, b:"AIKO",  p:20950, promo:true}
+].map(p=>({...p,k:p.n*p.w/1000}));
+const GOVS = [
+ ["تونس","Tunis"],["أريانة","Ariana"],["بن عروس","Ben Arous"],["منوبة","Manouba"],["نابل","Nabeul"],["بنزرت","Bizerte"],["زغوان","Zaghouan"],["باجة","Béja"],["جندوبة","Jendouba"],["الكاف","Le Kef"],["سليانة","Siliana"],
+ ["سوسة","Sousse"],["المنستير","Monastir"],["المهدية","Mahdia"],["صفاقس","Sfax"],["القيروان","Kairouan"],["القصرين","Kasserine"],["سيدي بوزيد","Sidi Bouzid"],
+ ["قفصة","Gafsa"],["توزر","Tozeur"],["قبلي","Kébili"],["قابس","Gabès"],["مدنين","Médenine"],["تطاوين","Tataouine"]
+];
+
+/* ============================ i18n ============================ */
+const T = {
+ ar:{},
+ fr:{tag:"Solaire · clé en main",pill:"Simulateur gratuit · résultat en 30 secondes",h1a:"Votre facture STEG est trop chère ?",h1b:"Le soleil la paie pour vous",
+  lead:"Saisissez le montant de votre facture ou votre consommation : nous calculons la puissance adaptée (kWc), l'installation, le prix et les modes de paiement.",
+  b1:"Garantie 30 ans",b4:"Suivi de production sur smartphone",b5:"Service après-vente",b6:"Crédit STEG disponible",
+  s1:"Type de client",res:"Maison",pro:"Commerce / atelier",s2:"Gouvernorat",govh:"De Bizerte à Tataouine — nous intervenons dans toute la Tunisie",
+  s3:"Votre facture",m1:"Montant (DT)",m2:"Consommation (kWh)",perQ:"Cette facture couvre quelle période ?",p1:"1 mois",p2:"2 mois",p3:"3 mois",p12:"1 an",
+  cov:"Taux de couverture souhaité",go:"Calculer mon installation ☀️",
+  r1:"Votre installation recommandée",covd:"Couvre",covd2:"de votre consommation annuelle",k1:"Économie annuelle estimée",dtY:"DT / an",k2:"Nombre de panneaux",k3:"Surface en toiture",k4:"Production annuelle",k5:"Retour sur investissement",yrs:"ans",k6:"Gain sur 25 ans",dt:"DT",k7:"CO₂ évité",tY:"t / an",
+  r6:"Les packs PROELEC",packH:"Le pack recommandé est en orange — cliquez sur un autre pack pour comparer",
+  r2:"Votre facture avant / après",bef:"Aujourd'hui",aft:"Avec le solaire",r3:"Production vs consommation, mois par mois",lgP:"Production solaire",lgC:"Votre consommation",tbl:"Voir les chiffres en tableau",
+  r4:"L'installation complète",r7:"Avec vous de l'étude jusqu'après la pose",sv1:"Étude, matériel, pose, raccordement STEG et mise en service — on s'occupe de tout.",sv2h:"Application de monitoring",sv2:"Suivez votre production et vos économies en temps réel depuis votre téléphone.",sv3h:"Service après-vente",sv3:"Une équipe technique proche de vous pour l'entretien et le suivi.",sv4h:"Garantie 30 ans",sv4:"Une installation garantie sur le long terme.",
+  r5:"Devis estimatif",r8:"Modes de paiement",
+  disc:"⚠️ Résultat indicatif basé sur un productible de 1600 kWh/kWc/an et les tarifs STEG. L'offre définitive est établie après une visite technique gratuite et l'étude détaillée de vos factures.",
+  ctaK:"Étape suivante",ctaH:"Réservez votre visite technique gratuite",c1:"Un ingénieur PROELEC inspecte votre toiture et étudie votre facture",c2:"Une offre définitive claire et détaillée",c3:"Gratuit et sans engagement",ctaN:"Votre résultat est déjà rédigé dans le message — il suffit d'appuyer sur « Envoyer »",fab:"Réserver une visite gratuite",ctaP:"Entrez votre nom et votre numéro : votre demande nous arrive directement sur WhatsApp avec votre résultat. Nous vous rappelons rapidement.",wa:"Envoyer ma demande sur WhatsApp",phN:"Nom et prénom",phT:"Numéro de téléphone",phA:"Ville / adresse (facultatif)",cp:"Copier le résumé",
+  whyT:"Pourquoi PROELEC ?",w1a:"30 ans",w1b:"de garantie sur l'installation",w2b:"Entreprise certifiée en électricité et photovoltaïque",w3b:"Clé en main : étude, pose, dossier STEG",w4b:"Expertise en électricité industrielle et grands projets",foot:"Résultats indicatifs et non contractuels.",
+  errV:"Veuillez saisir un montant ou une consommation valide.",errG:"Veuillez choisir votre gouvernorat."}
+};
+document.querySelectorAll("[data-i]").forEach(e=>T.ar[e.dataset.i]=e.textContent);
+T.ar.errV="من فضلك أدخل مبلغ أو استهلاك صحيح."; T.ar.errG="من فضلك اختار ولايتك.";
+const PER = {ar:{1:"كل شهر",2:"كل شهرين",3:"كل 3 أشهر",12:"في السنة"},fr:{1:"par mois",2:"tous les 2 mois",3:"tous les 3 mois",12:"par an"}};
+const MONTHS = {ar:["جانفي","فيفري","مارس","أفريل","ماي","جوان","جويلية","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر"],
+                fr:["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sep","Oct","Nov","Déc"]};
+let L="ar";
+const t=k=>T[L][k]??T.ar[k];
+const ar=()=>L==="ar";
+
+/* ============================ state & UI ============================ */
+const S={type:"res",mode:"dt",per:2,pick:null};
+const $=id=>document.getElementById(id);
+const fmt=(n,d=0)=>Number(n).toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
+
+function fillGov(){
+  const cur=$("gov").value;
+  $("gov").innerHTML=`<option value="" disabled ${cur?"":"selected"}>${ar()?"— اختار ولايتك (24 ولاية) —":"— Choisissez votre gouvernorat (24) —"}</option>`+
+    GOVS.map(g=>`<option value="${g[1]}">${ar()?g[0]:g[1]}</option>`).join("");
+  if(cur) $("gov").value=cur;
+}
+function seg(id,key,cb){
+  document.querySelectorAll(`#${id} button`).forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll(`#${id} button`).forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); S[key]=isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v; cb&&cb();
+  }));
+}
+let raf=0;
+const sched=()=>{ if(!last||raf) return; raf=requestAnimationFrame(()=>{raf=0;calc();}); };
+const re=()=>{ if(last){S.pick=null;sched();} };
+seg("type","type",re);
+seg("mode","mode",()=>{$("unit").textContent=S.mode==="dt"?"DT":"kWh";$("val").placeholder=S.mode==="dt"?"250":"800";re();});
+seg("per","per",re);
+$("cov").oninput=e=>{$("covv").textContent=e.target.value; re();};
+$("gov").onchange=()=>{$("gov").classList.remove("bad");sched();};
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".lang button").forEach(x=>x.classList.remove("on"));b.classList.add("on");
+  L=b.dataset.l; document.documentElement.lang=L; document.documentElement.dir=ar()?"rtl":"ltr";
+  document.querySelectorAll("[data-i]").forEach(e=>{const v=t(e.dataset.i); if(v) e.textContent=v;});
+  document.querySelectorAll(".arrow").forEach(a=>a.textContent=ar()?"⟵":"⟶");
+  fillGov(); if(last) calc();
+});
+fillGov();
+
+/* ============================ model ============================ */
+function monthlyBill(m,type){
+  if(m<=0) return CFG.fixedMonth;
+  const e = type==="res"?CFG.resTariff(m):m*CFG.proRate;
+  return (e + m*CFG.taxKwh)*(1+(type==="res"?CFG.tvaRes:CFG.tvaPro)) + CFG.fixedMonth;
+}
+function kwhFromMonthlyBill(b,type){
+  let lo=0,hi=50000;
+  for(let i=0;i<70;i++){const mid=(lo+hi)/2; monthlyBill(mid,type)<b?lo=mid:hi=mid;}
+  return (lo+hi)/2;
+}
+function customSys(need){
+  const n=Math.max(5,Math.ceil(need*1000/CFG.customW)), k=n*CFG.customW/1000;
+  return {lab:fmt(k,2),n,w:CFG.customW,b:CFG.customBrand,k,p:Math.round(k*CFG.customKwc/10)*10,custom:true};
+}
+function recommend(need){
+  for(let i=0;i<5;i++) if(PACKS[i].k>=need*0.97) return {i};
+  if(need<=PACKS[5].k*1.03){
+    const c=customSys(need);
+    return (c.p>=PACKS[5].p||c.n>=PACKS[5].n)?{i:5}:{i:-1,sys:c};
+  }
+  return {i:-1,sys:customSys(need)};
+}
+function inverterKw(k,type){
+  const mono=type==="res"&&k<=6.3;
+  const sizes=mono?[3,4,5,6]:[5,8,10,12,15,20,25,30,40,50,60,80,100,110];
+  const ac=k/1.15; return {kw:sizes.find(s=>s>=ac*0.95)||Math.ceil(ac/10)*10, mono};
+}
+
+let last=null;
+function calc(){
+  const v=parseFloat($("val").value);
+  if(!$("gov").value){$("gov").classList.add("bad");$("err").textContent=t("errG");return false;}
+  if(!v||v<=0){$("err").textContent=t("errV");return false;}
+  $("err").textContent="";
+  const type=S.type, per=S.per, gov=GOVS.find(g=>g[1]===$("gov").value);
+  const mKwh = S.mode==="dt" ? kwhFromMonthlyBill(v/per,type) : v/per;
+  const annual=mKwh*12, cov=+$("cov").value/100, need=annual*cov/CFG.yield;
+  const rec=recommend(need);
+  const recSys = rec.i>=0?PACKS[rec.i]:rec.sys;
+  const sys = S.pick===null ? recSys : (S.pick===-1?recSys:PACKS[S.pick]);
+  const kwc=sys.k, prod=kwc*CFG.yield, realCov=Math.min(1,prod/annual);
+  const residual=Math.max(0,mKwh-prod/12);
+  const bM=monthlyBill(mKwh,type), aM=monthlyBill(residual,type);
+  const save=(bM-aM)*12;
+  const ttc=sys.p, net=ttc;
+  let cum=0; for(let y=0;y<CFG.years;y++) cum+=save*Math.pow(1+CFG.escal,y)*Math.pow(1-CFG.degr,y);
+  last={type,per,gov,mKwh,annual,need,rec,recSys,sys,kwc,prod,realCov,bM,aM,save,ttc,net,cum:cum-net,payback:net/save,inv:inverterKw(kwc,type),v};
+  render(last);
+}
+$("go").onclick=()=>{S.pick=null; if(calc()!==false){$("res").classList.add("show"); $("fab").classList.add("show"); setTimeout(()=>$("res").scrollIntoView({behavior:"smooth"}),60);}};
+$("val").onkeydown=e=>{if(e.key==="Enter")$("go").click();};
+
+/* ============================ render ============================ */
+function countUp(el,to,d=0){ el.textContent=fmt(to,d); }
+function render(r){
+  countUp($("kwcT"),r.kwc,2);
+  $("arc").style.strokeDashoffset=528*(1-r.realCov);
+  $("covR").textContent=Math.round(r.realCov*100)+"%";
+  countUp($("kSave"),r.save); countUp($("kPan"),r.sys.n);
+  $("kPanW").textContent=`× ${r.sys.b} ${r.sys.w} Wc`;
+  countUp($("kArea"),r.sys.n*CFG.m2PerPanel); countUp($("kProd"),r.prod);
+  $("kPay").textContent=r.payback>40?"> 40":fmt(r.payback,1);
+  countUp($("k25"),Math.max(0,r.cum)); $("kCo2").textContent=fmt(r.prod*CFG.co2/1000,1);
+  document.querySelectorAll(".perTxt").forEach(e=>e.textContent=PER[L][r.per]);
+  $("bBef").textContent=fmt(r.bM*r.per); $("bAft").textContent=fmt(r.aM*r.per);
+  $("bAftBar").style.width=Math.max(4,r.aM/r.bM*100)+"%";
+  drawPacks(r); drawChart(r); drawEquip(r); drawQuote(r); drawPay(r); setWA(r);
+}
+
+function drawPacks(r){
+  const recI=r.rec.i;
+  const cards=PACKS.map((p,i)=>{
+    const on = (S.pick===null && recI===i) || S.pick===i;
+    return `<button class="pk ${on?"on":""}" data-p="${i}">${p.promo?`<span class="promo">PROMO</span>`:""}
+      <div class="kw">${p.lab} <small>kWc</small></div>
+      <div class="md">${p.n} × ${p.b} ${p.w} Wc</div>
+      <div class="pr"><span class="num">${fmt(p.p)}</span> <small>${ar()?"د.ت TTC":"DT TTC"}</small></div>
+      ${recI===i?`<span class="rec">${ar()?"✓ المقترحة ليك":"✓ Recommandé"}</span>`:""}</button>`;
+  });
+  if(recI===-1){
+    const c=r.rec.sys, on=S.pick===null||S.pick===-1;
+    cards.push(`<button class="pk custom ${on?"on":""}" data-p="-1">
+      <div class="kw">${c.lab} <small>kWc</small></div>
+      <div class="md">${c.n} × ${c.b} ${c.w} Wc</div>
+      <div class="pr"><span class="num">${fmt(c.p)}</span> <small>${ar()?"د.ت TTC":"DT TTC"}</small></div>
+      <span class="rec">${ar()?"✓ على قياسك":"✓ Sur mesure"}</span></button>`);
+  }
+  $("packs").innerHTML=cards.join("");
+  $("packs").querySelectorAll(".pk").forEach(b=>b.onclick=()=>{S.pick=+b.dataset.p;calc();});
+}
+
+function drawChart(r){
+  const rtl=ar(), W=900,H=320,pt=14,pb=34,pl=rtl?14:54,pr=rtl?54:14;
+  const prodM=CFG.prof.map(p=>p*r.prod), cons=r.mKwh;
+  const max=Math.max(...prodM,cons)*1.15, step=niceStep(max/4), top=Math.ceil(max/step)*step;
+  const y=v=>pt+(H-pt-pb)*(1-v/top), bw=(W-pl-pr)/12;
+  const xi=i=>rtl?(W-pr-(i+1)*bw):(pl+i*bw);
+  let s=`<svg viewBox="0 0 ${W} ${H}" style="direction:ltr" role="img" aria-label="${t("r3")}">`;
+  for(let v=0;v<=top+1e-6;v+=step){
+    s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}" stroke="#24395E" stroke-width="1" ${v?'stroke-dasharray="2 4"':''}/>`;
+    s+=`<text x="${rtl?W-pr+8:pl-8}" y="${y(v)+4}" fill="#7F8FAD" font-size="12" text-anchor="${rtl?'start':'end'}" font-family="Readex Pro">${fmt(v)}</text>`;
+  }
+  prodM.forEach((p,i)=>{
+    const x=xi(i)+bw*0.18,w=bw*0.64,yy=y(p);
+    s+=`<path d="M${x},${y(0)} V${yy+4} q0,-4 4,-4 h${w-8} q4,0 4,4 V${y(0)} Z" fill="#D07A0C"/>`;
+    s+=`<text x="${xi(i)+bw/2}" y="${H-12}" fill="#7F8FAD" font-size="12" text-anchor="middle" font-family="Readex Pro">${MONTHS[L][i]}</text>`;
+    s+=`<rect class="hit" data-i="${i}" x="${xi(i)}" y="${pt}" width="${bw}" height="${H-pt-pb}" fill="transparent"/>`;
+  });
+  s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(cons)}" y2="${y(cons)}" stroke="#5B8DEF" stroke-width="2.5"/>`;
+  s+=`<text x="${rtl?pl+4:W-pr-4}" y="${y(cons)-8}" fill="#B7C3D9" font-size="12.5" text-anchor="${rtl?'start':'end'}" font-family="Readex Pro">${t("lgC")} · ${fmt(cons)} kWh</text></svg>`;
+  $("chart").innerHTML=s;
+  const tip=$("tip"),box=document.querySelector(".chartBox");
+  $("chart").querySelectorAll(".hit").forEach(h=>{
+    h.onmouseenter=h.onmousemove=e=>{
+      const i=+h.dataset.i,b=box.getBoundingClientRect();
+      tip.innerHTML=`<b>${MONTHS[L][i]}</b><span class="sw" style="background:#D07A0C"></span>${t("lgP")}: <span class="num">${fmt(prodM[i])} kWh</span><br><span class="sw" style="background:#5B8DEF"></span>${t("lgC")}: <span class="num">${fmt(cons)} kWh</span>`;
+      tip.style.opacity=1; tip.style.left=Math.min(b.width-180,Math.max(6,e.clientX-b.left+12))+"px"; tip.style.top=(e.clientY-b.top-60)+"px";
+      h.setAttribute("fill","rgba(255,255,255,.05)");
+    };
+    h.onmouseleave=()=>{tip.style.opacity=0;h.setAttribute("fill","transparent");};
+  });
+  $("mtbl").innerHTML=`<tr><th></th>${MONTHS[L].map(m=>`<th>${m}</th>`).join("")}</tr><tr><th>${t("lgP")}</th>${prodM.map(v=>`<td class="num">${fmt(v)}</td>`).join("")}</tr><tr><th>${t("lgC")}</th>${prodM.map(()=>`<td class="num">${fmt(cons)}</td>`).join("")}</tr>`;
+}
+function niceStep(x){const p=Math.pow(10,Math.floor(Math.log10(x))),n=x/p;return (n<=1?1:n<=2?2:n<=5?5:10)*p;}
+$("tblT").onclick=()=>$("mtbl").classList.toggle("show");
+
+const ICO={
+ pan:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="1.6"><path d="M3 18 6 6h12l3 12z"/><path d="M4.5 12h15M9 6l-1.5 12M15 6l1.5 12"/></svg>`,
+ inv:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12c1-1.5 2-1.5 3 0s2 1.5 3 0"/><circle cx="12" cy="17" r="1"/></svg>`,
+ str:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="1.6"><path d="M3 20h18M5 20l5-12 9 4M10 8v12M15 10v10"/></svg>`,
+ pro:`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="1.6"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m13 7-3 6h4l-3 5"/></svg>`
+};
+function drawEquip(r){
+  const a=ar(), s=r.sys, inv=r.inv;
+  const items=[
+    ["pan",a?"اللوحات الشمسية":"Modules PV",`${s.n} × ${s.b} ${s.w} Wc`,a?"تكنولوجيا N-type عالية المردود":"Technologie N-type haut rendement"],
+    ["inv",a?"المموج الذكي":"Onduleur intelligent",`${inv.kw} kW · ${inv.mono?(a?"أحادي الطور":"Monophasé"):(a?"ثلاثي الطور":"Triphasé")}`,a?"مربوط بالشبكة + تطبيق مراقبة":"Raccordé réseau + appli de monitoring"],
+    ["str",a?"الهيكل":"Structure",a?"ألمنيوم / فولاذ مُغلفن":"Alu / acier galvanisé",a?"سطح خرساني أو صفائح":"Dalle béton ou bac acier"],
+    ["pro",a?"الحماية و الكابلات":"Protections & câblage",a?"صناديق حماية DC / AC":"Coffrets de protection DC / AC",a?"مانع صواعق · تأريض · كابل solaire":"Parafoudres · terre · câble solaire"]
+  ];
+  $("equip").innerHTML=items.map(i=>`<div class="eq"><div class="ico">${ICO[i[0]]}</div><div class="t">${i[1]}</div><div class="v">${i[2]}</div><div class="s">${i[3]}</div></div>`).join("");
+}
+function creditOf(r){
+  const c=Math.min(CFG.credit.amount,r.net), k=c/CFG.credit.amount;
+  return {credit:c, apport:Math.max(0,r.net-c), per2m:CFG.credit.per2m*k, pm:CFG.credit.per2m*k/2};
+}
+function drawQuote(r){
+  const d=new Date(), s=r.sys, inv=r.inv;
+  const ref="SIM-"+d.getFullYear().toString().slice(2)+String(d.getMonth()+1).padStart(2,"0")+"-"+Math.round(r.kwc*100);
+  const lines=[
+    [`Modules photovoltaïques ${s.b} ${s.w} Wc`,`${s.n} modules · N-type haut rendement · ${fmt(s.k,2)} kWc`],
+    ["Onduleur réseau intelligent",`${inv.kw} kW ${inv.mono?"monophasé":"triphasé"} · application de monitoring incluse`],
+    ["Structure de fixation","Aluminium / acier galvanisé, visserie inox"],
+    ["Câblage & protections DC / AC","Câble solaire, coffrets de protection, parafoudres, mise à la terre"],
+    ["Pose, raccordement & mise en service","Équipe qualifiée PROELEC, essais et réception"],
+    ["Dossier de raccordement STEG","Compteur bidirectionnel, démarches administratives"],
+    ["Service après-vente & garantie 30 ans","Suivi et maintenance par l'équipe PROELEC"]
+  ];
+  const cr=creditOf(r);
+  $("quote").innerHTML=`
+   <div class="qh"><div class="co">PROELEC<small>Sfax – Rue Gremda Km 0.5, Imm. VINCI A83 · WhatsApp 53 467 977</small></div>
+   <div class="ref">Devis estimatif N° <b>${ref}</b><br>${d.toLocaleDateString("fr-FR")} · ${r.gov[1]}<br>Installation PV <b>${fmt(r.kwc,2)} kWc</b> · raccordement BT STEG</div></div>
+   <table class="q"><tr><th>Désignation — Pack clé en main ${s.custom?"sur mesure":s.lab+" kWc"}${s.promo?'<span class="promoTag">PROMO</span>':""}</th><th style="text-align:end"></th></tr>
+   ${lines.map(l=>`<tr><td>${l[0]}<small>${l[1]}</small></td><td class="p inc">✓ Inclus</td></tr>`).join("")}</table>
+   <div class="tot">
+     <div class="grand"><span>Prix clé en main TTC</span><span>${fmt(r.ttc)} DT</span></div>
+     <div><span>Crédit STEG</span><span>${cr.apport?fmt(cr.apport)+" DT + ":"Sans apport · "}${fmt(cr.per2m)} DT / 2 mois</span></div>
+   </div>
+   <div class="qnote">Prix indicatifs TTC, non contractuels, établis à partir de votre saisie. Modalités de paiement négociables. L'offre définitive est remise après visite technique gratuite.</div>`;
+}
+function drawPay(r){
+  const a=ar(), cr=creditOf(r), save2m=r.save/6, dt=a?"د.ت":"DT";
+  const covers = save2m>=cr.per2m;
+  $("pay").innerHTML=`
+   <div class="pm star"><span class="tg">${a?"الأكثر طلبًا":"Le plus demandé"}</span>
+     <div class="h">${a?"قرض الستاغ":"Crédit STEG"}</div>
+     <div class="big"><span class="num">${fmt(cr.pm)}</span> <small>${dt} / ${a?"شهر":"mois"}</small></div>
+     <div class="ln"><span>${a?"القسط في الفاتورة":"Échéance sur facture"}</span><b class="num">${fmt(cr.per2m)} ${dt} / ${a?"شهرين":"2 mois"}</b></div>
+     <div class="ln"><span>${a?"مبلغ القرض":"Montant du crédit"}</span><b class="num">${fmt(cr.credit)} ${dt}</b></div>
+     <div class="ln"><span>${a?"المدة":"Durée"}</span><b>${CFG.credit.years} ${a?"سنين":"ans"}</b></div>
+     <div class="ln"><span>${a?"التسبقة":"Apport"}</span><b class="num">${cr.apport?fmt(cr.apport)+" "+dt:(a?"بدون تسبقة":"Sans apport")}</b></div>
+     <div class="ok">${covers
+        ? (a?`💡 التوفير في فاتورتك (~${fmt(save2m)} د.ت كل شهرين) يغطي القسط — المنظومة تخلّص روحها!`:`💡 Votre économie (~${fmt(save2m)} DT / 2 mois) couvre l'échéance — l'installation se paie toute seule !`)
+        : (a?`💡 التوفير في فاتورتك (~${fmt(save2m)} د.ت كل شهرين) يغطي جزء كبير من القسط.`:`💡 Votre économie (~${fmt(save2m)} DT / 2 mois) couvre une grande partie de l'échéance.`)}</div>
+   </div>
+   <div class="pm"><div class="h">${a?"الدفع نقدًا":"Paiement comptant"}</div>
+     <div class="big"><span class="num">${fmt(r.net)}</span> <small>${dt} TTC</small></div>
+     <div class="ln"><span>${a?"استرجاع المال":"Retour sur investissement"}</span><b class="num">${fmt(r.payback,1)} ${a?"سنوات":"ans"}</b></div>
+     <div class="ln"><span>${a?"الربح على 25 سنة":"Gain sur 25 ans"}</span><b class="num">${fmt(Math.max(0,r.cum))} ${dt}</b></div>
+   </div>
+   <div class="pm"><div class="h">${a?"طريقة خلاص أخرى":"Autre mode de règlement"}</div>
+     <div class="big" style="font-size:22px">${a?"قابلة للتفاوض 🤝":"Négociable 🤝"}</div>
+     <div class="ln" style="border:0"><span>${a?"تقسيط، دفعات على مراحل… نلقاو الحل اللي يناسبك.":"Facilités, paiement échelonné… on trouve la formule qui vous convient."}</span></div>
+   </div>`;
+}
+function summary(r){
+  const a=ar(), s=r.sys, cr=creditOf(r);
+  return `PROELEC – ${a?"نتيجة المحاكي":"Résultat du simulateur"}\n`+
+   `• ${a?"الولاية":"Gouvernorat"}: ${a?r.gov[0]:r.gov[1]} (${r.type==="res"?(a?"منزل":"Résidentiel"):(a?"مهني":"Professionnel")})\n`+
+   `• ${a?"الفاتورة":"Facture"}: ~${fmt(r.bM*r.per)} DT ${PER[L][r.per]} · ${fmt(r.mKwh)} kWh/${a?"شهر":"mois"}\n`+
+   `• ${a?"المنظومة":"Installation"}: ${fmt(r.kwc,2)} kWc (${s.n} × ${s.b} ${s.w} Wc)${s.promo?" PROMO":""}\n`+
+   `• ${a?"الثمن":"Prix"} clé en main: ${fmt(r.ttc)} DT TTC\n`+
+   `• ${a?"قرض الستاغ":"Crédit STEG"}: ${cr.apport?fmt(cr.apport)+" DT + ":(a?"بدون تسبقة · ":"sans apport · ")}${fmt(cr.per2m)} DT/${a?"شهرين":"2 mois"}\n`+
+   `• ${a?"التوفير":"Économie"}: ~${fmt(r.save)} DT/${a?"سنة":"an"}\n`+
+   (a?"نحب نعمل زيارة تقنية مجانية.":"Je souhaite une visite technique gratuite.");
+}
+function setWA(r){}
+function leadText(r){
+  const a=ar();
+  return `🔔 ${a?"طلب زيارة تقنية مجانية":"Demande de visite technique gratuite"}\n📍 ${a?r.gov[0]:r.gov[1]}\n\n`+summary(r);
+}
+function notifyHook(txt){            // option : notification automatique (site PROELEC uniquement, clé CallMeBot)
+  if(!CFG.callmebotKey) return;
+  try{ new Image().src=`https://api.callmebot.com/whatsapp.php?phone=+${CFG.whatsapp}&apikey=${CFG.callmebotKey}&text=${encodeURIComponent(txt)}`; }catch(e){}
+}
+function sendLead(){
+  if(!last) return;
+  const txt=leadText(last); notifyHook(txt);
+  const a=document.createElement("a"); a.href=`https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(txt)}`; a.target="_blank"; a.rel="noopener";
+  document.body.appendChild(a); a.click(); a.remove();
+}
+$("send").onclick=sendLead; $("fab").onclick=sendLead;
+</script>
+</body>
+</html>
