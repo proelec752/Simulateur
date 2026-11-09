@@ -19,9 +19,9 @@
   --sb:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 main{overflow-x:clip}
-body{font-family:"Readex Pro",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:hidden;padding-bottom:calc(84px + var(--sb))}
+body{font-family:"Readex Pro",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:clip;padding-bottom:calc(84px + var(--sb))}
 button,input,select{font:inherit;color:inherit}
 .num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;display:inline-block}
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
@@ -395,6 +395,85 @@ footer{color:#64748B}
 @media(min-width:760px){.cps{grid-template-columns:repeat(3,1fr)}.sceneM{display:none}}
 @media(max-width:759px){.heroArt{display:none}}
 @media(min-width:960px){.heroArt{width:440px;aspect-ratio:auto}.heroArt::before{display:none}.heroArt .scene{position:static}.stamp{top:-14px}}
+
+/* ===== ALL LIGHT ===== */
+.lt{--ink:#0B1B3A;--ink2:#475569;--muted:#64748B;--card:#fff;--card2:#fff;--bg2:#F8FAFC;--bg:#F1F5F9;--line:#E2E8F0;color:#0B1B3A}
+.sim,.iso,.sum,.bills,.acc,.cta{box-shadow:0 12px 32px rgba(15,23,42,.08)}
+/* simulator */
+.sim.lt{background:#fff;border:1px solid #E2E8F0;position:relative;overflow:hidden}
+.sim.lt::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,#FFB020,#F06A1B,#FF2E5E)}
+.sim.lt .amount input{background:#FFF8F0;border-color:#FED7AA;color:#0B1B3A}
+.sim.lt .amount input:focus{border-color:#F06A1B;box-shadow:0 0 0 4px rgba(240,106,27,.15)}
+.sim.lt .quick button,.sim.lt .per button,.sim.lt .seg button{background:#fff}
+.sim.lt .quick button.on,.sim.lt .per button.on{color:#C2410C;background:#FFF1E6;border-color:#F59E0B}
+.sim.lt .seg button.on{background:#FFF1E6;border-color:#F59E0B;color:#0B1B3A}
+.sim.lt .tabs{background:#F1F5F9}
+.sim.lt select{background-color:#fff}
+.sim.lt .err{color:#DC2626;font-weight:600}
+.hintE{font-size:12.5px;color:#64748B;text-align:center;margin-top:8px}
+.tabs button.on,.sim.lt .tabs button.on,.lang button.on{background:linear-gradient(90deg,#FFB020,#F06A1B);color:#1a0f00}
+/* offers highlight */
+.of:not(.p) .ofBtn{background:#EEF4FF;color:#1E3A8A;border:1.5px solid #C7D7FE;box-shadow:none}
+.rail.hasRes .of.dim{opacity:.6;transform:scale(.96);cursor:pointer;transition:opacity .2s,transform .2s}
+.rail.hasRes .of.dim:hover{opacity:.9}
+.of.sel{border:3px solid #16A34A!important;box-shadow:0 0 0 6px rgba(22,163,74,.15),0 18px 40px rgba(15,23,42,.15)}
+.recB{align-self:flex-start;margin:-4px 0 10px;background:#16A34A;color:#fff;font-weight:800;font-size:13.5px;border-radius:10px;padding:5px 12px;position:relative;z-index:2}
+.ofKw em{font-style:normal;font-size:12px;font-weight:700;color:#0B1B3A;background:#E2E8F0;border-radius:8px;padding:2px 8px;margin-inline-start:6px}
+.fit{margin-top:10px}
+.fitT{display:flex;justify-content:space-between;font-size:12.5px;color:#475569}
+.fitT b{color:#0B1B3A}
+.fitB{height:8px;border-radius:4px;background:#E2E8F0;margin-top:4px;overflow:hidden}
+.fitB i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#22C55E,#16A34A)}
+.fitNote{font-size:13.5px;color:#475569;margin:-4px 0 4px;background:#ECFDF3;border:1px solid #BBF7D0;border-radius:12px;padding:8px 12px}
+.fitNote:empty{display:none}
+/* how it works */
+.steps3{display:grid;gap:10px}
+.s3{position:relative;background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:14px 14px 14px 14px;padding-inline-start:60px;box-shadow:0 6px 18px rgba(15,23,42,.05)}
+.s3n{position:absolute;inset-inline-start:14px;top:14px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#FFB020,#F06A1B);color:#1a0f00;font-weight:800;display:grid;place-items:center}
+.s3 b{display:block;font-size:15px;color:#0B1B3A}
+.s3>span:last-child{display:block;font-size:13px;color:#475569;margin-top:2px}
+@media(min-width:760px){.steps3{grid-template-columns:repeat(3,1fr)}}
+/* results summary light */
+#res .sum{background:linear-gradient(160deg,#FFFFFF,#FFF7ED);border:1px solid #FED7AA}
+#res .sumKw{color:#0B1B3A}
+#res .sumMod{color:#475569}
+#res .covBar .t{color:#475569}
+#res .covBar .t b{color:#0B1B3A}
+#res .covBar .bar,#res .bl .bar{background:#EEF2F7}
+#res .sumPrice{background:#fff;border:1px solid #FED7AA}
+#res .sumPrice .now small{color:#64748B}
+#res .sumPrice .monthly{background:#EEF4FF;border-color:#C7D7FE;color:#1E3A8A}
+#res .sumPrice .monthly b{color:#1E3A8A}
+#res .saveB{background:#FFE4EA;color:#E11D48;border-color:#FDA4B8}
+#res .k{background:#fff;border:1px solid #E2E8F0}
+#res .k b{color:#0B1B3A}
+#res .k.g{background:#ECFDF3;border-color:#BBF7D0}
+#res .k.g b{color:#16A34A}
+#res .mp{background:#fff;border-color:#E2E8F0;color:#0B1B3A}
+#res .mp span{color:#64748B}
+#res .mp.on{background:#ECFDF3;border-color:#16A34A}
+#res .mpL{color:#64748B}
+#res .bills,#res .acc{background:#fff;border-color:#E2E8F0;color:#0B1B3A}
+#res .bl .t{color:#475569}
+#res .bl .t b{color:#0B1B3A}
+#res .bl.a .t b{color:#16A34A}
+#res .pm{background:#F8FAFC;border-color:#E2E8F0}
+#res .pm .ok{color:#15803D;background:#ECFDF3}
+#res .pm.star{background:linear-gradient(150deg,#EEF4FF,#fff 70%);border-color:#C7D7FE}
+#res .pm .tg{background:#DBE7FF;color:#1E3A8A}
+#res .eq{background:#F8FAFC}
+#res .cta{background:linear-gradient(135deg,#FFF7ED,#fff);border-color:#FED7AA;color:#0B1B3A;box-shadow:0 16px 40px rgba(240,106,27,.12)}
+#res .cta li{color:#475569}
+#res .cta li::before{background:#DCFCE7;color:#16A34A}
+#res .cta .note{color:#64748B}
+#res .partner{background:#fff;border-color:#FED7AA}
+#res .disc{color:#64748B}
+/* iso light */
+.iso.lt{background:linear-gradient(135deg,#FFFFFF,#FFF7ED);border:1px solid #FED7AA}
+.iso.lt h2{color:#0B1B3A}.iso.lt p{color:#475569}
+.iso.lt .seal{background:#fff;border-color:#E2E8F0;box-shadow:0 6px 16px rgba(15,23,42,.06)}
+.iso.lt .seal b{color:#0B1B3A}
+.tip{background:#fff;color:#0B1B3A;border-color:#E2E8F0;box-shadow:0 8px 20px rgba(15,23,42,.12)}
 </style>
 </head>
 <body>
@@ -498,7 +577,8 @@ footer{color:#64748B}
   </section>
 
   <section id="offres">
-    <div class="sh"><div><div class="kick" data-i="offK">عروض محدودة 🔥</div><h2 data-i="offH">اختار منظومتك</h2></div><span class="swipe" data-i="swipe">اسحب ← →</span></div>
+    <div class="sh"><div><div class="kick" id="offK" data-i="offK">عروض محدودة 🔥</div><h2 id="offH" data-i="offH">اختار منظومتك</h2></div><span class="swipe" data-i="swipe">اسحب ← →</span></div>
+    <div class="fitNote" id="fitNote"></div>
     <div class="rail" id="rail"></div>
     <div class="dots" id="dots"></div>
   </section>
@@ -506,7 +586,7 @@ footer{color:#64748B}
 
   <section id="kit" class="kit">
     <div class="sh"><div><div class="kick" data-i="kitK">clé en main · كل شيء مشمول</div><h2 data-i="kitH">شنوّة فيها المنظومة متاعك؟</h2></div></div>
-    <div class="cps"><div class="cp"><div class="cpI" style="background:#E8F1FF"><svg viewBox="0 0 64 64"><defs><linearGradient id="ic1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B8BEB"/><stop offset="1" stop-color="#173F94"/></linearGradient></defs><path d="M10 46 18 12h36l-8 34z" fill="url(#ic1)" stroke="#CBD5E1" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 29h36M12.5 37.5h36M16 20.5h36M30 12l-6 34M42 12l-6 34" stroke="#9CC4FF" stroke-width="1.3"/><path d="M22 16l-3 12" stroke="#fff" stroke-width="2.5" opacity=".6" stroke-linecap="round"/><path d="M26 46v8M38 46v8M20 54h24" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/></svg></div><b data-i="c1">لوحات شمسية AIKO / LONGi</b><span data-i="c1d">N-type عالية المردود</span></div><div class="cp"><div class="cpI" style="background:#FFF1E6"><svg viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2.5"/><path d="M14 13a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v3H14z" fill="#F06A1B"/><rect x="20" y="22" width="24" height="14" rx="2.5" fill="#0F172A"/><path d="M23 32l5-4 4 2 4-5 5 3" stroke="#34D399" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="24" cy="45" r="3" fill="#22C55E"/><circle cx="32" cy="45" r="3" fill="#FBBF24"/><path d="M22 58v3M42 58v3" stroke="#94A3B8" stroke-width="3"/></svg></div><b data-i="c2">مموج ذكي (Onduleur)</b><span data-i="c2d">يحوّل الطاقة ويربطها بالستاغ</span></div><div class="cp"><div class="cpI" style="background:#EEF2F7"><svg viewBox="0 0 64 64"><path d="M8 34 46 16l10 2-38 18z" fill="#3B82F6" opacity=".25"/><path d="M8 34 46 16M18 36 56 18" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/><path d="M14 35v20M50 17v38M14 55 50 27M8 56h48" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/><circle cx="14" cy="35" r="2.5" fill="#F06A1B"/><circle cx="50" cy="17" r="2.5" fill="#F06A1B"/></svg></div><b data-i="c3">هيكل ألمنيوم</b><span data-i="c3d">متين، ما يصدّاش، يقاوم الريح</span></div><div class="cp"><div class="cpI" style="background:#FFF8E1"><svg viewBox="0 0 64 64"><rect x="10" y="8" width="44" height="48" rx="6" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2.5"/><rect x="16" y="16" width="32" height="20" rx="3" fill="#fff" stroke="#CBD5E1"/><rect x="19" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="29" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="39" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="20" y="22" width="4" height="5" fill="#2563EB"/><rect x="30" y="22" width="4" height="5" fill="#DC2626"/><rect x="40" y="22" width="4" height="5" fill="#16A34A"/><path d="m33 40-4 7h5l-3 6" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="c4">صناديق حماية AC / DC</b><span data-i="c4d">قواطع ومانع صواعق لسلامتك</span></div><div class="cp"><div class="cpI" style="background:#FDECEF"><svg viewBox="0 0 64 64"><path d="M6 20c14 0 14 24 28 24h8" stroke="#DC2626" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M6 32c12 0 12 20 26 20h10" stroke="#1F2937" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="40" y="38" width="14" height="10" rx="3" fill="#2563EB"/><rect x="40" y="47" width="14" height="10" rx="3" fill="#64748B"/><path d="M54 43h5M54 52h5" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/><path d="m44 8-6 10h7l-5 9" stroke="#F59E0B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="c5">كابلات solaire + MC4</b><span data-i="c5d">مقاومة للشمس والحرارة</span></div><div class="cp"><div class="cpI" style="background:#E9F9EF"><svg viewBox="0 0 64 64"><rect x="16" y="4" width="32" height="56" rx="7" fill="#0F172A"/><rect x="19" y="10" width="26" height="44" rx="4" fill="#fff"/><path d="M22 42l5-7 5 3 5-9 6-3v19H22z" fill="#FFB020" opacity=".35"/><path d="M22 42l5-7 5 3 5-9 6-3" stroke="#F06A1B" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="22" y="14" width="12" height="4" rx="2" fill="#22C55E"/><rect x="22" y="47" width="20" height="3" rx="1.5" fill="#E2E8F0"/></svg></div><b data-i="c6">تطبيق المراقبة</b><span data-i="c6d">تابع إنتاجك وتوفيرك من تليفونك</span></div></div>
+    <div class="cps"><div class="cp"><div class="cpI" style="background:#E8F1FF"><svg viewBox="0 0 64 64"><defs><linearGradient id="ic1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B8BEB"/><stop offset="1" stop-color="#173F94"/></linearGradient></defs><path d="M10 46 18 12h36l-8 34z" fill="url(#ic1)" stroke="#CBD5E1" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 29h36M12.5 37.5h36M16 20.5h36M30 12l-6 34M42 12l-6 34" stroke="#9CC4FF" stroke-width="1.3"/><path d="M22 16l-3 12" stroke="#fff" stroke-width="2.5" opacity=".6" stroke-linecap="round"/><path d="M26 46v8M38 46v8M20 54h24" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/></svg></div><b data-i="c1">لوحات شمسية AIKO / LONGi</b><span data-i="c1d">N-type عالية المردود</span></div><div class="cp"><div class="cpI" style="background:#FFF1E6"><svg viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2.5"/><path d="M14 13a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v3H14z" fill="#F06A1B"/><rect x="20" y="22" width="24" height="14" rx="2.5" fill="#0F172A"/><path d="M23 32l5-4 4 2 4-5 5 3" stroke="#34D399" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="24" cy="45" r="3" fill="#22C55E"/><circle cx="32" cy="45" r="3" fill="#FBBF24"/><path d="M22 58v3M42 58v3" stroke="#94A3B8" stroke-width="3"/></svg></div><b data-i="c2">مموج ذكي (Onduleur)</b><span data-i="c2d">يحوّل الطاقة ويربطها بالستاغ</span></div><div class="cp"><div class="cpI" style="background:#EEF2F7"><svg viewBox="0 0 64 64"><path d="M8 34 46 16l10 2-38 18z" fill="#3B82F6" opacity=".25"/><path d="M8 34 46 16M18 36 56 18" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/><path d="M14 35v20M50 17v38M14 55 50 27M8 56h48" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/><circle cx="14" cy="35" r="2.5" fill="#F06A1B"/><circle cx="50" cy="17" r="2.5" fill="#F06A1B"/></svg></div><b data-i="c3">هيكل ألمنيوم</b><span data-i="c3d">متين ومقاوم للصدأ والرياح</span></div><div class="cp"><div class="cpI" style="background:#FFF8E1"><svg viewBox="0 0 64 64"><rect x="10" y="8" width="44" height="48" rx="6" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2.5"/><rect x="16" y="16" width="32" height="20" rx="3" fill="#fff" stroke="#CBD5E1"/><rect x="19" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="29" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="39" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="20" y="22" width="4" height="5" fill="#2563EB"/><rect x="30" y="22" width="4" height="5" fill="#DC2626"/><rect x="40" y="22" width="4" height="5" fill="#16A34A"/><path d="m33 40-4 7h5l-3 6" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="c4">صناديق حماية AC / DC</b><span data-i="c4d">قواطع ومانع صواعق لسلامتك</span></div><div class="cp"><div class="cpI" style="background:#FDECEF"><svg viewBox="0 0 64 64"><path d="M6 20c14 0 14 24 28 24h8" stroke="#DC2626" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M6 32c12 0 12 20 26 20h10" stroke="#1F2937" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="40" y="38" width="14" height="10" rx="3" fill="#2563EB"/><rect x="40" y="47" width="14" height="10" rx="3" fill="#64748B"/><path d="M54 43h5M54 52h5" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/><path d="m44 8-6 10h7l-5 9" stroke="#F59E0B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="c5">كوابل خاصة بالطاقة الشمسية</b><span data-i="c5d">تتحمّل الحرارة وأشعة الشمس، بموصلات آمنة</span></div><div class="cp"><div class="cpI" style="background:#E9F9EF"><svg viewBox="0 0 64 64"><rect x="16" y="4" width="32" height="56" rx="7" fill="#0F172A"/><rect x="19" y="10" width="26" height="44" rx="4" fill="#fff"/><path d="M22 42l5-7 5 3 5-9 6-3v19H22z" fill="#FFB020" opacity=".35"/><path d="M22 42l5-7 5 3 5-9 6-3" stroke="#F06A1B" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="22" y="14" width="12" height="4" rx="2" fill="#22C55E"/><rect x="22" y="47" width="20" height="3" rx="1.5" fill="#E2E8F0"/></svg></div><b data-i="c6">تطبيق المراقبة</b><span data-i="c6d">تابع إنتاجك وتوفيرك من تليفونك</span></div></div>
   </section>
   <div class="stats">
     <div class="st"><b>30 <small data-i="yrs">سنة</small></b><span data-i="s1">ضمان على المنظومة</span></div>
@@ -515,9 +595,19 @@ footer{color:#64748B}
     <div class="st"><b>24 <small data-i="gv">ولاية</small></b><span data-i="s4">نخدمو في كامل الجمهورية</span></div>
   </div>
 
+
+  <section class="how">
+    <div class="sh"><div><div class="kick" data-i="howK">بسيطة وواضحة</div><h2 data-i="howH">كيفاش تمشي الحكاية؟</h2></div></div>
+    <div class="steps3">
+      <div class="s3"><span class="s3n">1</span><b data-i="h1t">تحسب في 30 ثانية</b><span data-i="h1d">تدخل مبلغ فاتورتك وتشوف المنظومة المناسبة وثمنها.</span></div>
+      <div class="s3"><span class="s3n">2</span><b data-i="h2t">زيارة تقنية مجانية</b><span data-i="h2d">مهندس من PROELEC يجيك، يعاين السطح ويعطيك العرض النهائي.</span></div>
+      <div class="s3"><span class="s3n">3</span><b data-i="h3t">تركيب clé en main</b><span data-i="h3d">نركّبو، نربطو بالستاغ، وتبدا توفّر من أول شهر.</span></div>
+    </div>
+  </section>
+
   <section id="sim">
-    <div class="sh"><div><div class="kick" data-i="simK">مجانًا · بلا التزام</div></div></div>
-    <div class="sim">
+    <div class="sh"><div><div class="kick" data-i="simK">حساب مجاني · النتيجة فورًا</div></div></div>
+    <div class="sim lt">
       <h2 data-i="simH">احسب منظومتك في 30 ثانية</h2>
       <div class="sub" data-i="simS">3 أسئلة بسيطة، والنتيجة تطلعلك فورًا.</div>
       <div class="simGrid">
@@ -525,7 +615,7 @@ footer{color:#64748B}
           <div class="field">
             <div class="fl"><span class="n">1</span><span data-i="f1">قدّاش تخلّص في فاتورة الستاغ؟</span></div>
             <div class="tabs" id="mode"><button data-v="dt" class="on" data-i="m1">بالدينار</button><button data-v="kwh" data-i="m2">بالـ kWh</button></div>
-            <div class="amount"><input id="val" type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-label="montant"><span class="unit" id="unit">DT</span></div>
+            <div class="amount"><input id="val" type="text" inputmode="decimal" enterkeyhint="go" autocomplete="off" placeholder="0" aria-label="montant"><span class="unit" id="unit">DT</span></div>
             <div class="quick" id="quick"></div>
           </div>
           <div class="field">
@@ -545,12 +635,13 @@ footer{color:#64748B}
           </details>
         </div>
       </div>
-      <button class="btn pri go" id="go" data-i="go">اعرض النتيجة ☀️</button>
+      <button class="btn pri go" id="go" data-i="go">اعرض المنظومة المناسبة ليا ☀️</button>
+      <div class="hintE" data-i="hintE">اكتب المبلغ كامل، ومن بعد اضغط «Entrée» أو على الزر</div>
       <div class="err" id="err"></div>
     </div>
   </section>
 
-  <section id="res">
+  <section id="res" class="lt">
     <div class="resGrid">
       <div>
         <div class="sum">
@@ -566,7 +657,7 @@ footer{color:#64748B}
             <div class="k"><span data-i="k3">الربح على 25 سنة</span><b><span class="num" id="k25">0</span> <small>DT</small></b></div>
             <div class="k"><span data-i="k4">الإنتاج في السنة</span><b><span class="num" id="kProd">0</span> <small>kWh</small></b></div>
           </div>
-          <div class="mpL" data-i="mpL">قارن مع باقة أخرى:</div>
+          <div class="mpL" data-i="mpL">قارن مع منظومة أخرى:</div>
           <div class="miniRail" id="mini"></div>
         </div>
         <div class="bills">
@@ -586,7 +677,7 @@ footer{color:#64748B}
         <div class="cta">
           <div class="kick" data-i="ctaK">الخطوة الجاية</div>
           <h3 data-i="ctaH">احجز زيارتك التقنية المجانية</h3>
-          <ul><li data-i="c1">مهندس من PROELEC يعاين السطح ويدرس فاتورتك</li><li data-i="c2">عرض نهائي مفصّل وواضح</li><li data-i="c3">مجانًا و بلا أي التزام</li></ul>
+          <ul><li data-i="c1">مهندس من PROELEC يعاين السطح ويدرس فاتورتك</li><li data-i="c2">عرض نهائي مفصّل وواضح</li><li data-i="c3">الزيارة مجانية، والقرار يبقى بيدك</li></ul>
           <button class="btn wa" id="send" type="button" style="width:100%"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3z"/></svg><span data-i="wa">إرسال الطلب عبر واتساب</span></button>
           <div class="partner"><svg class="lgCom" viewBox="0 0 429.5 332.2" role="img" aria-label="Service Commercial Photovoltaïque"><use href="#lgC"/></svg><div><span data-i="pk">يتابع طلبك فريقنا</span><b>Service Commercial Photovoltaïque</b><small data-i="pd">القسم التجاري · PROELEC</small></div></div>
           <div class="note" data-i="ctaN">نتيجتك مكتوبة وجاهزة في الرسالة — اضغط «إرسال» فقط</div>
@@ -596,9 +687,9 @@ footer{color:#64748B}
     </div>
   </section>
 
-  <section class="iso">
+  <section class="iso lt">
     <div><div class="kick" data-i="isoK">شركة مُعتمدة</div><h2 data-i="isoH">جودة معترف بيها دوليًا</h2><p data-i="isoP">PROELEC حاصلة على ثلاث شهادات ISO: نخدمو بمعايير المشاريع الكبرى، حتى في دارك.</p></div>
-    <div class="seals"><div class="seal"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="url(#sg)" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#2A4270" stroke-width="1.5" stroke-dasharray="3 4"/><text x="60" y="52" text-anchor="middle" fill="#FFB020" font-size="16" font-weight="700" font-family="Readex Pro">ISO</text><text x="60" y="78" text-anchor="middle" fill="#F3F6FB" font-size="25" font-weight="800" font-family="Readex Pro">9001</text></svg><b data-i="i1">الجودة</b></div><div class="seal"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="url(#sg)" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#2A4270" stroke-width="1.5" stroke-dasharray="3 4"/><text x="60" y="52" text-anchor="middle" fill="#FFB020" font-size="16" font-weight="700" font-family="Readex Pro">ISO</text><text x="60" y="78" text-anchor="middle" fill="#F3F6FB" font-size="25" font-weight="800" font-family="Readex Pro">14001</text></svg><b data-i="i2">البيئة</b></div><div class="seal"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="url(#sg)" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#2A4270" stroke-width="1.5" stroke-dasharray="3 4"/><text x="60" y="52" text-anchor="middle" fill="#FFB020" font-size="16" font-weight="700" font-family="Readex Pro">ISO</text><text x="60" y="78" text-anchor="middle" fill="#F3F6FB" font-size="25" font-weight="800" font-family="Readex Pro">45001</text></svg><b data-i="i3">الصحة والسلامة</b></div></div>
+    <div class="seals"><div class="seal"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="url(#sg)" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="3 4"/><text x="60" y="52" text-anchor="middle" fill="#FFB020" font-size="16" font-weight="700" font-family="Readex Pro">ISO</text><text x="60" y="78" text-anchor="middle" fill="#0B1B3A" font-size="25" font-weight="800" font-family="Readex Pro">9001</text></svg><b data-i="i1">الجودة</b></div><div class="seal"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="url(#sg)" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="3 4"/><text x="60" y="52" text-anchor="middle" fill="#FFB020" font-size="16" font-weight="700" font-family="Readex Pro">ISO</text><text x="60" y="78" text-anchor="middle" fill="#0B1B3A" font-size="25" font-weight="800" font-family="Readex Pro">14001</text></svg><b data-i="i2">البيئة</b></div><div class="seal"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="url(#sg)" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="3 4"/><text x="60" y="52" text-anchor="middle" fill="#FFB020" font-size="16" font-weight="700" font-family="Readex Pro">ISO</text><text x="60" y="78" text-anchor="middle" fill="#0B1B3A" font-size="25" font-weight="800" font-family="Readex Pro">45001</text></svg><b data-i="i3">الصحة والسلامة</b></div></div>
   </section>
 
   <div class="svs">
@@ -663,18 +754,18 @@ const T={ar:{},fr:{
  start:"Calculez vos économies en 30 s",seeOff:"Voir les offres 🔥",t1:"Garantie 30 ans",t3:"Appli de monitoring",
  offK:"Offres limitées 🔥",offH:"Choisissez votre installation",swipe:"Glissez ← →",
  yrs:"ans",s1:"de garantie",s2:"Qualité · environnement · sécurité",s3:"par mois avec le crédit STEG",gv:"gouv.",s4:"partout en Tunisie",
- simK:"Gratuit · sans engagement",simH:"Calculez votre installation en 30 secondes",simS:"3 questions simples, résultat immédiat.",
+ simK:"Calcul gratuit · résultat immédiat",simH:"Calculez votre installation en 30 secondes",simS:"3 questions simples, résultat immédiat.",
  f1:"Combien payez-vous à la STEG ?",m1:"En dinars",m2:"En kWh",f2:"Cette facture couvre quelle période ?",p1:"1 mois",p2:"2 mois",p3:"3 mois",p12:"1 an",
- f3:"Où êtes-vous et quel type de local ?",res:"Maison",pro:"Commerce / atelier",adv:"Options avancées",cov:"Taux de couverture souhaité",go:"Voir le résultat ☀️",
- r1:"Votre installation idéale",covL:"Couvre votre consommation annuelle",k1:"Économie par an",k2:"Retour sur invest.",yrs2:"ans",k3:"Gain sur 25 ans",k4:"Production par an",mpL:"Comparer avec un autre pack :",
+ f3:"Où êtes-vous et quel type de local ?",res:"Maison",pro:"Commerce / atelier",adv:"Options avancées",cov:"Taux de couverture souhaité",go:"Voir l'installation adaptée ☀️",hintE:"Saisissez le montant complet, puis appuyez sur Entrée ou sur le bouton",howK:"Simple et clair",howH:"Comment ça marche ?",h1t:"Calcul en 30 secondes",h1d:"Entrez votre facture et découvrez l'installation adaptée et son prix.",h2t:"Visite technique gratuite",h2d:"Un ingénieur PROELEC inspecte votre toiture et vous remet l'offre finale.",h3t:"Installation clé en main",h3d:"Pose, raccordement STEG, et vous économisez dès le premier mois.",
+ r1:"Votre installation idéale",covL:"Couvre votre consommation annuelle",k1:"Économie par an",k2:"Retour sur invest.",yrs2:"ans",k3:"Gain sur 25 ans",k4:"Production par an",mpL:"Comparer avec une autre installation :",
  bT:"Votre facture",bef:"Aujourd'hui",aft:"Avec le solaire",a1:"Modes de paiement",a2:"Production mois par mois",a3:"L'installation complète",a4:"Devis estimatif",
  lgP:"Production solaire",lgC:"Votre consommation",
- ctaK:"Étape suivante",ctaH:"Réservez votre visite technique gratuite",c1:"Un ingénieur PROELEC inspecte votre toiture et étudie votre facture",c2:"Une offre définitive claire et détaillée",c3:"Gratuit et sans engagement",wa:"Envoyer la demande via WhatsApp",ctaN:"Votre résultat est déjà rédigé — appuyez simplement sur « Envoyer »",
+ ctaK:"Étape suivante",ctaH:"Réservez votre visite technique gratuite",c1:"Un ingénieur PROELEC inspecte votre toiture et étudie votre facture",c2:"Une offre définitive claire et détaillée",c3:"Visite gratuite, la décision reste la vôtre",wa:"Envoyer la demande via WhatsApp",ctaN:"Votre résultat est déjà rédigé — appuyez simplement sur « Envoyer »",
  disc:"Résultat indicatif (productible 1600 kWh/kWc/an, tarifs STEG). Offre définitive après visite technique gratuite.",
  isoK:"Entreprise certifiée",isoH:"Une qualité reconnue à l'international",isoP:"PROELEC est certifiée ISO 9001, 14001 et 45001 : les standards des grands projets, jusque chez vous.",
  i1:"Qualité",i2:"Environnement",i3:"Santé & sécurité",
  v1:"Étude, pose, raccordement STEG — on s'occupe de tout",v2h:"Appli de monitoring",v2:"Suivez production et économies sur votre téléphone",v3h:"Service après-vente",v3:"Une équipe technique proche de vous",v4h:"Garantie 30 ans",v4:"Une installation garantie sur le long terme",
- foot:"Résultats indicatifs et non contractuels.",pk:"Votre demande est suivie par notre équipe",pd:"Service commercial · PROELEC",fp:"Service commercial photovoltaïque",fp2:"Service Commercial Photovoltaïque · PROELEC",kitK:"clé en main · tout est inclus",kitH:"Que contient votre installation ?",c1:"Panneaux AIKO / LONGi",c1d:"N-type haut rendement",c2:"Onduleur intelligent",c2d:"Convertit l'énergie et la raccorde à la STEG",c3:"Structure aluminium",c3d:"Robuste, inoxydable, résiste au vent",c4:"Coffrets de protection AC / DC",c4d:"Disjoncteurs et parafoudres pour votre sécurité",c5:"Câbles solaires + MC4",c5d:"Résistants au soleil et à la chaleur",c6:"Application de monitoring",c6d:"Suivez production et économies sur votre téléphone",bbGo:"Calculez vos économies",bbWa:"Réserver",
+ foot:"Résultats indicatifs et non contractuels.",pk:"Votre demande est suivie par notre équipe",pd:"Service commercial · PROELEC",fp:"Service commercial photovoltaïque",fp2:"Service Commercial Photovoltaïque · PROELEC",kitK:"clé en main · tout est inclus",kitH:"Que contient votre installation ?",c1:"Panneaux AIKO / LONGi",c1d:"N-type haut rendement",c2:"Onduleur intelligent",c2d:"Convertit l'énergie et la raccorde à la STEG",c3:"Structure aluminium",c3d:"Robuste, inoxydable, résiste au vent",c4:"Coffrets de protection AC / DC",c4d:"Disjoncteurs et parafoudres pour votre sécurité",c5:"Câbles spéciaux photovoltaïque",c5d:"Résistent à la chaleur et aux UV, connecteurs sécurisés",c6:"Application de monitoring",c6d:"Suivez production et économies sur votre téléphone",bbGo:"Calculez vos économies",bbWa:"Réserver",
  errV:"Entrez le montant de votre facture.",errG:"Choisissez votre gouvernorat."}};
 document.querySelectorAll("[data-i]").forEach(e=>T.ar[e.dataset.i]=e.dataset.html?e.innerHTML:e.textContent);
 T.ar.errV="أدخل مبلغ فاتورتك."; T.ar.errG="اختار ولايتك.";
@@ -689,19 +780,33 @@ let last=null;
 
 /* ====================== offers ====================== */
 function credit(price){const c=Math.min(CFG.credit.amount,price),per2m=CFG.credit.per2m*c/CFG.credit.amount;return{credit:c,apport:Math.max(0,price-c),per2m,pm:per2m/2};}
-function drawOffers(){
+function drawOffers(r){
   const a=ar();
-  $("rail").innerHTML=PACKS.map(p=>{const c=credit(p.p);return `<div class="of ${p.promo?"p":""}">${p.promo?'<div class="ribbon">PROMO</div>':""}
-   <div class="ofKw"><b class="num">${p.lab}</b><span>kWc</span></div>
+  let list=PACKS.map((p,i)=>({...p,idx:i}));
+  if(r&&r.rec.i===-1){const c={...r.rec.sys,idx:-1};const pos=list.findIndex(p=>p.k>c.k);list.splice(pos<0?list.length:pos,0,c);}
+  const recIdx=r?r.rec.i:null, selIdx=r?(S.pick===null?recIdx:S.pick):null;
+  $("rail").classList.toggle("hasRes",!!r);
+  $("offK").textContent=r?(a?"✓ النتيجة متاعك":"✓ Votre résultat"):t("offK");
+  $("offH").textContent=r?(a?"هاذي المنظومة المناسبة ليك":"Voici l'installation adaptée pour vous"):t("offH");
+  $("fitNote").innerHTML=r?(a?`حسب فاتورتك (≈ <span class="num">${fmt(r.mKwh)} kWh</span> في الشهر)، المنظومة المناسبة عليها علامة خضراء ✓. اسحب باش تقارن مع البقية.`:`Selon votre facture (≈ <span class="num">${fmt(r.mKwh)} kWh</span>/mois), l'installation adaptée porte la marque verte ✓. Glissez pour comparer.`):"";
+  $("rail").innerHTML=list.map(p=>{const c=credit(p.p),isRec=r&&p.idx===recIdx,isSel=r&&p.idx===selIdx;
+   const cov=r?Math.min(100,Math.round(p.k*CFG.yield/r.annual*100)):0;
+   return `<div class="of ${p.promo?"p":""} ${isRec?"rec":""} ${isSel?"sel":""} ${r&&!isSel?"dim":""}" data-p="${p.idx}">${p.promo?'<div class="ribbon">PROMO</div>':""}
+   ${isRec?`<div class="recB">✓ ${a?"المناسبة ليك":"Idéale pour vous"}</div>`:""}
+   <div class="ofKw"><b class="num">${p.lab}</b><span>kWc</span>${p.custom?`<em>${a?"على قياسك":"sur mesure"}</em>`:""}</div>
    <div class="ofMod"><b class="num">${p.n} × ${p.b} ${p.w} Wc</b></div>
    <div class="ofMod">${a?"إنتاج":"Production"} <span class="num">≈ ${fmt(p.k*CFG.yield)} kWh</span> ${a?"في السنة":"/ an"}</div>
+   ${r?`<div class="fit"><div class="fitT"><span>${a?"تغطية استهلاكك":"Couverture de votre conso"}</span><b class="num">${cov}%</b></div><div class="fitB"><i style="width:${cov}%"></i></div></div>`:""}
    ${p.promo?`<span class="was num">${fmt(p.old)} DT</span>`:""}
    <div class="now"><b class="num">${fmt(p.p)}</b><small>DT TTC</small></div>
    ${p.promo?`<span class="saveB">🔥 ${a?"وفّر":"Économisez"} <span class="num">${fmt(p.old-p.p)} DT</span></span>`:""}
    <div class="monthly">💳 ${a?"أو":"ou"} <b class="num">${fmt(c.pm)} DT</b> / ${a?"شهر مع قرض الستاغ":"mois · crédit STEG"}<br><span>${c.apport?`${a?"تسبقة":"apport"} <span class="num">${fmt(c.apport)} DT</span>`:(a?"بدون تسبقة":"sans apport")}</span></div>
    <ul class="incl"><li>clé en main · ${a?"تركيب وملف الستاغ":"pose + dossier STEG"}</li><li>${a?"تطبيق مراقبة + خدمة ما بعد البيع":"Monitoring + SAV"}</li><li>${a?"ضمان 30 سنة":"Garantie 30 ans"}</li></ul>
-   <a class="btn pri ofBtn" href="#sim">${a?"احسب إذا تناسبني":"Est-ce le bon pack ?"}</a></div>`;}).join("");
-  $("dots").innerHTML=PACKS.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("");
+   ${!r?`<a class="btn pri ofBtn" href="#sim">${a?"شوف إذا تناسبني":"Est-ce la bonne pour moi ?"}</a>`
+      :isSel?`<a class="btn pri ofBtn" href="#res">${a?"شوف التفاصيل وطرق الخلاص ↓":"Détail &amp; paiement ↓"}</a>`
+      :`<button class="btn pri ofBtn" type="button">${a?"قارن هذه المنظومة":"Comparer"}</button>`}</div>`;}).join("");
+  $("dots").innerHTML=list.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("");
+  $("rail").querySelectorAll(".of.dim").forEach(el=>el.onclick=()=>{S.pick=+el.dataset.p;calc();requestAnimationFrame(()=>{const c=$("rail").querySelector(".of.sel");if(c)c.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});});});
 }
 $("rail").addEventListener("scroll",()=>{
   const r=$("rail"),cards=r.children; if(!cards.length) return;
@@ -720,14 +825,14 @@ function drawQuick(){
   const list=S.mode==="dt"?CFG.quickDT:CFG.quickKWH, u=S.mode==="dt"?"DT":"kWh", v=$("val").value.replace(/\s/g,"");
   $("quick").innerHTML=list.map(x=>`<button type="button" data-q="${x}" class="${String(x)===v?"on":""}"><span class="num">${fmt(x)} ${u}</span></button>`).join("");
 }
-$("quick").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;$("val").value=b.dataset.q;drawQuick();re();});
-$("val").addEventListener("input",()=>{$("val").value=$("val").value.replace(/[^0-9.,]/g,"");drawQuick();re();});
-$("val").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("go").click();}});
+$("quick").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;$("val").value=b.dataset.q;drawQuick();$("err").textContent="";const i=$("val");i.focus();try{i.setSelectionRange(i.value.length,i.value.length);}catch(_){}});
+$("val").addEventListener("input",()=>{$("val").value=$("val").value.replace(/[^0-9.,]/g,"");drawQuick();$("err").textContent="";});
+$("val").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();go();}});
 function seg(id,key,cb){document.querySelectorAll(`#${id} button`).forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(`#${id} button`).forEach(x=>x.classList.remove("on"));b.classList.add("on");S[key]=isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v;cb&&cb();}));}
 let raf=0; const sched=()=>{if(!last||raf)return;raf=requestAnimationFrame(()=>{raf=0;calc();});};
 const re=()=>{if(last){S.pick=null;sched();}};
 seg("type","type",re); seg("per","per",re);
-seg("mode","mode",()=>{$("unit").textContent=S.mode==="dt"?"DT":"kWh";$("val").value="";drawQuick();re();});
+seg("mode","mode",()=>{$("unit").textContent=S.mode==="dt"?"DT":"kWh";$("val").value="";drawQuick();$("val").focus();});
 $("cov").oninput=e=>{$("covv").textContent=e.target.value;re();};
 $("gov").onchange=()=>{$("gov").classList.remove("bad");$("err").textContent="";sched();};
 
@@ -740,9 +845,8 @@ function inverterKw(k,type){const mono=type==="res"&&k<=6.3,sizes=mono?[3,4,5,6]
 function calc(){
   const v=parseFloat($("val").value.replace(",","."));
   if(!v||v<=0){$("err").textContent=t("errV");$("val").focus();return false;}
-  if(!$("gov").value){$("gov").classList.add("bad");$("err").textContent=t("errG");return false;}
   $("err").textContent="";
-  const type=S.type,per=S.per,gov=GOVS.find(g=>g[1]===$("gov").value);
+  const type=S.type,per=S.per,gov=GOVS.find(g=>g[1]===$("gov").value)||null;
   const mKwh=S.mode==="dt"?kwhFromMonthlyBill(v/per,type):v/per;
   const annual=mKwh*12,need=annual*(+$("cov").value/100)/CFG.yield,rec=recommend(need);
   const recSys=rec.i>=0?PACKS[rec.i]:rec.sys, sys=(S.pick===null||S.pick===-1)?recSys:PACKS[S.pick];
@@ -752,13 +856,16 @@ function calc(){
   last={type,per,gov,mKwh,annual,rec,sys,kwc,prod,realCov:Math.min(1,prod/annual),bM,aM,save,ttc,net:ttc,cum:cum-ttc,payback:ttc/save,inv:inverterKw(kwc,type)};
   render(last); return true;
 }
-$("go").onclick=()=>{S.pick=null;if(calc()){$("res").classList.add("show");setTimeout(()=>$("res").scrollIntoView({behavior:"smooth",block:"start"}),50);}};
+function go(){S.pick=null;$("val").blur();if(calc()){$("res").classList.add("show");setTimeout(focusRec,80);}}
+function focusRec(){const c=$("rail").querySelector(".of.sel")||$("rail").querySelector(".of.rec");if(c)c.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});}
+$("go").onclick=go;
+document.addEventListener("click",e=>{const l=e.target.closest('a[href="#sim"]');if(!l)return;e.preventDefault();$("sim").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>$("val").focus({preventScroll:true}),450);});
 
 /* ====================== render ====================== */
 function render(r){
   const a=ar(),s=r.sys,c=credit(r.ttc);
   $("rKw").textContent=fmt(r.kwc,2);
-  $("rMod").innerHTML=`<span class="num">${s.n} × ${s.b} ${s.w} Wc</span> · ${s.custom?(a?"على قياسك":"sur mesure"):(a?"باقة":"Pack")+" "+s.lab+" kWc"}`;
+  $("rMod").innerHTML=`<span class="num">${s.n} × ${s.b} ${s.w} Wc</span> · ${s.custom?(a?"على قياسك":"sur mesure"):(a?"منظومة":"Installation")+" "+s.lab+" kWc"}`;
   $("rTag").style.display=s.promo?"":"none";
   $("rCov").textContent=Math.round(r.realCov*100)+"%"; $("rCovB").style.width=(r.realCov*100)+"%";
   $("rPrice").innerHTML=`${s.promo?`<span class="was num">${fmt(s.old)} DT</span>`:""}<div class="now"><b class="num">${fmt(r.ttc)}</b><small>DT TTC</small></div>
@@ -768,7 +875,7 @@ function render(r){
   $("k25").textContent=fmt(Math.max(0,r.cum)); $("kProd").textContent=fmt(r.prod);
   document.querySelectorAll(".perTxt").forEach(e=>e.textContent=PER[L][r.per]);
   $("bBef").textContent=fmt(r.bM*r.per); $("bAft").textContent=fmt(r.aM*r.per); $("bAftB").style.width=Math.max(4,r.aM/r.bM*100)+"%";
-  drawMini(r); drawPay(r); drawEquip(r); drawQuote(r); if($("accChart").open) drawChart(r);
+  drawOffers(r); drawMini(r); drawPay(r); drawEquip(r); drawQuote(r); if($("accChart").open) drawChart(r);
   const bb=$("bb"); bb.classList.add("res"); $("bbGo").style.display="none"; $("bbWa").style.display="";
   $("bbInfo").innerHTML=`<b><span class="num">${fmt(r.kwc,2)} kWc · ${fmt(r.ttc)} DT</span></b><span>${a?"توفير":"Économie"} <span class="num">${fmt(r.save)} DT</span> / ${a?"سنة":"an"}</span>`;
 }
@@ -805,7 +912,7 @@ function drawQuote(r){
   const d=new Date(),s=r.sys,i=r.inv,c=credit(r.ttc);
   const ref="SIM-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+"-"+Math.round(r.kwc*100);
   const L1=[[`Modules ${s.b} ${s.w} Wc`,`${s.n} modules · ${fmt(s.k,2)} kWc`],["Onduleur réseau intelligent",`${i.kw} kW ${i.mono?"mono":"tri"} · monitoring inclus`],["Structure de fixation","Alu / acier galvanisé, visserie inox"],["Câblage & protections DC/AC","Câble solaire, coffrets, parafoudres, terre"],["Pose & mise en service","Équipe PROELEC qualifiée"],["Dossier de raccordement STEG","Compteur bidirectionnel"],["SAV & garantie 30 ans","Suivi et maintenance"]];
-  $("quote").innerHTML=`<div class="qh"><div class="co">PROELEC<small>ISO 9001 · 14001 · 45001</small></div><div class="ref">Devis estimatif <b>${ref}</b><br>${d.toLocaleDateString("fr-FR")} · ${r.gov[1]}</div></div>
+  $("quote").innerHTML=`<div class="qh"><div class="co">PROELEC<small>ISO 9001 · 14001 · 45001</small></div><div class="ref">Devis estimatif <b>${ref}</b><br>${d.toLocaleDateString("fr-FR")}${r.gov?" · "+r.gov[1]:""}</div></div>
    <table class="q"><tr><th>Pack clé en main ${s.custom?"sur mesure":s.lab+" kWc"}</th><th></th></tr>${L1.map(l=>`<tr><td>${l[0]}<small>${l[1]}</small></td><td class="p">✓ Inclus</td></tr>`).join("")}</table>
    <div class="tot">${s.promo?`<div><span>Prix normal</span><span style="text-decoration:line-through;color:#8A94A8">${fmt(s.old)} DT</span></div><div class="sub"><span>Remise PROMO</span><span>− ${fmt(s.old-s.p)} DT</span></div>`:""}
    <div class="grand"><span>Total TTC</span><span>${fmt(r.ttc)} DT</span></div><div><span>Crédit STEG</span><span>${c.apport?fmt(c.apport)+" DT + ":"Sans apport · "}${fmt(c.per2m)} DT / 2 mois</span></div></div>
@@ -836,7 +943,7 @@ let rz=0;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(l
 function summary(r){
   const a=ar(),s=r.sys,c=credit(r.ttc);
   return `🔔 ${a?"طلب زيارة تقنية مجانية":"Demande de visite technique gratuite"} – PROELEC\n`+
-   `📍 ${a?r.gov[0]:r.gov[1]} · ${r.type==="res"?(a?"منزل":"Maison"):(a?"محل / ورشة":"Commerce / atelier")}\n`+
+   `📍 ${r.gov?(a?r.gov[0]:r.gov[1]):"—"} · ${r.type==="res"?(a?"منزل":"Maison"):(a?"محل / ورشة":"Commerce / atelier")}\n`+
    `🧾 ${a?"الفاتورة":"Facture"}: ~${fmt(r.bM*r.per)} DT ${PER[L][r.per]} (${fmt(r.mKwh)} kWh/${a?"شهر":"mois"})\n`+
    `☀️ ${a?"المنظومة":"Installation"}: ${fmt(r.kwc,2)} kWc – ${s.n} × ${s.b} ${s.w} Wc${s.promo?` (PROMO −${fmt(s.old-s.p)} DT)`:""}\n`+
    `💰 ${a?"الثمن":"Prix"} clé en main: ${fmt(r.ttc)} DT TTC\n`+
