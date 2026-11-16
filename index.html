@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0A1222">
 <title>PROELEC – محاكي الطاقة الشمسية | Simulateur solaire</title>
-<meta name="description" content="PROELEC: منظومة شمسية clé en main بداية من 9 200 DT أو 163 DT في الشهر مع قرض الستاغ. احسب توفيرك في 30 ثانية.">
+<meta name="description" content="PROELEC: منظومة شمسية clé en main بداية من 7 500 DT أو 120 DT في الشهر مع قرض الستاغ. احسب توفيرك في 30 ثانية.">
 <meta property="og:title" content="PROELEC ☀️ احسب منظومتك الشمسية في 30 ثانية">
-<meta property="og:description" content="عروض PROMO · clé en main · ضمان 30 سنة · قرض الستاغ 163 DT/شهر">
+<meta property="og:description" content="عروض PROMO · clé en main · ضمان 30 سنة · قرض الستاغ من 120 DT/شهر">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -474,6 +474,33 @@ footer{color:#64748B}
 .iso.lt .seal{background:#fff;border-color:#E2E8F0;box-shadow:0 6px 16px rgba(15,23,42,.06)}
 .iso.lt .seal b{color:#0B1B3A}
 .tip{background:#fff;color:#0B1B3A;border-color:#E2E8F0;box-shadow:0 8px 20px rgba(15,23,42,.12)}
+/* honest (not profitable) */
+#honest{display:none;margin-top:24px}
+#res.nogo #honest{display:block}
+#res.nogo:not(.seeAll) .resGrid{display:none}
+.hon{border-radius:26px;padding:22px 18px;background:linear-gradient(160deg,#FFFFFF,#F0FDF4);border:2px solid #86EFAC;box-shadow:0 16px 40px rgba(22,163,74,.12);position:relative;overflow:hidden}
+.hon::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,#22C55E,#16A34A)}
+.hon .hk{font-size:12px;font-weight:800;letter-spacing:1px;color:#15803D}
+.hon h3{font-size:clamp(21px,5.6vw,27px);line-height:1.3;margin:4px 0 10px;color:#0B1B3A}
+.hon p{font-size:14.5px;color:#334155;line-height:1.75}
+.hon p b{color:#0B1B3A}
+.honK{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.honK div{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:10px 8px;text-align:center}
+.honK>div>span{display:block;font-size:11.5px;color:#64748B}
+.honK b{font-size:19px;font-weight:800;color:#0B1B3A;white-space:nowrap}
+.honK .r b{color:#DC2626}
+.honV{margin:14px 0;padding:12px 14px;border-radius:16px;background:#0B1B3A;color:#fff;font-size:14.5px;line-height:1.7}
+.honV b{color:#FFC24A}
+.honW{font-weight:700;font-size:15px;color:#0B1B3A;margin:6px 0 6px}
+.honL{list-style:none;display:grid;gap:7px;margin-bottom:16px}
+.honL li{display:flex;gap:9px;font-size:14px;color:#475569}
+.honL li::before{content:"↗";flex:none;width:22px;height:22px;border-radius:50%;background:#FFF1E6;color:#F06A1B;font-weight:800;font-size:12px;display:grid;place-items:center}
+.honB{display:grid;gap:10px}
+.honB .btn.sec{min-height:48px;font-size:15px}
+#res.seeAll .honB .btn.sec{display:none}
+.slowN{margin-top:12px;font-size:13px;line-height:1.6;color:#92400E;background:#FFFBEB;border:1px solid #FDE68A;border-radius:12px;padding:9px 12px}
+.slowN:empty{display:none}
+@media(min-width:760px){.honB{grid-template-columns:1fr 1fr}.hon{padding:28px}}
 </style>
 </head>
 <body>
@@ -491,7 +518,7 @@ footer{color:#64748B}
     <div>
       <span class="flash"><span class="t">PROMO</span><span data-i="flash">تخفيضات تصل إلى</span><b class="num">−1 000 DT</b></span>
       <h1><span data-i="h1a">فاتورة الستاغ غالية؟</span><br><span class="hl" data-i="h1b">الشمس تخلّصها عليك</span></h1>
-      <p data-i="lead" data-html="1">منظومة شمسية كاملة <b>clé en main</b> بداية من <b class="num">9 200 DT</b>، أو <b class="num">163 DT</b> في الشهر مع قرض الستاغ.</p>
+      <p data-i="lead" data-html="1">منظومة شمسية كاملة <b>clé en main</b> بداية من <b class="num minP">7 500 DT</b>، أو <b class="num minM">120 DT</b> في الشهر مع قرض الستاغ.</p>
       <div class="sceneM"><svg class="scene" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Installation photovoltaïque">
 <defs>
 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE3FF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
@@ -591,7 +618,7 @@ footer{color:#64748B}
   <div class="stats">
     <div class="st"><b>30 <small data-i="yrs">سنة</small></b><span data-i="s1">ضمان على المنظومة</span></div>
     <div class="st"><b>3 <small>ISO</small></b><span data-i="s2">جودة · بيئة · سلامة</span></div>
-    <div class="st"><b><span class="num">163</span> <small>DT</small></b><span data-i="s3">في الشهر مع قرض الستاغ</span></div>
+    <div class="st"><b><span class="num minMn">120</span> <small>DT</small></b><span data-i="s3">أقل قسط شهري مع قرض الستاغ</span></div>
     <div class="st"><b>24 <small data-i="gv">ولاية</small></b><span data-i="s4">نخدمو في كامل الجمهورية</span></div>
   </div>
 
@@ -642,6 +669,7 @@ footer{color:#64748B}
   </section>
 
   <section id="res" class="lt">
+    <div id="honest"></div>
     <div class="resGrid">
       <div>
         <div class="sum">
@@ -657,6 +685,7 @@ footer{color:#64748B}
             <div class="k"><span data-i="k3">الربح على 25 سنة</span><b><span class="num" id="k25">0</span> <small>DT</small></b></div>
             <div class="k"><span data-i="k4">الإنتاج في السنة</span><b><span class="num" id="kProd">0</span> <small>kWh</small></b></div>
           </div>
+          <div class="slowN" id="slowN"></div>
           <div class="mpL" data-i="mpL">قارن مع منظومة أخرى:</div>
           <div class="miniRail" id="mini"></div>
         </div>
@@ -732,12 +761,19 @@ const CFG = {
   m2PerPanel: 3.1, escal: 0.03, degr: 0.005, years: 25, co2: 0.45,
   whatsapp: "21653467977",
   callmebotKey: "",
-  credit: { amount: 10000, per2m: 326, years: 7 },
+  // Crédits STEG (7 ans) : le plus petit crédit qui couvre le prix est proposé
+  credit: [ { amount: 7500, pm: 120 }, { amount: 10000, pm: 163 } ],
+  creditYears: 7,
+  // Honnêteté : au-delà de maxPayback ans de retour, on dit au client que ce n'est pas rentable
+  okPayback: 9, maxPayback: 12,
+  // Statistiques de visites (GoatCounter) : code du compte créé sur goatcounter.com ("" = désactivé)
+  goatcounter: "proelec",
   prof: [.056,.064,.083,.092,.102,.106,.114,.104,.088,.075,.061,.055],
   quickDT: [100,150,200,300,500],
   quickKWH: [300,500,800,1200]
 };
 const PACKS = [
+  {lab:"2",   n:3,  w:645, b:"AIKO",  p:7500, small:true},
   {lab:"3",   n:5,  w:615, b:"LONGi", p:9200},
   {lab:"4",   n:6,  w:645, b:"AIKO",  p:10000, old:10800},
   {lab:"4,3", n:7,  w:615, b:"LONGi", p:10900, old:11400},
@@ -750,10 +786,10 @@ const GOVS=[["بنزرت","Bizerte"],["تونس","Tunis"],["أريانة","Arian
 /* ====================== i18n ====================== */
 const T={ar:{},fr:{
  tag:"Énergie solaire · clé en main",flash:"Remises jusqu'à",h1a:"Votre facture STEG est trop chère ?",h1b:"Le soleil la paie pour vous",
- lead:"Une installation solaire complète <b>clé en main</b> à partir de <b class=\"num\">9 200 DT</b>, ou <b class=\"num\">163 DT</b> par mois avec le crédit STEG.",
+ lead:"Une installation solaire complète <b>clé en main</b> à partir de <b class=\"num minP\">7 500 DT</b>, ou <b class=\"num minM\">120 DT</b> par mois avec le crédit STEG.",
  start:"Calculez vos économies en 30 s",seeOff:"Voir les offres 🔥",t1:"Garantie 30 ans",t3:"Appli de monitoring",
  offK:"Offres limitées 🔥",offH:"Choisissez votre installation",swipe:"Glissez ← →",
- yrs:"ans",s1:"de garantie",s2:"Qualité · environnement · sécurité",s3:"par mois avec le crédit STEG",gv:"gouv.",s4:"partout en Tunisie",
+ yrs:"ans",s1:"de garantie",s2:"Qualité · environnement · sécurité",s3:"mensualité minimale avec le crédit STEG",gv:"gouv.",s4:"partout en Tunisie",
  simK:"Calcul gratuit · résultat immédiat",simH:"Calculez votre installation en 30 secondes",simS:"3 questions simples, résultat immédiat.",
  f1:"Combien payez-vous à la STEG ?",m1:"En dinars",m2:"En kWh",f2:"Cette facture couvre quelle période ?",p1:"1 mois",p2:"2 mois",p3:"3 mois",p12:"1 an",
  f3:"Où êtes-vous et quel type de local ?",res:"Maison",pro:"Commerce / atelier",adv:"Options avancées",cov:"Taux de couverture souhaité",go:"Voir l'installation adaptée ☀️",hintE:"Saisissez le montant complet, puis appuyez sur Entrée ou sur le bouton",howK:"Simple et clair",howH:"Comment ça marche ?",h1t:"Calcul en 30 secondes",h1d:"Entrez votre facture et découvrez l'installation adaptée et son prix.",h2t:"Visite technique gratuite",h2d:"Un ingénieur PROELEC inspecte votre toiture et vous remet l'offre finale.",h3t:"Installation clé en main",h3d:"Pose, raccordement STEG, et vous économisez dès le premier mois.",
@@ -779,21 +815,21 @@ const S={type:"res",mode:"dt",per:2,pick:null};
 let last=null;
 
 /* ====================== offers ====================== */
-function credit(price){const c=Math.min(CFG.credit.amount,price),per2m=CFG.credit.per2m*c/CFG.credit.amount;return{credit:c,apport:Math.max(0,price-c),per2m,pm:per2m/2};}
+function credit(price){const pl=CFG.credit.find(x=>x.amount>=price)||CFG.credit[CFG.credit.length-1];const c=Math.min(pl.amount,price),pm=pl.pm*c/pl.amount;return{credit:c,amount:pl.amount,apport:Math.max(0,price-c),per2m:pm*2,pm};}
 function drawOffers(r){
   const a=ar();
   let list=PACKS.map((p,i)=>({...p,idx:i}));
   if(r&&r.rec.i===-1){const c={...r.rec.sys,idx:-1};const pos=list.findIndex(p=>p.k>c.k);list.splice(pos<0?list.length:pos,0,c);}
-  const recIdx=r?r.rec.i:null, selIdx=r?(S.pick===null?recIdx:S.pick):null;
+  const recIdx=r&&!r.noGo?r.rec.i:null, selIdx=r?(S.pick===null?r.rec.i:S.pick):null;
   $("rail").classList.toggle("hasRes",!!r);
   $("offK").textContent=r?(a?"✓ النتيجة متاعك":"✓ Votre résultat"):t("offK");
   $("offH").textContent=r?(a?"هاذي المنظومة المناسبة ليك":"Voici l'installation adaptée pour vous"):t("offH");
-  $("fitNote").innerHTML=r?(a?`حسب فاتورتك (≈ <span class="num">${fmt(r.mKwh)} kWh</span> في الشهر)، المنظومة المناسبة عليها علامة خضراء ✓. اسحب باش تقارن مع البقية.`:`Selon votre facture (≈ <span class="num">${fmt(r.mKwh)} kWh</span>/mois), l'installation adaptée porte la marque verte ✓. Glissez pour comparer.`):"";
+  $("fitNote").innerHTML=r&&r.noGo?(a?`🤝 بكل صراحة: باستهلاكك (≈ <span class="num">${fmt(r.mKwh)} kWh</span> في الشهر) الطاقة الشمسية موش مربحة ليك توّا. شوف التفسير تحت ↓`:`🤝 En toute franchise : avec votre consommation (≈ <span class="num">${fmt(r.mKwh)} kWh</span>/mois), le solaire n'est pas rentable pour vous aujourd'hui. Explication ci-dessous ↓`):r?(a?`حسب فاتورتك (≈ <span class="num">${fmt(r.mKwh)} kWh</span> في الشهر)، المنظومة المناسبة عليها علامة خضراء ✓. اسحب باش تقارن مع البقية.`:`Selon votre facture (≈ <span class="num">${fmt(r.mKwh)} kWh</span>/mois), l'installation adaptée porte la marque verte ✓. Glissez pour comparer.`):"";
   $("rail").innerHTML=list.map(p=>{const c=credit(p.p),isRec=r&&p.idx===recIdx,isSel=r&&p.idx===selIdx;
    const cov=r?Math.min(100,Math.round(p.k*CFG.yield/r.annual*100)):0;
    return `<div class="of ${p.promo?"p":""} ${isRec?"rec":""} ${isSel?"sel":""} ${r&&!isSel?"dim":""}" data-p="${p.idx}">${p.promo?'<div class="ribbon">PROMO</div>':""}
    ${isRec?`<div class="recB">✓ ${a?"المناسبة ليك":"Idéale pour vous"}</div>`:""}
-   <div class="ofKw"><b class="num">${p.lab}</b><span>kWc</span>${p.custom?`<em>${a?"على قياسك":"sur mesure"}</em>`:""}</div>
+   <div class="ofKw"><b class="num">${p.lab}</b><span>kWc</span>${p.custom?`<em>${a?"على قياسك":"sur mesure"}</em>`:""}${p.small?`<em>${a?"للاستهلاك الضعيف":"petite conso"}</em>`:""}</div>
    <div class="ofMod"><b class="num">${p.n} × ${p.b} ${p.w} Wc</b></div>
    <div class="ofMod">${a?"إنتاج":"Production"} <span class="num">≈ ${fmt(p.k*CFG.yield)} kWh</span> ${a?"في السنة":"/ an"}</div>
    ${r?`<div class="fit"><div class="fitT"><span>${a?"تغطية استهلاكك":"Couverture de votre conso"}</span><b class="num">${cov}%</b></div><div class="fitB"><i style="width:${cov}%"></i></div></div>`:""}
@@ -840,23 +876,32 @@ $("gov").onchange=()=>{$("gov").classList.remove("bad");$("err").textContent="";
 function monthlyBill(m,type){if(m<=0)return CFG.fixedMonth;const e=type==="res"?CFG.resTariff(m):m*CFG.proRate;return(e+m*CFG.taxKwh)*(1+(type==="res"?CFG.tvaRes:CFG.tvaPro))+CFG.fixedMonth;}
 function kwhFromMonthlyBill(b,type){let lo=0,hi=50000;for(let i=0;i<60;i++){const mid=(lo+hi)/2;monthlyBill(mid,type)<b?lo=mid:hi=mid;}return(lo+hi)/2;}
 function customSys(need){const n=Math.max(5,Math.ceil(need*1000/CFG.customW)),k=n*CFG.customW/1000;return{lab:fmt(k,2),n,w:CFG.customW,b:CFG.customBrand,k,p:Math.round(k*CFG.customKwc/10)*10,custom:true};}
-function recommend(need){for(let i=0;i<5;i++)if(PACKS[i].k>=need*0.97)return{i};if(need<=PACKS[5].k*1.03){const c=customSys(need);return(c.p>=PACKS[5].p||c.n>=PACKS[5].n)?{i:5}:{i:-1,sys:c};}return{i:-1,sys:customSys(need)};}
+function recommend(need){const z=PACKS.length-1;for(let i=0;i<z;i++)if(PACKS[i].k>=need*0.97)return{i};if(need<=PACKS[z].k*1.03){const c=customSys(need);return(c.p>=PACKS[z].p||c.n>=PACKS[z].n)?{i:z}:{i:-1,sys:c};}return{i:-1,sys:customSys(need)};}
+/* rentabilité : économie annuelle et retour sur investissement d'une installation pour une conso donnée */
+function econ(sys,mKwh,type){const res=Math.max(0,mKwh-sys.k*CFG.yield/12),save=(monthlyBill(mKwh,type)-monthlyBill(res,type))*12;return{save,payback:save>0?sys.p/save:999};}
+function bestPayback(mKwh,type,extra){let b=999,bs=null;PACKS.concat(extra?[extra]:[]).forEach(p=>{const e=econ(p,mKwh,type);if(e.payback<b){b=e.payback;bs={sys:p,...e};}});return bs;}
+/* conso mensuelle minimale à partir de laquelle le solaire devient rentable */
+function minProfitableKwh(type){for(let m=50;m<=3000;m+=10)if(bestPayback(m,type).payback<=CFG.maxPayback)return m;return 3000;}
 function inverterKw(k,type){const mono=type==="res"&&k<=6.3,sizes=mono?[3,4,5,6]:[5,8,10,12,15,20,25,30,40,50,60,80,100,110],ac=k/1.15;return{kw:sizes.find(s=>s>=ac*0.95)||Math.ceil(ac/10)*10,mono};}
 function calc(){
   const v=parseFloat($("val").value.replace(",","."));
   if(!v||v<=0){$("err").textContent=t("errV");$("val").focus();return false;}
   $("err").textContent="";
   const type=S.type,per=S.per,gov=GOVS.find(g=>g[1]===$("gov").value)||null;
-  const mKwh=S.mode==="dt"?kwhFromMonthlyBill(v/per,type):v/per;
+  const mKwh=S.mode==="dt"?kwhFromMonthlyBill(v/per,type):v/per, billIn=S.mode==="dt"?v:null;
   const annual=mKwh*12,need=annual*(+$("cov").value/100)/CFG.yield,rec=recommend(need);
   const recSys=rec.i>=0?PACKS[rec.i]:rec.sys, sys=(S.pick===null||S.pick===-1)?recSys:PACKS[S.pick];
   const kwc=sys.k,prod=kwc*CFG.yield,residual=Math.max(0,mKwh-prod/12);
   const bM=monthlyBill(mKwh,type),aM=monthlyBill(residual,type),save=(bM-aM)*12,ttc=sys.p;
   let cum=0;for(let y=0;y<CFG.years;y++)cum+=save*Math.pow(1+CFG.escal,y)*Math.pow(1-CFG.degr,y);
-  last={type,per,gov,mKwh,annual,rec,sys,kwc,prod,realCov:Math.min(1,prod/annual),bM,aM,save,ttc,net:ttc,cum:cum-ttc,payback:ttc/save,inv:inverterKw(kwc,type)};
+  const best=bestPayback(mKwh,type,rec.i===-1?rec.sys:null), noGo=best.payback>CFG.maxPayback;
+  last={type,per,gov,mKwh,annual,rec,sys,kwc,prod,realCov:Math.min(1,prod/annual),bM,aM,save,ttc,net:ttc,cum:cum-ttc,payback:ttc/save,inv:inverterKw(kwc,type),best,noGo,billIn};
   render(last); return true;
 }
-function go(){S.pick=null;$("val").blur();if(calc()){$("res").classList.add("show");setTimeout(focusRec,80);}}
+function go(){S.pick=null;$("val").blur();if(calc()){$("res").classList.remove("seeAll");$("res").classList.add("show");
+  track("simulateur-calcul",ar()?"Simulateur : calcul fait":"Simulateur : calcul fait");
+  if(last.noGo) track("simulateur-non-rentable","Simulateur : client non rentable (conseil honnête)");
+  setTimeout(last.noGo?()=>$("res").scrollIntoView({behavior:"smooth",block:"start"}):focusRec,80);}}
 function focusRec(){const c=$("rail").querySelector(".of.sel")||$("rail").querySelector(".of.rec");if(c)c.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});}
 $("go").onclick=go;
 document.addEventListener("click",e=>{const l=e.target.closest('a[href="#sim"]');if(!l)return;e.preventDefault();$("sim").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>$("val").focus({preventScroll:true}),450);});
@@ -875,9 +920,40 @@ function render(r){
   $("k25").textContent=fmt(Math.max(0,r.cum)); $("kProd").textContent=fmt(r.prod);
   document.querySelectorAll(".perTxt").forEach(e=>e.textContent=PER[L][r.per]);
   $("bBef").textContent=fmt(r.bM*r.per); $("bAft").textContent=fmt(r.aM*r.per); $("bAftB").style.width=Math.max(4,r.aM/r.bM*100)+"%";
+  $("res").classList.toggle("nogo",r.noGo); drawHonest(r);
+  $("slowN").innerHTML=!r.noGo&&r.payback>CFG.okPayback&&r.payback<=40?(a?`⏳ بصراحة: هذي المنظومة مربحة لكن على المدى الطويل — ترجع فلوسك في ≈ <b class="num">${fmt(r.payback,1)}</b> سنين (والمنظومة تخدم أكثر من 25 سنة).`:`⏳ En toute franchise : cette installation est rentable, mais sur le long terme — retour en ≈ <b class="num">${fmt(r.payback,1)}</b> ans (pour une durée de vie de plus de 25 ans).`):"";
   drawOffers(r); drawMini(r); drawPay(r); drawEquip(r); drawQuote(r); if($("accChart").open) drawChart(r);
   const bb=$("bb"); bb.classList.add("res"); $("bbGo").style.display="none"; $("bbWa").style.display="";
-  $("bbInfo").innerHTML=`<b><span class="num">${fmt(r.kwc,2)} kWc · ${fmt(r.ttc)} DT</span></b><span>${a?"توفير":"Économie"} <span class="num">${fmt(r.save)} DT</span> / ${a?"سنة":"an"}</span>`;
+  $("bbInfo").innerHTML=r.noGo?`<b>${a?"نصيحة مجانية 🤝":"Conseil gratuit 🤝"}</b><span>${a?"اسأل مهندس قبل ما تقرّر":"Demandez à un ingénieur"}</span>`:`<b><span class="num">${fmt(r.kwc,2)} kWc · ${fmt(r.ttc)} DT</span></b><span>${a?"توفير":"Économie"} <span class="num">${fmt(r.save)} DT</span> / ${a?"سنة":"an"}</span>`;
+  $("bbWa").querySelector("span").textContent=r.noGo?(a?"اسأل مجانًا":"Conseil"):t("bbWa");
+}
+function drawHonest(r){
+  if(!r.noGo){$("honest").innerHTML="";return;}
+  const a=ar(),b=r.best,minK=minProfitableKwh(r.type),pay=b.payback>40?"> 40":fmt(b.payback,0);
+  $("honest").innerHTML=`<div class="hon">
+   <div class="hk">${a?"🤝 نصيحة صادقة من PROELEC":"🤝 UN CONSEIL HONNÊTE DE PROELEC"}</div>
+   <h3>${a?"بكل صراحة: الطاقة الشمسية موش مربحة ليك توّا":"En toute franchise : le solaire n'est pas rentable pour vous aujourd'hui"}</h3>
+   <p>${a?`استهلاكك ≈ <b class="num">${fmt(r.mKwh)} kWh</b> في الشهر، وفاتورتك ≈ <b class="num">${fmt(r.billIn??r.bM*r.per)} DT</b> ${PER.ar[r.per]}. التعريفة متاع الستاغ للاستهلاك الضعيف رخيصة، يعني فاتورتك أصلاً منخفضة وما فماش برشا باش توفّر.`
+     :`Votre consommation est d'environ <b class="num">${fmt(r.mKwh)} kWh</b>/mois pour une facture d'environ <b class="num">${fmt(r.billIn??r.bM*r.per)} DT</b> ${PER.fr[r.per]}. Le tarif STEG des petites consommations est bas : votre facture est déjà faible et il y a peu à économiser.`}</p>
+   <div class="honK">
+    <div><span>${a?"أحسن منظومة ليك":"Meilleure option"}</span><b class="num">${b.sys.lab} kWc</b></div>
+    <div><span>${a?"توفير في السنة":"Économie / an"}</span><b class="num">${fmt(b.save)} DT</b></div>
+    <div class="r"><span>${a?"ترجع فلوسك بعد":"Retour sur invest."}</span><b><span class="num">${pay}</span> <small style="font-size:12px">${a?"سنة":"ans"}</small></b></div>
+   </div>
+   <div class="honV">${a?`ما نحبوش نبيعولك منظومة ما تنفعكش. في <b>PROELEC</b> نعاملو الحريف كيف ما نعاملو رواحنا: <b>كان موش في مصلحتك، نقولولك.</b>`:`Nous ne voulons pas vous vendre une installation qui ne vous sert pas. Chez <b>PROELEC</b>, nous conseillons chaque client comme nous le ferions pour nous-mêmes : <b>si ce n'est pas dans votre intérêt, nous vous le disons.</b>`}</div>
+   <div class="honW">${a?"وقتاش تولّي مربحة ليك؟":"Quand cela deviendra-t-il rentable ?"}</div>
+   <ul class="honL">
+    <li><span>${a?`كي يوصل استهلاكك لـ ≈ <b class="num">${fmt(minK)} kWh</b> في الشهر أو أكثر`:`Quand votre consommation atteint environ <b class="num">${fmt(minK)} kWh</b>/mois ou plus`}</span></li>
+    <li><span>${a?"كان باش تزيد أجهزة: مكيّف، سخّان ماء كهربائي، مضخة، فرن كهربائي…":"Si vous ajoutez des équipements : climatiseur, chauffe-eau électrique, pompe, four…"}</span></li>
+    <li><span>${a?"كان باش تبني دار جديدة، تحل محل أو ورشة، أو تجمع العدّادات":"Si vous construisez, ouvrez un commerce ou un atelier, ou regroupez des compteurs"}</span></li>
+   </ul>
+   <div class="honB">
+    <button class="btn wa" type="button" id="honWa">${a?"اسأل مهندس مجانًا على واتساب":"Demander conseil gratuitement (WhatsApp)"}</button>
+    <button class="btn sec" type="button" id="honAll">${a?"شوف الأرقام على كل حال ↓":"Voir quand même les chiffres ↓"}</button>
+   </div>
+  </div>`;
+  $("honWa").onclick=sendLead;
+  $("honAll").onclick=()=>{$("res").classList.add("seeAll");track("simulateur-voir-chiffres","Simulateur non rentable : voir les chiffres");$("res").querySelector(".resGrid").scrollIntoView({behavior:"smooth",block:"start"});};
 }
 function drawMini(r){
   const recI=r.rec.i,a=ar();
@@ -892,7 +968,8 @@ function drawPay(r){
   $("pay").innerHTML=`<div class="pm star"><span class="tg">${a?"الأكثر طلبًا":"Le plus demandé"}</span><h4>${a?"قرض الستاغ":"Crédit STEG"}</h4>
     <div class="big"><span class="num">${fmt(c.pm)}</span> <small>DT / ${a?"شهر":"mois"}</small></div>
     <div class="ln"><span>${a?"القسط في الفاتورة":"Échéance sur facture"}</span><b class="num">${fmt(c.per2m)} DT / ${a?"شهرين":"2 mois"}</b></div>
-    <div class="ln"><span>${a?"المدة":"Durée"}</span><b>${CFG.credit.years} ${a?"سنين":"ans"}</b></div>
+    <div class="ln"><span>${a?"مبلغ القرض":"Montant du crédit"}</span><b class="num">${fmt(c.credit)} DT</b></div>
+    <div class="ln"><span>${a?"المدة":"Durée"}</span><b>${CFG.creditYears} ${a?"سنين":"ans"}</b></div>
     <div class="ln"><span>${a?"التسبقة":"Apport"}</span><b class="num">${c.apport?fmt(c.apport)+" DT":(a?"بدون تسبقة":"Sans apport")}</b></div>
     <div class="ok">💡 ${a?`التوفير في فاتورتك ≈ <span class="num">${fmt(save2m)} DT</span> كل شهرين ${save2m>=c.per2m?"— يغطي القسط كامل!":"— يغطي جزء كبير من القسط."}`:`Votre économie ≈ <span class="num">${fmt(save2m)} DT</span> / 2 mois ${save2m>=c.per2m?"— elle couvre l'échéance !":"— elle couvre une grande partie de l'échéance."}`}</div></div>
    <div class="pm"><h4>${a?"الدفع نقدًا":"Comptant"}</h4><div class="big"><span class="num">${fmt(r.ttc)}</span> <small>DT TTC</small></div></div>
@@ -942,9 +1019,19 @@ let rz=0;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(l
 /* ====================== WhatsApp ====================== */
 function summary(r){
   const a=ar(),s=r.sys,c=credit(r.ttc);
+  if(r.noGo) return `🤝 ${a?"طلب نصيحة مجانية":"Demande de conseil gratuit"} – PROELEC
+`+
+   `📍 ${r.gov?(a?r.gov[0]:r.gov[1]):"—"} · ${r.type==="res"?(a?"منزل":"Maison"):(a?"محل / ورشة":"Commerce / atelier")}
+`+
+   `🧾 ${a?"الفاتورة":"Facture"}: ~${fmt(r.billIn??r.bM*r.per)} DT ${PER[L][r.per]} (${fmt(r.mKwh)} kWh/${a?"شهر":"mois"})
+`+
+   `ℹ️ ${a?"المحاكي قال إن الطاقة الشمسية موش مربحة ليا توّا.":"Le simulateur indique que le solaire n'est pas rentable pour moi aujourd'hui."}
+
+`+
+   (a?"نحب نسأل مهندس على وضعيتي.":"J'aimerais l'avis d'un ingénieur sur ma situation.");
   return `🔔 ${a?"طلب زيارة تقنية مجانية":"Demande de visite technique gratuite"} – PROELEC\n`+
    `📍 ${r.gov?(a?r.gov[0]:r.gov[1]):"—"} · ${r.type==="res"?(a?"منزل":"Maison"):(a?"محل / ورشة":"Commerce / atelier")}\n`+
-   `🧾 ${a?"الفاتورة":"Facture"}: ~${fmt(r.bM*r.per)} DT ${PER[L][r.per]} (${fmt(r.mKwh)} kWh/${a?"شهر":"mois"})\n`+
+   `🧾 ${a?"الفاتورة":"Facture"}: ~${fmt(r.billIn??r.bM*r.per)} DT ${PER[L][r.per]} (${fmt(r.mKwh)} kWh/${a?"شهر":"mois"})\n`+
    `☀️ ${a?"المنظومة":"Installation"}: ${fmt(r.kwc,2)} kWc – ${s.n} × ${s.b} ${s.w} Wc${s.promo?` (PROMO −${fmt(s.old-s.p)} DT)`:""}\n`+
    `💰 ${a?"الثمن":"Prix"} clé en main: ${fmt(r.ttc)} DT TTC\n`+
    `💳 ${a?"قرض الستاغ":"Crédit STEG"}: ${c.apport?fmt(c.apport)+" DT + ":""}${fmt(c.per2m)} DT/${a?"شهرين":"2 mois"}\n`+
@@ -954,6 +1041,7 @@ function summary(r){
 function sendLead(){
   if(!last){location.hash="";$("sim").scrollIntoView({behavior:"smooth"});return;}
   const txt=summary(last);
+  track(last.noGo?"whatsapp-conseil":"whatsapp-demande",last.noGo?"WhatsApp : demande de conseil (non rentable)":"WhatsApp : demande de visite technique");
   if(CFG.callmebotKey){try{new Image().src=`https://api.callmebot.com/whatsapp.php?phone=+${CFG.whatsapp}&apikey=${CFG.callmebotKey}&text=${encodeURIComponent(txt)}`;}catch(e){}}
   const a=document.createElement("a");a.href=`https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(txt)}`;a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
 }
@@ -963,10 +1051,27 @@ $("send").onclick=sendLead; $("bbWa").onclick=sendLead;
 function applyLang(){
   document.documentElement.lang=L; document.documentElement.dir=ar()?"rtl":"ltr";
   document.querySelectorAll("[data-i]").forEach(e=>{const v=t(e.dataset.i);if(v==null)return;if(e.dataset.html)e.innerHTML=v;else e.textContent=v;});
-  fillGov(); drawOffers(); drawQuick(); if(last) calc();
+  fillGov(); fillMins(); drawOffers(); drawQuick(); if(last) calc();
 }
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".lang button").forEach(x=>x.classList.remove("on"));b.classList.add("on");L=b.dataset.l;applyLang();});
-fillGov(); drawOffers(); drawQuick();
+/* prix minimum + mensualité minimum (affichés en haut) calculés depuis la config */
+function fillMins(){const mp=Math.min(...PACKS.map(p=>p.p)),mm=credit(mp).pm;
+  document.querySelectorAll(".minP").forEach(e=>e.textContent=fmt(mp)+" DT");
+  document.querySelectorAll(".minM").forEach(e=>e.textContent=fmt(mm)+" DT");
+  document.querySelectorAll(".minMn").forEach(e=>e.textContent=fmt(mm));}
+
+/* ====================== statistiques (GoatCounter) ====================== */
+const tracked={};
+function track(path,title){if(tracked[path])return;tracked[path]=1;
+  const send=()=>{try{window.goatcounter.count({path,title:title||path,event:true});}catch(e){}};
+  if(window.goatcounter&&window.goatcounter.count)send();else(window.gcQ=window.gcQ||[]).push(send);}
+if(CFG.goatcounter){const g=document.createElement("script");g.async=true;g.src="https://gc.zgo.at/count.js";
+  g.setAttribute("data-goatcounter",`https://${CFG.goatcounter}.goatcounter.com/count`);
+  g.onload=()=>{(window.gcQ||[]).forEach(f=>f());window.gcQ=[];};document.head.appendChild(g);}
+$("val").addEventListener("input",()=>track("simulateur-saisie","Simulateur : a commencé à saisir"),{once:true});
+$("offres").addEventListener("click",e=>{if(e.target.closest(".of"))track("offres-clic","Offres : clic sur une carte");});
+
+fillGov(); fillMins(); drawOffers(); drawQuick();
 </script>
 </body>
 </html>
