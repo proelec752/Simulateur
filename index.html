@@ -501,6 +501,137 @@ footer{color:#64748B}
 .slowN{margin-top:12px;font-size:13px;line-height:1.6;color:#92400E;background:#FFFBEB;border:1px solid #FDE68A;border-radius:12px;padding:9px 12px}
 .slowN:empty{display:none}
 @media(min-width:760px){.honB{grid-template-columns:1fr 1fr}.hon{padding:28px}}
+/* ===== choix onduleur + frais ===== */
+.invPick{margin-top:14px}
+.invPick .lb{font-size:12.5px;color:#64748B;margin-bottom:8px}
+.invO{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.invO button{position:relative;text-align:start;border:1.5px solid #E2E8F0;background:#fff;border-radius:14px;padding:11px 12px;cursor:pointer;min-height:66px}
+.invO button b{display:block;font-size:15.5px;color:#0B1B3A}
+.invO button span{display:block;font-size:12px;color:#64748B;margin-top:1px}
+.invO button.on{border-color:#F59E0B;background:#FFF7ED;box-shadow:0 0 0 3px rgba(245,158,11,.16)}
+.invO .bdg{position:absolute;top:-9px;inset-inline-end:8px;font-size:10px;font-weight:800;letter-spacing:.5px;padding:1px 7px;border-radius:6px;background:#0B1B3A;color:#FFC24A}
+.xtra{margin-top:10px;font-size:12.5px;color:#475569;display:grid;gap:4px;border-top:1px dashed #FED7AA;padding-top:8px}
+.xtra div{display:flex;justify-content:space-between;gap:8px}
+.xtra b{color:#0B1B3A}
+.xtra .hint{color:#92400E}
+.xtra:empty{display:none}
+/* ===== carte devis PDF ===== */
+.dvc{margin-top:12px;border-radius:22px;padding:20px 16px;background:linear-gradient(150deg,#0B1B3A,#16294D);color:#fff;position:relative;overflow:hidden;box-shadow:0 16px 40px rgba(11,27,58,.25)}
+.dvc::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:linear-gradient(90deg,#FFB020,#F06A1B,#FF2E5E)}
+.dvc .kick{color:#FFC24A}
+.dvc h3{font-size:21px;line-height:1.3;margin:2px 0 6px}
+.dvc p{font-size:13.5px;color:#C7D2E5}
+.dvIn{display:grid;gap:8px;margin:14px 0 12px}
+.dvIn input{width:100%;height:52px;border:1.5px solid #2B4170;border-radius:14px;padding:0 14px;font-size:16px;background:#0F2142;color:#fff;outline:none}
+.dvIn input::placeholder{color:#7F8FB0}
+.dvIn input:focus{border-color:#FFB020}
+.dvIn input.bad{border-color:#FF8A7A}
+.dvc .btn{width:100%}
+.dvc .btn[disabled]{opacity:.7;cursor:wait}
+.dvMsg{font-size:12.5px;text-align:center;margin-top:9px;color:#C7D2E5;line-height:1.6}
+.dvMsg:empty{display:none}
+.dvMsg.e{color:#FFB4A8}
+@media(min-width:760px){.dvIn{grid-template-columns:1fr 1fr}}
+/* ===== document devis (rendu PDF) ===== */
+#dvHost{position:fixed;left:-10000px;top:0;width:794px;pointer-events:none}
+.dvp{width:794px;height:1123px;background:#fff;color:#0B1B3A;font-family:"Readex Pro",Arial,sans-serif;position:relative;overflow:hidden;font-size:11.5px;line-height:1.45;direction:ltr;text-align:left}
+.dvp *{box-sizing:border-box;margin:0;padding:0}
+.dvp .n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.dvTop{height:118px;background:linear-gradient(115deg,#0B1B3A 0%,#13284D 65%,#1C3563 100%);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 40px;position:relative}
+.dvBar{position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,#FFB020,#F06A1B,#FF2E5E)}
+.dvBrand{display:flex;align-items:center;gap:14px}
+.dvBrand svg{height:80px;width:auto}
+.dvBrand .tl{font-size:12px;color:#C7D2E5;line-height:1.55}
+.dvBrand .tl b{display:block;font-size:14px;color:#fff;font-weight:700}
+.dvBrand .iso{display:inline-block;margin-top:5px;font-size:10px;font-weight:600;color:#FFD27A;border:1px solid rgba(255,176,32,.5);border-radius:20px;padding:1px 9px}
+.dvTitle{text-align:right}
+.dvTitle h1{font-size:30px;font-weight:800;letter-spacing:5px;line-height:1}
+.dvTitle .es{font-size:11px;font-weight:700;letter-spacing:3px;color:#FFB020;margin-top:3px}
+.dvTitle table{margin-top:6px;margin-left:auto;border-collapse:collapse;font-size:10.5px;line-height:1.35}
+.dvTitle td{padding:1px 0 1px 12px;color:#C7D2E5}
+.dvTitle td b{color:#fff}
+.dvBody{padding:18px 40px 0}
+.dvParts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dvBox{border:1px solid #E2E8F0;border-radius:12px;overflow:hidden}
+.dvBox h4{font-size:10.5px;letter-spacing:1.5px;font-weight:700;background:#F1F5F9;color:#475569;padding:6px 12px;border-bottom:1px solid #E2E8F0}
+.dvBox h4.o{background:#FFF1E6;color:#C2410C;border-bottom-color:#FED7AA}
+.dvBox .c{padding:8px 12px;font-size:11.2px;line-height:1.5}
+.dvBox .c .nm{font-size:15px;font-weight:700;margin-bottom:2px}
+.dvBox .c span{color:#64748B}
+.dvT{width:100%;border-collapse:separate;border-spacing:0;margin-top:14px;font-size:11px;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden}
+.dvT th{background:#0B1B3A;color:#fff;font-weight:600;font-size:10.5px;letter-spacing:.5px;padding:8px 10px;text-align:left}
+.dvT th.r,.dvT td.r{text-align:right}
+.dvT th.c,.dvT td.c{text-align:center}
+.dvT td{padding:4px 10px;border-top:1px solid #EEF2F7;vertical-align:middle}
+.dvT td small{display:block;font-size:9.8px;color:#64748B;line-height:1.35}
+.dvT tr.pk td{background:#FFF7ED;font-weight:700;font-size:12px;border-top:0;padding:7px 10px}
+.dvT tr.pk td small{font-weight:400}
+.dvT td.id{color:#94A3B8;font-size:10px;width:38px}
+.dvT td.inc{color:#16A34A;font-weight:600;font-size:10.5px}
+.dvT tr.ad td{background:#F8FAFC;font-weight:600}
+.dvT tr.rm td{background:#FFF1F3;color:#E11D48;font-weight:700}
+.dvSum{display:grid;grid-template-columns:1fr 300px;gap:16px;margin-top:12px;align-items:start}
+.dvPay{border:1px solid #C7D7FE;background:#F5F8FF;border-radius:12px;padding:10px 12px}
+.dvPay h5{font-size:10.5px;letter-spacing:1.5px;color:#1E3A8A;margin-bottom:6px}
+.dvPay .ln{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed #C7D7FE;font-size:11px}
+.dvPay .ln:last-child{border:0}
+.dvPay .ln b{color:#1E3A8A}
+.dvTot{border:1px solid #E2E8F0;border-radius:12px;overflow:hidden}
+.dvTot div{display:flex;justify-content:space-between;padding:6px 12px;font-size:11.5px;border-bottom:1px solid #EEF2F7}
+.dvTot .st{color:#94A3B8;text-decoration:line-through}
+.dvTot .rm{color:#E11D48;font-weight:600}
+.dvTot .g{background:#0B1B3A;color:#fff;padding:11px 12px;border:0;align-items:center}
+.dvTot .g b{font-size:21px;color:#FFB020;font-weight:800}
+.dvWords{margin-top:8px;font-size:10.8px;color:#334155;background:#F8FAFC;border-left:4px solid #F06A1B;padding:7px 12px;border-radius:0 8px 8px 0}
+.dvSig{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
+.dvSig div{border:1px solid #CBD5E1;border-radius:12px;height:104px;padding:7px 12px;text-align:center;font-weight:700;font-size:11.5px;position:relative}
+.dvSig small{display:block;font-weight:400;color:#94A3B8;font-size:9.5px}
+.dvSig img{height:70px;width:auto;margin-top:4px}
+.dvFoot{position:absolute;left:40px;right:40px;bottom:18px;border-top:2px solid #0B1B3A;padding-top:7px;text-align:center;font-size:9.5px;color:#64748B;line-height:1.6}
+.dvFoot .pg{position:absolute;right:0;top:7px;font-weight:700;color:#0B1B3A}
+.dvMini{height:70px;background:#0B1B3A;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 40px;position:relative}
+.dvMini svg{height:50px;width:auto}
+.dvMini .r{text-align:right;font-size:11px;color:#C7D2E5}
+.dvMini .r b{display:block;color:#fff;font-size:15px}
+.dvH2{font-size:20px;font-weight:800;margin:22px 0 2px}
+.dvH2 + p{color:#64748B;font-size:11.5px}
+.dvK{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.dvK div{border:1px solid #E2E8F0;border-radius:12px;padding:10px 12px;background:#fff}
+.dvK span{display:block;font-size:10px;color:#64748B;letter-spacing:.3px}
+.dvK b{display:block;font-size:20px;font-weight:800;line-height:1.25}
+.dvK b small{font-size:11px;font-weight:600;color:#64748B}
+.dvK .g{background:#ECFDF3;border-color:#BBF7D0}.dvK .g b{color:#15803D}
+.dvBill{margin-top:14px;border:1px solid #FED7AA;border-radius:14px;padding:14px 16px;background:linear-gradient(135deg,#FFF7ED,#fff)}
+.dvBill h5{font-size:12.5px;margin-bottom:8px}
+.dvBl{display:grid;grid-template-columns:120px 1fr 110px;align-items:center;gap:12px;margin-top:7px;font-size:11.5px}
+.dvBl .bar{height:16px;border-radius:8px;background:#EEF2F7;overflow:hidden}
+.dvBl .bar i{display:block;height:100%;border-radius:8px}
+.dvBl b{text-align:right;font-size:15px}
+.dvBl .x{color:#DC2626;text-decoration:line-through}
+.dvBl .ok{color:#16A34A}
+.dvGain{margin-top:10px;display:flex;justify-content:space-between;align-items:center;background:#16A34A;color:#fff;border-radius:10px;padding:8px 14px;font-size:12px}
+.dvGain b{font-size:17px}
+.dvCh{margin-top:14px;border:1px solid #E2E8F0;border-radius:14px;padding:12px 14px}
+.dvCh h5{font-size:12.5px}
+.dvCh .lg{font-size:10px;color:#64748B;margin:3px 0 4px}
+.dvCh .lg i{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:-1px;margin:0 4px 0 10px}
+.dvCh .lg i.l{height:3px;width:14px;vertical-align:2px}
+.dvCols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.dvCols .dvBox .c{font-size:10.6px}
+.dvCols ul{list-style:none}
+.dvCols li{padding:2px 0 2px 14px;position:relative}
+.dvCols li::before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:50%;background:#F06A1B}
+.dvSteps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.dvSteps div{background:#0B1B3A;color:#fff;border-radius:12px;padding:10px 12px;font-size:10.5px;color:#C7D2E5}
+.dvSteps b{display:block;color:#fff;font-size:12px}
+.dvSteps em{font-style:normal;display:inline-block;width:20px;height:20px;border-radius:50%;background:#F06A1B;color:#fff;text-align:center;line-height:20px;font-weight:800;margin-bottom:4px}
+@media print{
+  body.printDv>*:not(#dvHost){display:none!important}
+  body.printDv{padding:0;background:#fff}
+  body.printDv #dvHost{position:static;left:0}
+  body.printDv .dvp{page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4;margin:0}
+}
 </style>
 </head>
 <body>
@@ -679,6 +810,7 @@ footer{color:#64748B}
           </div>
           <div class="covBar"><div class="t"><span data-i="covL">تغطي من استهلاكك السنوي</span><b class="num" id="rCov">0%</b></div><div class="bar"><i id="rCovB" style="width:0"></i></div></div>
           <div class="sumPrice" id="rPrice"></div>
+          <div class="invPick"><div class="lb" data-i="invL">اختار المحوّل (Onduleur)</div><div class="invO" id="invO"></div></div>
           <div class="kp">
             <div class="k g"><span data-i="k1">توفير في السنة</span><b><span class="num" id="kSave">0</span> <small>DT</small></b></div>
             <div class="k"><span data-i="k2">استرجاع المال</span><b><span class="num" id="kPay">0</span> <small data-i="yrs2">سنوات</small></b></div>
@@ -703,10 +835,18 @@ footer{color:#64748B}
         </div></details>
         <details class="acc"><summary><span class="ai">🔧</span><span data-i="a3">المنظومة الكاملة</span></summary><div class="accB"><div class="eqL" id="equip"></div></div></details>
         <details class="acc"><summary><span class="ai">📄</span><span data-i="a4">تقدير الثمن (Devis)</span></summary><div class="accB"><div class="quote" dir="ltr" id="quote"></div></div></details>
+        <div class="dvc" id="dvc">
+          <div class="kick">📄 DEVIS PDF</div>
+          <h3 data-i="dvH">حمّل الـ Devis متاعك بالـ PDF</h3>
+          <p data-i="dvS">Devis مفصّل باسمك: الثمن، المعدّات وطرق الخلاص — تنجم تطبعو ولا تبعثو لعايلتك.</p>
+          <div class="dvIn"><input id="dvName" type="text" autocomplete="name" maxlength="60" data-ph="dvN" placeholder="الاسم واللقب"><input id="dvTel" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" data-ph="dvT" placeholder="رقم الهاتف (اختياري)"></div>
+          <button class="btn pri" id="dvBtn" type="button"><span data-i="dvB">📥 تحميل الـ Devis (PDF)</span></button>
+          <div class="dvMsg" id="dvMsg"></div>
+        </div>
         <div class="cta">
           <div class="kick" data-i="ctaK">الخطوة الجاية</div>
           <h3 data-i="ctaH">احجز زيارتك التقنية المجانية</h3>
-          <ul><li data-i="c1">مهندس من PROELEC يعاين السطح ويدرس فاتورتك</li><li data-i="c2">عرض نهائي مفصّل وواضح</li><li data-i="c3">الزيارة مجانية، والقرار يبقى بيدك</li></ul>
+          <ul><li data-i="ct1">مهندس من PROELEC يعاين السطح ويدرس فاتورتك</li><li data-i="ct2">عرض نهائي مفصّل وواضح</li><li data-i="ct3">الزيارة مجانية، والقرار يبقى بيدك</li></ul>
           <button class="btn wa" id="send" type="button" style="width:100%"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3z"/></svg><span data-i="wa">إرسال الطلب عبر واتساب</span></button>
           <div class="partner"><svg class="lgCom" viewBox="0 0 429.5 332.2" role="img" aria-label="Service Commercial Photovoltaïque"><use href="#lgC"/></svg><div><span data-i="pk">يتابع طلبك فريقنا</span><b>Service Commercial Photovoltaïque</b><small data-i="pd">القسم التجاري · PROELEC</small></div></div>
           <div class="note" data-i="ctaN">نتيجتك مكتوبة وجاهزة في الرسالة — اضغط «إرسال» فقط</div>
@@ -742,6 +882,8 @@ footer{color:#64748B}
   <button class="btn wa" id="bbWa" type="button" style="display:none"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3z"/></svg><span data-i="bbWa">احجز زيارة</span></button>
 </div></div>
 
+<div id="dvHost" aria-hidden="true"></div>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB020"/><stop offset="1" stop-color="#F06A1B"/></linearGradient></defs></svg>
 
 <script>
@@ -766,6 +908,16 @@ const CFG = {
   creditYears: 7,
   // Honnêteté : au-delà de maxPayback ans de retour, on dit au client que ce n'est pas rentable
   okPayback: 9, maxPayback: 12,
+  // Onduleurs : AFORE inclus dans le prix des packs ; Sungrow = supplément selon la puissance (kW) de l'onduleur
+  invStd: "AFORE", invPrem: "Sungrow",
+  sungrowExtra: {2:450,3:620,4:650,5:780,6:1540,8:1630,10:1650,12:1800,15:1950,17:2000,20:2100,25:2300,30:2500,33:2650,36:2750,40:2900,50:3300,60:3700,80:4500,100:5300,110:5700},
+  // Transport + déplacement de l'équipe : ajouté si le client n'est pas à Sfax
+  homeGov: "Sfax", travel: 500,
+  // Devis PDF
+  devisValidity: 15,
+  phone: "58 384 400", waPhone: "53 467 977", email: "contact.proelec17@gmail.com",
+  mf: "1471898 F/A/M/000", rc: "B 08164932016",
+  banks: "UBCI : 11 0240001251 002 788 87  |  BIAT : 08 8020003210 018 050 81",
   // Statistiques de visites (GoatCounter) : code du compte créé sur goatcounter.com ("" = désactivé)
   goatcounter: "proelec752",
   prof: [.056,.064,.083,.092,.102,.106,.114,.104,.088,.075,.061,.055],
@@ -796,22 +948,23 @@ const T={ar:{},fr:{
  r1:"Votre installation idéale",covL:"Couvre votre consommation annuelle",k1:"Économie par an",k2:"Retour sur invest.",yrs2:"ans",k3:"Gain sur 25 ans",k4:"Production par an",mpL:"Comparer avec une autre installation :",
  bT:"Votre facture",bef:"Aujourd'hui",aft:"Avec le solaire",a1:"Modes de paiement",a2:"Production mois par mois",a3:"L'installation complète",a4:"Devis estimatif",
  lgP:"Production solaire",lgC:"Votre consommation",
- ctaK:"Étape suivante",ctaH:"Réservez votre visite technique gratuite",c1:"Un ingénieur PROELEC inspecte votre toiture et étudie votre facture",c2:"Une offre définitive claire et détaillée",c3:"Visite gratuite, la décision reste la vôtre",wa:"Envoyer la demande via WhatsApp",ctaN:"Votre résultat est déjà rédigé — appuyez simplement sur « Envoyer »",
+ ctaK:"Étape suivante",ctaH:"Réservez votre visite technique gratuite",ct1:"Un ingénieur PROELEC inspecte votre toiture et étudie votre facture",ct2:"Une offre définitive claire et détaillée",ct3:"Visite gratuite, la décision reste la vôtre",wa:"Envoyer la demande via WhatsApp",ctaN:"Votre résultat est déjà rédigé — appuyez simplement sur « Envoyer »",
  disc:"Résultat indicatif (productible 1600 kWh/kWc/an, tarifs STEG). Offre définitive après visite technique gratuite.",
  isoK:"Entreprise certifiée",isoH:"Une qualité reconnue à l'international",isoP:"PROELEC est certifiée ISO 9001, 14001 et 45001 : les standards des grands projets, jusque chez vous.",
  i1:"Qualité",i2:"Environnement",i3:"Santé & sécurité",
  v1:"Étude, pose, raccordement STEG — on s'occupe de tout",v2h:"Appli de monitoring",v2:"Suivez production et économies sur votre téléphone",v3h:"Service après-vente",v3:"Une équipe technique proche de vous",v4h:"Garantie 30 ans",v4:"Une installation garantie sur le long terme",
  foot:"Résultats indicatifs et non contractuels.",pk:"Votre demande est suivie par notre équipe",pd:"Service commercial · PROELEC",fp:"Service commercial photovoltaïque",fp2:"Service Commercial Photovoltaïque · PROELEC",kitK:"clé en main · tout est inclus",kitH:"Que contient votre installation ?",c1:"Panneaux AIKO / LONGi",c1d:"N-type haut rendement",c2:"Onduleur intelligent",c2d:"Convertit l'énergie et la raccorde à la STEG",c3:"Structure en acier galvanisé",c3d:"Robuste, inoxydable, résiste au vent",c4:"Coffrets de protection AC / DC",c4d:"Disjoncteurs et parafoudres pour votre sécurité",c5:"Câbles spéciaux photovoltaïque",c5d:"Résistent à la chaleur et aux UV, connecteurs sécurisés",c6:"Application de monitoring",c6d:"Suivez production et économies sur votre téléphone",bbGo:"Calculez vos économies",bbWa:"Réserver",
+ invL:"Choisissez votre onduleur :",dvH:"Téléchargez votre devis en PDF",dvS:"Un devis détaillé à votre nom : prix, équipements et modes de paiement — à imprimer ou à partager.",dvB:"📥 Télécharger mon devis (PDF)",dvN:"Nom et prénom",dvT:"Téléphone (facultatif)",
  errV:"Entrez le montant de votre facture.",errG:"Choisissez votre gouvernorat."}};
 document.querySelectorAll("[data-i]").forEach(e=>T.ar[e.dataset.i]=e.dataset.html?e.innerHTML:e.textContent);
-T.ar.errV="أدخل مبلغ فاتورتك."; T.ar.errG="اختار ولايتك.";
+T.ar.errV="أدخل مبلغ فاتورتك."; T.ar.dvN="الاسم واللقب"; T.ar.dvT="رقم الهاتف (اختياري)"; T.ar.errG="اختار ولايتك.";
 const PER={ar:{1:"كل شهر",2:"كل شهرين",3:"كل 3 أشهر",12:"في السنة"},fr:{1:"par mois",2:"tous les 2 mois",3:"tous les 3 mois",12:"par an"}};
 const MONTHS={ar:["جانفي","فيفري","مارس","أفريل","ماي","جوان","جويلية","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر"],fr:["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sep","Oct","Nov","Déc"]};
 let L="ar";
 const t=k=>T[L][k]??T.ar[k], ar=()=>L==="ar";
 const $=id=>document.getElementById(id);
 const fmt=(n,d=0)=>Number(n).toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
-const S={type:"res",mode:"dt",per:2,pick:null};
+const S={type:"res",mode:"dt",per:2,pick:null,brand:"std"};
 let last=null;
 
 /* ====================== offers ====================== */
@@ -882,7 +1035,13 @@ function econ(sys,mKwh,type){const res=Math.max(0,mKwh-sys.k*CFG.yield/12),save=
 function bestPayback(mKwh,type,extra){let b=999,bs=null;PACKS.concat(extra?[extra]:[]).forEach(p=>{const e=econ(p,mKwh,type);if(e.payback<b){b=e.payback;bs={sys:p,...e};}});return bs;}
 /* conso mensuelle minimale à partir de laquelle le solaire devient rentable */
 function minProfitableKwh(type){for(let m=50;m<=3000;m+=10)if(bestPayback(m,type).payback<=CFG.maxPayback)return m;return 3000;}
-function inverterKw(k,type){const mono=type==="res"&&k<=6.3,sizes=mono?[3,4,5,6]:[5,8,10,12,15,20,25,30,40,50,60,80,100,110],ac=k/1.15;return{kw:sizes.find(s=>s>=ac*0.95)||Math.ceil(ac/10)*10,mono};}
+function inverterKw(k,type){const mono=type==="res"&&k<=6.3,sizes=mono?[2,3,4,5,6]:[3,4,5,6,8,10,12,15,17,20,25,30,33,36,40,50,60,80,100,110],ac=k/1.15;return{kw:sizes.find(s=>s>=ac*0.95)||Math.ceil(ac/10)*10,mono};}
+/* supplément Sungrow : valeur du tableau, sinon interpolation / extrapolation, arrondi à 10 DT */
+function sgExtra(kw){const t=CFG.sungrowExtra,ks=Object.keys(t).map(Number).sort((a,b)=>a-b),r=x=>Math.round(x/10)*10;
+  if(t[kw]!=null)return t[kw]; if(kw<ks[0])return t[ks[0]];
+  for(let i=1;i<ks.length;i++)if(kw<ks[i]){const a=ks[i-1],b=ks[i];return r(t[a]+(t[b]-t[a])*(kw-a)/(b-a));}
+  const a=ks[ks.length-2],b=ks[ks.length-1];return r(t[b]+(t[b]-t[a])/(b-a)*(kw-b));}
+const invName=()=>S.brand==="sg"?CFG.invPrem:CFG.invStd;
 function calc(){
   const v=parseFloat($("val").value.replace(",","."));
   if(!v||v<=0){$("err").textContent=t("errV");$("val").focus();return false;}
@@ -892,10 +1051,11 @@ function calc(){
   const annual=mKwh*12,need=annual*(+$("cov").value/100)/CFG.yield,rec=recommend(need);
   const recSys=rec.i>=0?PACKS[rec.i]:rec.sys, sys=(S.pick===null||S.pick===-1)?recSys:PACKS[S.pick];
   const kwc=sys.k,prod=kwc*CFG.yield,residual=Math.max(0,mKwh-prod/12);
-  const bM=monthlyBill(mKwh,type),aM=monthlyBill(residual,type),save=(bM-aM)*12,ttc=sys.p;
+  const inv=inverterKw(kwc,type),invX=S.brand==="sg"?sgExtra(inv.kw):0,travel=gov&&gov[1]!==CFG.homeGov?CFG.travel:0;
+  const bM=monthlyBill(mKwh,type),aM=monthlyBill(residual,type),save=(bM-aM)*12,ttc=sys.p+invX+travel;
   let cum=0;for(let y=0;y<CFG.years;y++)cum+=save*Math.pow(1+CFG.escal,y)*Math.pow(1-CFG.degr,y);
   const best=bestPayback(mKwh,type,rec.i===-1?rec.sys:null), noGo=best.payback>CFG.maxPayback;
-  last={type,per,gov,mKwh,annual,rec,sys,kwc,prod,realCov:Math.min(1,prod/annual),bM,aM,save,ttc,net:ttc,cum:cum-ttc,payback:ttc/save,inv:inverterKw(kwc,type),best,noGo,billIn};
+  last={type,per,gov,mKwh,annual,rec,sys,kwc,prod,realCov:Math.min(1,prod/annual),bM,aM,save,ttc,net:ttc,cum:cum-ttc,payback:ttc/save,inv,invX,travel,brand:invName(),best,noGo,billIn,cum25:cum};
   render(last); return true;
 }
 function go(){S.pick=null;$("val").blur();if(calc()){$("res").classList.remove("seeAll");$("res").classList.add("show");
@@ -913,9 +1073,19 @@ function render(r){
   $("rMod").innerHTML=`<span class="num">${s.n} × ${s.b} ${s.w} Wc</span> · ${s.custom?(a?"على قياسك":"sur mesure"):(a?"منظومة":"Installation")+" "+s.lab+" kWc"}`;
   $("rTag").style.display=s.promo?"":"none";
   $("rCov").textContent=Math.round(r.realCov*100)+"%"; $("rCovB").style.width=(r.realCov*100)+"%";
-  $("rPrice").innerHTML=`${s.promo?`<span class="was num">${fmt(s.old)} DT</span>`:""}<div class="now"><b class="num">${fmt(r.ttc)}</b><small>DT TTC</small></div>
+  const xl=[];
+  if(r.invX||r.travel) xl.push(`<div><span>${a?"المنظومة":"Installation"} ${s.custom?"":s.lab+" kWc"}</span><b class="num">${fmt(s.p)} DT</b></div>`);
+  if(r.invX) xl.push(`<div><span>+ ${a?"محوّل":"Onduleur"} ${CFG.invPrem} ${r.inv.kw} kW</span><b class="num">+${fmt(r.invX)} DT</b></div>`);
+  if(r.travel) xl.push(`<div><span>+ ${a?"النقل وتنقّل الفريق (خارج صفاقس)":"Transport & déplacement (hors Sfax)"}</span><b class="num">+${fmt(r.travel)} DT</b></div>`);
+  if(!r.gov) xl.push(`<div class="hint"><span>📍 ${a?`خارج صفاقس: + ${fmt(CFG.travel)} DT نقل وتنقّل الفريق`:`Hors Sfax : + ${fmt(CFG.travel)} DT transport & déplacement`}</span></div>`);
+  $("rPrice").innerHTML=`${s.promo?`<span class="was num">${fmt(s.old+r.invX+r.travel)} DT</span>`:""}<div class="now"><b class="num">${fmt(r.ttc)}</b><small>DT TTC</small></div>
     ${s.promo?`<span class="saveB">🔥 ${a?"وفّر":"Économisez"} <span class="num">${fmt(s.old-s.p)} DT</span></span>`:""}
+    <div class="xtra">${xl.join("")}</div>
     <div class="monthly">💳 ${a?"أو":"ou"} <b class="num">${fmt(c.pm)} DT</b> / ${a?"شهر مع قرض الستاغ":"mois avec le crédit STEG"} · ${c.apport?`${a?"تسبقة":"apport"} <span class="num">${fmt(c.apport)} DT</span>`:(a?"بدون تسبقة":"sans apport")}</div>`;
+  const sgx=sgExtra(r.inv.kw);
+  $("invO").innerHTML=`<button type="button" data-b="std" class="${S.brand==="std"?"on":""}"><b>${CFG.invStd} <span class="num" style="display:inline;font-size:13px;color:#64748B">${r.inv.kw} kW</span></b><span>${a?"مشمول في الثمن ✓":"Inclus dans le prix ✓"}</span></button>
+    <button type="button" data-b="sg" class="${S.brand==="sg"?"on":""}"><i class="bdg">PREMIUM</i><b>${CFG.invPrem} <span class="num" style="display:inline;font-size:13px;color:#64748B">${r.inv.kw} kW</span></b><span>${a?"الأفضل":"Le meilleur"} · <span class="num" style="display:inline">+${fmt(sgx)} DT</span></span></button>`;
+  $("invO").querySelectorAll("button").forEach(b=>b.onclick=()=>{S.brand=b.dataset.b;calc();});
   $("kSave").textContent=fmt(r.save); $("kPay").textContent=r.payback>40?"> 40":fmt(r.payback,1);
   $("k25").textContent=fmt(Math.max(0,r.cum)); $("kProd").textContent=fmt(r.prod);
   document.querySelectorAll(".perTxt").forEach(e=>e.textContent=PER[L][r.per]);
@@ -979,7 +1149,7 @@ const ICO={pan:`<svg viewBox="0 0 64 64"><defs><linearGradient id="ic1b" x1="0" 
 function drawEquip(r){
   const a=ar(),s=r.sys,i=r.inv;
   $("equip").innerHTML=[["pan",a?"اللوحات الشمسية":"Modules PV",`${s.n} × ${s.b} ${s.w} Wc`,a?`N-type · ≈ ${fmt(s.n*CFG.m2PerPanel)} m² على السطح`:`N-type · ≈ ${fmt(s.n*CFG.m2PerPanel)} m² de toiture`],
-   ["inv",a?"المحوّل الطاقة (Onduleur)":"Onduleur intelligent",`${i.kw} kW · ${i.mono?(a?"أحادي الطور":"Monophasé"):(a?"ثلاثي الطور":"Triphasé")}`,a?"مربوط بالشبكة + تطبيق مراقبة":"Réseau + appli de monitoring"],
+   ["inv",a?"المحوّل الطاقة (Onduleur)":"Onduleur intelligent",`${r.brand} ${i.kw} kW ·${i.mono?(a?"أحادي الطور":"Monophasé"):(a?"ثلاثي الطور":"Triphasé")}`,a?"مربوط بالشبكة + تطبيق مراقبة":"Réseau + appli de monitoring"],
    ["str",a?"حامل اللوحات (Structure)":"Structure",a?"حديد مغلفن (Acier galvanisé)":"Acier galvanisé",a?"سطح خرساني أو صفائح":"Dalle béton ou bac acier"],
    ["box",a?"الحماية و الكابلات":"Protections & câblage",a?"صناديق حماية DC / AC":"Coffrets DC / AC",a?"مانع صواعق · تأريض":"Parafoudres · mise à la terre"]]
    .concat([["app",a?"تطبيق المراقبة":"Application de monitoring",a?"على تليفونك":"Sur votre téléphone",a?"الإنتاج والتوفير لحظة بلحظة":"Production et économies en temps réel"]])
@@ -988,10 +1158,12 @@ function drawEquip(r){
 function drawQuote(r){
   const d=new Date(),s=r.sys,i=r.inv,c=credit(r.ttc);
   const ref="SIM-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+"-"+Math.round(r.kwc*100);
-  const L1=[[`Modules ${s.b} ${s.w} Wc`,`${s.n} modules · ${fmt(s.k,2)} kWc`],["Onduleur réseau intelligent",`${i.kw} kW ${i.mono?"mono":"tri"} · monitoring inclus`],["Structure de fixation","Acier galvanisé, visserie inox"],["Câblage & protections DC/AC","Câble solaire, coffrets, parafoudres, terre"],["Pose & mise en service","Équipe PROELEC qualifiée"],["Dossier de raccordement STEG","Compteur bidirectionnel"],["SAV & garantie 30 ans","Suivi et maintenance"]];
+  const L1=[[`Modules ${s.b} ${s.w} Wc`,`${s.n} modules · ${fmt(s.k,2)} kWc`],[`Onduleur réseau ${r.brand}`,`${i.kw} kW ${i.mono?"mono":"tri"} · monitoring inclus`],["Structure de fixation","Acier galvanisé, visserie inox"],["Câblage & protections DC/AC","Câble solaire, coffrets, parafoudres, terre"],["Pose & mise en service","Équipe PROELEC qualifiée"],["Dossier de raccordement STEG","Compteur bidirectionnel"],["SAV & garantie 30 ans","Suivi et maintenance"]];
   $("quote").innerHTML=`<div class="qh"><div class="co">PROELEC<small>ISO 9001 · 14001 · 45001</small></div><div class="ref">Devis estimatif <b>${ref}</b><br>${d.toLocaleDateString("fr-FR")}${r.gov?" · "+r.gov[1]:""}</div></div>
    <table class="q"><tr><th>Pack clé en main ${s.custom?"sur mesure":s.lab+" kWc"}</th><th></th></tr>${L1.map(l=>`<tr><td>${l[0]}<small>${l[1]}</small></td><td class="p">✓ Inclus</td></tr>`).join("")}</table>
    <div class="tot">${s.promo?`<div><span>Prix normal</span><span style="text-decoration:line-through;color:#8A94A8">${fmt(s.old)} DT</span></div><div class="sub"><span>Remise PROMO</span><span>− ${fmt(s.old-s.p)} DT</span></div>`:""}
+   ${r.invX?`<div><span>Option onduleur ${CFG.invPrem} ${i.kw} kW</span><span>+ ${fmt(r.invX)} DT</span></div>`:""}
+   ${r.travel?`<div><span>Transport & déplacement (hors Sfax)</span><span>+ ${fmt(r.travel)} DT</span></div>`:""}
    <div class="grand"><span>Total TTC</span><span>${fmt(r.ttc)} DT</span></div><div><span>Crédit STEG</span><span>${c.apport?fmt(c.apport)+" DT + ":"Sans apport · "}${fmt(c.per2m)} DT / 2 mois</span></div></div>
    <div class="qnote">Prix indicatifs TTC, non contractuels. Modalités de paiement négociables. Offre définitive après visite technique gratuite.</div>`;
 }
@@ -1033,6 +1205,8 @@ function summary(r){
    `📍 ${r.gov?(a?r.gov[0]:r.gov[1]):"—"} · ${r.type==="res"?(a?"منزل":"Maison"):(a?"محل / ورشة":"Commerce / atelier")}\n`+
    `🧾 ${a?"الفاتورة":"Facture"}: ~${fmt(r.billIn??r.bM*r.per)} DT ${PER[L][r.per]} (${fmt(r.mKwh)} kWh/${a?"شهر":"mois"})\n`+
    `☀️ ${a?"المنظومة":"Installation"}: ${fmt(r.kwc,2)} kWc – ${s.n} × ${s.b} ${s.w} Wc${s.promo?` (PROMO −${fmt(s.old-s.p)} DT)`:""}\n`+
+   `⚡ Onduleur: ${r.brand} ${r.inv.kw} kW${r.invX?` (+${fmt(r.invX)} DT)`:""}\n`+
+   (r.travel?`🚚 ${a?"النقل والتنقّل":"Transport & déplacement"}: +${fmt(r.travel)} DT\n`:"")+
    `💰 ${a?"الثمن":"Prix"} clé en main: ${fmt(r.ttc)} DT TTC\n`+
    `💳 ${a?"قرض الستاغ":"Crédit STEG"}: ${c.apport?fmt(c.apport)+" DT + ":""}${fmt(c.per2m)} DT/${a?"شهرين":"2 mois"}\n`+
    `📉 ${a?"التوفير":"Économie"}: ~${fmt(r.save)} DT/${a?"سنة":"an"}\n\n`+
@@ -1047,10 +1221,140 @@ function sendLead(){
 }
 $("send").onclick=sendLead; $("bbWa").onclick=sendLead;
 
+/* ====================== DEVIS PDF ====================== */
+const STAMP="data:image/png;base64,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";
+function frWords(n){n=Math.round(n);const u=["zéro","un","deux","trois","quatre","cinq","six","sept","huit","neuf","dix","onze","douze","treize","quatorze","quinze","seize","dix-sept","dix-huit","dix-neuf"],d=["","","vingt","trente","quarante","cinquante","soixante","soixante","quatre-vingt","quatre-vingt"];
+  const b100=x=>{if(x<20)return u[x];const t=Math.floor(x/10),o=x%10;if(t===7||t===9)return d[t]+(t===7&&o===1?" et ":"-")+u[10+o];if(!o)return d[t]+(t===8?"s":"");if(o===1&&t!==8)return d[t]+" et un";return d[t]+"-"+u[o];};
+  const b1000=x=>{const c=Math.floor(x/100),r=x%100;let s="";if(c)s=(c>1?u[c]+" ":"")+"cent"+(c>1&&!r?"s":"");if(r)s+=(s?" ":"")+b100(r);return s;};
+  if(!n)return"zéro";let s="";const m=Math.floor(n/1e6),k=Math.floor(n%1e6/1000),r=n%1000;
+  if(m)s+=b1000(m)+" million"+(m>1?"s":"");if(k)s+=(s?" ":"")+(k===1?"":b1000(k)+" ")+"mille";if(r)s+=(s?" ":"")+b1000(r);return s;}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dd=d=>d.toLocaleDateString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric"});
+function logoSvg(){const g=document.getElementById("lgP");return `<svg viewBox="0 0 350.2 329" xmlns="http://www.w3.org/2000/svg">${g?g.innerHTML:""}</svg>`;}
+function dvFoot(pg){return `<div class="dvFoot"><span class="pg">${pg}/2</span>${CFG.banks}<br>PROELEC – Sfax, Rue Gremda Km 0.5, Imm. VINCI A83 – Tél : ${CFG.phone} – WhatsApp : ${CFG.waPhone} – ${CFG.email}</div>`;}
+function devisChart(r){
+  const W=686,H=170,pl=36,pr=8,pt=8,pb=22,prodM=CFG.prof.map(p=>p*r.prod),cons=r.mKwh,max=Math.max(...prodM,cons)*1.15,step=niceStep(max/4),top=Math.ceil(max/step)*step;
+  const y=v=>pt+(H-pt-pb)*(1-v/top),bw=(W-pl-pr)/12;let s=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="display:block" xmlns="http://www.w3.org/2000/svg" font-family="Arial">`;
+  for(let v=0;v<=top+1e-6;v+=step)s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}" stroke="#E2E8F0" ${v?'stroke-dasharray="3 4"':''}/><text x="${pl-6}" y="${y(v)+3.5}" fill="#94A3B8" font-size="9.5" text-anchor="end">${fmt(v)}</text>`;
+  prodM.forEach((p,i)=>{const x=pl+i*bw+bw*.18,w=bw*.64;s+=`<rect x="${x}" y="${y(p)}" width="${w}" height="${y(0)-y(p)}" rx="3" fill="${p>=cons?"#F06A1B":"#FFB020"}"/><text x="${pl+i*bw+bw/2}" y="${H-6}" fill="#64748B" font-size="9.5" text-anchor="middle">${MONTHS.fr[i]}</text>`;});
+  s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(cons)}" y2="${y(cons)}" stroke="#2563EB" stroke-width="2.5"/><text x="${W-pr-4}" y="${y(cons)-5}" fill="#2563EB" font-size="10" font-weight="700" text-anchor="end">Votre conso ≈ ${fmt(cons)} kWh/mois</text></svg>`;
+  return s;}
+function devisHTML(r,cl){
+  const s=r.sys,i=r.inv,c=credit(r.ttc),now=new Date(),until=new Date(now.getTime()+CFG.devisValidity*864e5),gov=r.gov?r.gov[1]:"—";
+  const base=s.promo?s.old:s.p, perL={1:"par mois",2:"tous les 2 mois",3:"tous les 3 mois",12:"par an"}[r.per];
+  const bill=r.billIn??r.bM*r.per, billAft=r.aM*r.per, co2=r.prod*CFG.co2/1000;
+  const comp=[
+    [`Modules photovoltaïques ${s.b} ${s.w} Wc`,`N-type haut rendement · ${fmt(s.k,2)} kWc · ≈ ${fmt(s.n*CFG.m2PerPanel)} m² de toiture`,s.n],
+    [`Onduleur réseau ${r.brand} ${i.kw} kW`,`${i.mono?"Monophasé":"Triphasé"} · injection réseau STEG · monitoring Wi-Fi`,1],
+    ["Structure de fixation en acier galvanisé","Dalle béton ou bac acier · visserie inox · résistante au vent",1],
+    ["Coffrets de protection DC / AC & câblage solaire","Disjoncteurs, parafoudres, mise à la terre · câble PV anti-UV · connecteurs MC4","1 lot"],
+    ["Pose, mise en service & dossier STEG","Équipe PROELEC qualifiée · raccordement · compteur bidirectionnel","Forfait"],
+    ["Application de monitoring, SAV & garantie 30 ans","Suivi de la production en temps réel · maintenance","Inclus"]];
+  const rows=comp.map((x,k)=>`<tr><td class="id">1.${k+1}</td><td>${x[0]}<small>${x[1]}</small></td><td class="c n">${x[2]}</td><td class="r inc">✓ Inclus</td></tr>`).join("");
+  let n=1,extra="";
+  if(s.promo)extra+=`<tr class="rm"><td class="id"></td><td>Remise PROMO</td><td class="c">–</td><td class="r n">− ${fmt(s.old-s.p)} DT</td></tr>`;
+  if(r.invX)extra+=`<tr class="ad"><td class="id">${++n}</td><td>Option onduleur premium ${CFG.invPrem} ${i.kw} kW<small>Remplace l'onduleur ${CFG.invStd} inclus dans le pack</small></td><td class="c">1</td><td class="r n">+ ${fmt(r.invX)} DT</td></tr>`;
+  if(r.travel)extra+=`<tr class="ad"><td class="id">${++n}</td><td>Transport du matériel & déplacement de l'équipe<small>Chantier hors Sfax · ${esc(gov)}</small></td><td class="c">Forfait</td><td class="r n">+ ${fmt(r.travel)} DT</td></tr>`;
+  const top=`<div class="dvTop"><div class="dvBrand">${logoSvg()}<div class="tl"><b>Énergie solaire · clé en main</b>Étude · fourniture · pose · raccordement STEG<br><span class="iso">ISO 9001 · ISO 14001 · ISO 45001</span></div></div>
+    <div class="dvTitle"><h1>DEVIS</h1><div class="es">ESTIMATIF · PHOTOVOLTAÏQUE</div><table><tr><td>N°</td><td><b>${cl.ref}</b></td></tr><tr><td>Date</td><td><b>${dd(now)}</b></td></tr><tr><td>Valable jusqu'au</td><td><b>${dd(until)}</b></td></tr></table></div><div class="dvBar"></div></div>`;
+  const p1=`<div class="dvp">${top}<div class="dvBody">
+    <div class="dvParts">
+      <div class="dvBox"><h4>ÉMETTEUR</h4><div class="c"><div class="nm">PROELEC</div>Sfax – Rue Gremda Km 0.5, Imm. VINCI A83<br><span>Tél :</span> ${CFG.phone} · <span>WhatsApp :</span> ${CFG.waPhone}<br><span>E-mail :</span> ${CFG.email}<br><span>MF :</span> ${CFG.mf} · <span>RC :</span> ${CFG.rc}</div></div>
+      <div class="dvBox"><h4 class="o">CLIENT</h4><div class="c"><div class="nm">${esc(cl.name)}</div>${cl.tel?`<span>Tél :</span> ${esc(cl.tel)}<br>`:""}<span>Gouvernorat :</span> ${esc(gov)} · <span>Local :</span> ${r.type==="res"?"Résidentiel (maison)":"Professionnel (commerce / atelier)"}<br><span>Facture STEG :</span> ≈ ${fmt(bill)} DT ${perL}<br><span>Consommation :</span> ≈ ${fmt(r.mKwh)} kWh / mois · ${fmt(r.annual)} kWh / an</div></div>
+    </div>
+    <table class="dvT"><tr><th style="width:38px">N°</th><th>Désignation</th><th class="c" style="width:70px">Qté</th><th class="r" style="width:120px">Montant TTC</th></tr>
+      <tr class="pk"><td class="id">1</td><td>Installation photovoltaïque raccordée au réseau – ${fmt(s.k,2)} kWc – clé en main<small>Pack ${s.custom?"sur mesure":s.lab+" kWc"} · production estimée ≈ ${fmt(r.prod)} kWh / an</small></td><td class="c">1</td><td class="r n">${fmt(base)} DT</td></tr>
+      ${rows}${extra}</table>
+    <div class="dvSum">
+      <div><div class="dvPay"><h5>MODES DE PAIEMENT</h5>
+        <div class="ln"><span>Crédit STEG sur ${CFG.creditYears} ans (sur facture)</span><b class="n">${c.apport?fmt(c.apport)+" DT + ":""}${fmt(c.per2m)} DT / 2 mois</b></div>
+        <div class="ln"><span>soit environ</span><b class="n">${fmt(c.pm)} DT / mois${c.apport?"":" · sans apport"}</b></div>
+        <div class="ln"><span>Paiement comptant</span><b class="n">${fmt(r.ttc)} DT</b></div>
+        <div class="ln"><span>Autres modalités</span><b>Négociables</b></div></div>
+        <div class="dvWords">Arrêté le présent devis à la somme de : <b>${(w=>w[0].toUpperCase()+w.slice(1))(frWords(r.ttc))} dinars TTC</b>.</div></div>
+      <div class="dvTot">
+        ${(s.promo||r.invX||r.travel)?`<div><span>Pack ${s.custom?"sur mesure":s.lab+" kWc"}</span><span class="n ${s.promo?"st":""}">${fmt(base)} DT</span></div>`:""}
+        ${s.promo?`<div class="rm"><span>Remise PROMO</span><span class="n">− ${fmt(s.old-s.p)} DT</span></div>`:""}
+        ${r.invX?`<div><span>Onduleur ${CFG.invPrem}</span><span class="n">+ ${fmt(r.invX)} DT</span></div>`:""}
+        ${r.travel?`<div><span>Transport & déplacement</span><span class="n">+ ${fmt(r.travel)} DT</span></div>`:""}
+        <div><span>Prix toutes taxes comprises</span><span>TTC</span></div>
+        <div class="g"><span>TOTAL TTC</span><b class="n">${fmt(r.ttc)} DT</b></div></div>
+    </div>
+    <div class="dvSig"><div>Cachet & signature – PROELEC<br><img src="${STAMP}" alt=""></div><div>Bon pour accord – Client<small>Date, cachet & signature précédés de la mention « Bon pour accord »</small></div></div>
+  </div>${dvFoot(1)}</div>`;
+  const wBef=100,wAft=Math.max(3,billAft/bill*100);
+  const p2=`<div class="dvp"><div class="dvMini">${logoSvg()}<div class="r"><b>Étude d'économie</b>Devis N° ${cl.ref} · ${esc(cl.name)}</div><div class="dvBar"></div></div><div class="dvBody">
+    <div class="dvH2">Ce que le solaire change pour vous</div><p>Estimation basée sur votre facture STEG et sur l'ensoleillement moyen en Tunisie.</p>
+    <div class="dvK"><div><span>PUISSANCE INSTALLÉE</span><b class="n">${fmt(r.kwc,2)} <small>kWc</small></b></div><div><span>PRODUCTION / AN</span><b class="n">${fmt(r.prod)} <small>kWh</small></b></div><div><span>COUVERTURE DE VOTRE CONSO</span><b class="n">${Math.round(r.realCov*100)} <small>%</small></b></div><div class="g"><span>ÉCONOMIE / AN</span><b class="n">${fmt(r.save)} <small>DT</small></b></div></div>
+    <div class="dvBill"><h5>Votre facture STEG – ${perL}</h5>
+      <div class="dvBl"><span>Aujourd'hui</span><div class="bar"><i style="width:${wBef}%;background:#94A3B8"></i></div><b class="x n">${fmt(bill)} DT</b></div>
+      <div class="dvBl"><span>Avec le solaire</span><div class="bar"><i style="width:${wAft}%;background:#22C55E"></i></div><b class="ok n">${fmt(billAft)} DT</b></div>
+      <div class="dvGain"><span>💰 Vous gardez dans votre poche</span><b class="n">${fmt(Math.max(0,bill-billAft))} DT ${perL} · ${fmt(r.save)} DT / an</b></div></div>
+    <div class="dvCh"><h5>Production solaire mois par mois (kWh)</h5><div class="lg"><i style="background:#FFB020;margin-left:0"></i>Production<i class="l" style="background:#2563EB"></i>Votre consommation mensuelle</div>${devisChart(r)}</div>
+    <div class="dvCols">
+      <div class="dvBox"><h4 class="o">RENTABILITÉ</h4><div class="c"><ul>
+        <li>Retour sur investissement : <b class="n">≈ ${r.payback>40?"> 40":fmt(r.payback,1)} ans</b></li>
+        <li>Économies cumulées sur ${CFG.years} ans : <b class="n">≈ ${fmt(r.cum25)} DT</b></li>
+        <li>Gain net sur ${CFG.years} ans (après investissement) : <b class="n">≈ ${fmt(Math.max(0,r.cum))} DT</b></li>
+        <li>CO₂ évité : <b class="n">≈ ${fmt(co2,1)} t / an</b></li>
+        <li>Durée de vie de l'installation : <b>plus de 25 ans</b></li></ul></div></div>
+      <div class="dvBox"><h4>CONDITIONS</h4><div class="c"><ul>
+        <li>Devis estimatif établi à partir des informations saisies par le client.</li>
+        <li>Prix définitif confirmé après la visite technique gratuite.</li>
+        <li>Validité : ${CFG.devisValidity} jours (jusqu'au ${dd(until)}).</li>
+        <li>Hypothèses : ${CFG.yield} kWh/kWc/an, tarifs STEG en vigueur, hausse ${CFG.escal*100}%/an, dégradation ${CFG.degr*100}%/an.</li>
+        <li>Crédit STEG sous réserve d'acceptation du dossier par la STEG.</li></ul></div></div>
+    </div>
+    <div class="dvSteps"><div><em>1</em><b>Visite technique gratuite</b>Un ingénieur PROELEC inspecte votre toiture.</div><div><em>2</em><b>Offre définitive</b>Claire et détaillée, la décision reste la vôtre.</div><div><em>3</em><b>Pose clé en main</b>Raccordement STEG et économies dès le 1er mois.</div></div>
+    <div class="dvWords" style="margin-top:14px">📲 Pour réserver votre visite : <b>WhatsApp ${CFG.waPhone}</b> en indiquant le N° de devis <b>${cl.ref}</b>.</div>
+  </div>${dvFoot(2)}</div>`;
+  return p1+p2;}
+let libP=null;
+function loadScript(src){return new Promise((ok,ko)=>{const s=document.createElement("script");s.src=src;s.async=true;s.onload=ok;s.onerror=()=>{s.remove();ko(new Error(src));};document.head.appendChild(s);});}
+function loadLibs(){if(libP)return libP;const one=(a,b)=>loadScript(a).catch(()=>loadScript(b));
+  libP=Promise.all([
+    window.html2canvas?1:one("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js","https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"),
+    (window.jspdf&&window.jspdf.jsPDF)?1:one("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js","https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js")
+  ]).catch(e=>{libP=null;throw e;});return libP;}
+const inApp=()=>/FBAN|FBAV|FB_IAB|Instagram|Messenger|Line\/|wv\)/i.test(navigator.userAgent);
+const dvMsg=(t,e)=>{$("dvMsg").innerHTML=t;$("dvMsg").classList.toggle("e",!!e);};
+function printFallback(){document.body.classList.add("printDv");
+  const done=()=>{document.body.classList.remove("printDv");$("dvHost").innerHTML="";removeEventListener("afterprint",done);};
+  addEventListener("afterprint",done);setTimeout(()=>window.print(),300);}
+async function makeDevis(){
+  const a=ar();
+  if(!last){$("sim").scrollIntoView({behavior:"smooth"});return;}
+  const name=$("dvName").value.trim(),tel=$("dvTel").value.trim();
+  if(name.length<2){$("dvName").classList.add("bad");$("dvName").focus();dvMsg(a?"✍️ اكتب اسمك باش يطلع الـ Devis باسمك.":"✍️ Indiquez votre nom pour personnaliser le devis.",1);return;}
+  if(!last.gov){$("gov").classList.add("bad");$("sim").scrollIntoView({behavior:"smooth",block:"center"});dvMsg(a?"📍 اختار ولايتك (السؤال 3) باش نحسبو مصاريف النقل، ومن بعد عاود اضغط.":"📍 Choisissez votre gouvernorat (question 3) pour calculer le transport, puis réessayez.",1);return;}
+  const d=new Date(),ref="DV-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+"-"+String(Math.floor(1000+Math.random()*9000));
+  const btn=$("dvBtn");btn.disabled=true;dvMsg(a?"⏳ قاعدين نحضّرو الـ Devis متاعك…":"⏳ Préparation de votre devis…");
+  $("dvHost").innerHTML=devisHTML(last,{name,tel,ref});
+  track("devis-pdf","Devis PDF généré");
+  try{
+    await loadLibs(); if(document.fonts&&document.fonts.ready) await document.fonts.ready;
+    await Promise.all([...$("dvHost").querySelectorAll("img")].map(im=>im.complete?1:new Promise(r=>{im.onload=im.onerror=r;})));
+    const pdf=new window.jspdf.jsPDF({unit:"mm",format:"a4",compress:true}),pages=$("dvHost").querySelectorAll(".dvp");
+    for(let k=0;k<pages.length;k++){const cv=await window.html2canvas(pages[k],{scale:2,backgroundColor:"#ffffff",logging:false,useCORS:true,windowWidth:1200});
+      if(k)pdf.addPage();pdf.addImage(cv.toDataURL("image/jpeg",0.9),"JPEG",0,0,210,297,undefined,"FAST");}
+    pdf.setProperties({title:`Devis PROELEC ${ref}`,author:"PROELEC",subject:"Devis estimatif photovoltaïque"});
+    const fn=`Devis_PROELEC_${ref}.pdf`;
+    if(inApp()){const url=URL.createObjectURL(pdf.output("blob"));if(!window.open(url,"_blank"))location.href=url;
+      dvMsg(a?"✅ الـ Devis جاهز. كان ما تحلّش، افتح الصفحة في Chrome ولا Safari (⋯ ← Ouvrir dans le navigateur) وعاود.":"✅ Devis prêt. S'il ne s'ouvre pas, ouvrez la page dans Chrome ou Safari (⋯ → Ouvrir dans le navigateur) et réessayez.");}
+    else{pdf.save(fn);dvMsg(a?`✅ تمّ تحميل الـ Devis <b class="num">${ref}</b>. ابعثلنا الرقم على واتساب باش نحجزولك الزيارة.`:`✅ Devis <b class="num">${ref}</b> téléchargé. Envoyez-nous ce numéro sur WhatsApp pour réserver la visite.`);}
+    $("dvHost").innerHTML="";
+  }catch(e){
+    dvMsg(a?"🖨️ اختار «Enregistrer en PDF» في نافذة الطباعة.":"🖨️ Choisissez « Enregistrer en PDF » dans la fenêtre d'impression.");printFallback();
+  }finally{btn.disabled=false;}
+}
+$("dvBtn").onclick=makeDevis;
+$("dvName").addEventListener("input",()=>{$("dvName").classList.remove("bad");dvMsg("");});
+
 /* ====================== language ====================== */
 function applyLang(){
   document.documentElement.lang=L; document.documentElement.dir=ar()?"rtl":"ltr";
   document.querySelectorAll("[data-i]").forEach(e=>{const v=t(e.dataset.i);if(v==null)return;if(e.dataset.html)e.innerHTML=v;else e.textContent=v;});
+  document.querySelectorAll("[data-ph]").forEach(e=>e.placeholder=t(e.dataset.ph));
   fillGov(); fillMins(); drawOffers(); drawQuick(); if(last) calc();
 }
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".lang button").forEach(x=>x.classList.remove("on"));b.classList.add("on");L=b.dataset.l;applyLang();});
