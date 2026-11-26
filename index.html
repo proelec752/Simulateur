@@ -726,6 +726,31 @@ body:not(.pump) #bbPump{display:none!important}
   .pArt{display:block}
   .pArt svg{width:100%;max-width:460px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 18px 40px rgba(2,132,199,.22))}
 }
+/* ===== devis pompage ===== */
+.dvc.pw{background:linear-gradient(150deg,#0C4A6E,#0F766E);box-shadow:0 16px 40px rgba(12,74,110,.25)}
+.dvc.pw::after{background:linear-gradient(90deg,#38BDF8,#0EA5E9,#14B8A6)}
+.dvc.pw .kick{color:#A5F3FC}
+.dvc.pw p{color:#CFFAFE}
+.dvc.pw .dvIn input{background:#0B3B57;border-color:#1E6A8A}
+.dvc.pw .dvIn input:focus{border-color:#38BDF8}
+.pdvSel{margin-top:10px;font-size:13px;background:rgba(255,255,255,.10);border:1px dashed rgba(165,243,252,.5);border-radius:12px;padding:8px 12px;color:#E0F7FF}
+.pdvSel b{color:#fff}
+.dvp.pw .dvTop{background:linear-gradient(115deg,#0C4A6E 0%,#0369A1 60%,#0F766E 100%)}
+.dvp.pw .dvBar{background:linear-gradient(90deg,#38BDF8,#0EA5E9,#14B8A6)}
+.dvp.pw .dvTitle .es{color:#7DD3FC}
+.dvp.pw .dvT th{background:#0C4A6E}
+.dvp.pw .dvT tr.pk td{background:#E0F7FF}
+.dvp.pw .dvTot .g{background:#0C4A6E}
+.dvp.pw .dvTot .g b{color:#7DD3FC}
+.dvp.pw .dvWords{border-left-color:#0EA5E9}
+.dvp.pw .dvBox h4.o{background:#E0F7FF;color:#0369A1;border-bottom-color:#BAE6FD}
+.dvp.pw .dvK .g{background:#E0F7FF;border-color:#BAE6FD}.dvp.pw .dvK .g b{color:#0369A1}
+.dvp.pw .dvCols li::before{background:#0EA5E9}
+.dvp.pw .dvSteps div{background:#0C4A6E}
+.dvp.pw .dvSteps em{background:#0EA5E9}
+.dvp.pw .dvK{margin-top:12px}.dvp.pw .dvK div{padding:7px 12px}
+.dvp.pw .dvT{margin-top:12px}.dvp.pw .dvT td{padding:3px 10px}.dvp.pw .dvT tr.pk td{padding:6px 10px}
+.dvp.pw .dvCols{margin-top:12px}.dvp.pw .dvSig{margin-top:10px}.dvp.pw .dvSig div{height:92px}.dvp.pw .dvSig img{height:62px}
 @media print{
   body.printDv>*:not(#dvHost){display:none!important}
   body.printDv{padding:0;background:#fff}
@@ -1086,9 +1111,19 @@ body:not(.pump) #bbPump{display:none!important}
       <div class="pRail" id="pRail"></div>
     </section>
 
+    <div class="dvc pw" id="pdvc">
+      <div class="kick">📄 DEVIS PDF</div>
+      <h3 data-i="pdvH">حمّل الـ Devis متاع محطتك بالـ PDF</h3>
+      <p data-i="pdvS">Devis مفصّل باسمك: المحطة، المعدّات والثمن — تنجم تطبعو ولا تبعثو.</p>
+      <div class="pdvSel" id="pdvSel"></div>
+      <div class="dvIn"><input id="pdvName" type="text" autocomplete="name" maxlength="60" data-ph="dvN" placeholder="الاسم واللقب"><input id="pdvTel" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" data-ph="dvT" placeholder="رقم الهاتف (اختياري)"></div>
+      <button class="btn wat" id="pdvBtn" type="button"><span data-i="dvB">📥 تحميل الـ Devis (PDF)</span></button>
+      <div class="dvMsg" id="pdvMsg"></div>
+    </div>
+
     <section class="pKit">
       <div class="sh"><div><div class="pKick" data-i="pKitK">clé en main · كل شيء مشمول</div><h2 data-i="pKitH">شنوّة فيها المحطة متاعك؟</h2></div></div>
-      <div class="cps"><div class="cp"><div class="cpI" style="background:#E8F1FF"><svg viewBox="0 0 64 64"><defs><linearGradient id="pic1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B8BEB"/><stop offset="1" stop-color="#173F94"/></linearGradient></defs><path d="M10 46 18 12h36l-8 34z" fill="url(#pic1)" stroke="#CBD5E1" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 29h36M12.5 37.5h36M16 20.5h36M30 12l-6 34M42 12l-6 34" stroke="#9CC4FF" stroke-width="1.3"/><path d="M26 46v8M38 46v8M20 54h24" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/></svg></div><b data-i="pc1">لوحات شمسية AIKO 645 Wc</b><span data-i="pc1d">N-type عالية المردود</span></div><div class="cp"><div class="cpI" style="background:#E0F7FF"><svg viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2.5"/><path d="M14 13a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v3H14z" fill="#0EA5E9"/><rect x="20" y="22" width="24" height="14" rx="2.5" fill="#0F172A"/><text x="32" y="32.5" text-anchor="middle" font-size="8" font-weight="700" fill="#34D399" font-family="Arial">MPPT</text><circle cx="24" cy="45" r="3" fill="#22C55E"/><circle cx="32" cy="45" r="3" fill="#FBBF24"/></svg></div><b data-i="pc2">Variateur solaire VEICHI</b><span data-i="pc2d">MPPT مدمج · حماية كي البير يفرغ، ومن ارتفاع الجهد والسخانة</span></div><div class="cp"><div class="cpI" style="background:#EEF2F7"><svg viewBox="0 0 64 64"><path d="M8 34 46 16l10 2-38 18z" fill="#3B82F6" opacity=".25"/><path d="M8 34 46 16M18 36 56 18" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/><path d="M14 35v20M50 17v38M14 55 50 27M8 56h48" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/><rect x="10" y="54" width="8" height="5" fill="#A8A29E"/><rect x="46" y="54" width="8" height="5" fill="#A8A29E"/></svg></div><b data-i="pc3">حامل اللوحات من الحديد المغلفن (IPE 80)</b><span data-i="pc3d">متين ومثبّت على قواعد بالخرسانة</span></div><div class="cp"><div class="cpI" style="background:#FFF8E1"><svg viewBox="0 0 64 64"><rect x="10" y="8" width="44" height="48" rx="6" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2.5"/><rect x="16" y="16" width="32" height="20" rx="3" fill="#fff" stroke="#CBD5E1"/><rect x="20" y="22" width="4" height="8" fill="#2563EB"/><rect x="30" y="22" width="4" height="8" fill="#DC2626"/><rect x="40" y="22" width="4" height="8" fill="#16A34A"/><path d="m33 40-4 7h5l-3 6" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="pc4">Coffret variateur</b><span data-i="pc4d">حماية DC / AC ومانع صواعق</span></div><div class="cp"><div class="cpI" style="background:#FDECEF"><svg viewBox="0 0 64 64"><path d="M6 20c14 0 14 24 28 24h8" stroke="#DC2626" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M6 32c12 0 12 20 26 20h10" stroke="#1F2937" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="40" y="38" width="14" height="10" rx="3" fill="#2563EB"/><rect x="40" y="47" width="14" height="10" rx="3" fill="#64748B"/></svg></div><b data-i="pc5">الكوابل والتمديدات</b><span data-i="pc5d">كوابل شمسية + كابل تغذية المضخة</span></div><div class="cp"><div class="cpI" style="background:#E9F9EF"><svg viewBox="0 0 64 64"><rect x="27" y="4" width="10" height="34" fill="#E2E8F0" stroke="#64748B" stroke-width="2"/><rect x="23" y="36" width="18" height="22" rx="4" fill="#0369A1"/><path d="M26 44h12M26 50h12" stroke="#7DD3FC" stroke-width="2"/><path d="M48 14c4 6 6 9 6 12a6 6 0 0 1-12 0c0-3 2-6 6-12z" fill="#38BDF8"/><path d="M12 22c3 4 4 6 4 8a4 4 0 0 1-8 0c0-2 1-4 4-8z" fill="#38BDF8"/></svg></div><b data-i="pc6">تركيب وتشغيل على البير</b><span data-i="pc6d">ربط، ضبط الـ variateur وتجربة الدبي</span></div></div>
+      <div class="cps"><div class="cp"><div class="cpI" style="background:#E8F1FF"><svg viewBox="0 0 64 64"><defs><linearGradient id="pic1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B8BEB"/><stop offset="1" stop-color="#173F94"/></linearGradient></defs><path d="M10 46 18 12h36l-8 34z" fill="url(#pic1)" stroke="#CBD5E1" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 29h36M12.5 37.5h36M16 20.5h36M30 12l-6 34M42 12l-6 34" stroke="#9CC4FF" stroke-width="1.3"/><path d="M26 46v8M38 46v8M20 54h24" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/></svg></div><b data-i="pc1">لوحات شمسية AIKO 645 Wc</b><span data-i="pc1d">N-type عالية المردود</span></div><div class="cp"><div class="cpI" style="background:#E0F7FF"><svg viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2.5"/><path d="M14 13a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v3H14z" fill="#0EA5E9"/><rect x="20" y="22" width="24" height="14" rx="2.5" fill="#0F172A"/><text x="32" y="32.5" text-anchor="middle" font-size="8" font-weight="700" fill="#34D399" font-family="Arial">50 Hz</text><circle cx="24" cy="45" r="3" fill="#22C55E"/><circle cx="32" cy="45" r="3" fill="#FBBF24"/></svg></div><b data-i="pc2">Variateur solaire VEICHI</b><span data-i="pc2d">يتحكّم في سرعة المضخة · حماية كي البير يفرغ، ومن ارتفاع الجهد والسخانة</span></div><div class="cp"><div class="cpI" style="background:#EEF2F7"><svg viewBox="0 0 64 64"><path d="M8 34 46 16l10 2-38 18z" fill="#3B82F6" opacity=".25"/><path d="M8 34 46 16M18 36 56 18" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/><path d="M14 35v20M50 17v38M14 55 50 27M8 56h48" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/><rect x="10" y="54" width="8" height="5" fill="#A8A29E"/><rect x="46" y="54" width="8" height="5" fill="#A8A29E"/></svg></div><b data-i="pc3">حامل اللوحات من الحديد المغلفن (IPE 80)</b><span data-i="pc3d">متين ومثبّت على قواعد بالخرسانة</span></div><div class="cp"><div class="cpI" style="background:#FFF8E1"><svg viewBox="0 0 64 64"><rect x="10" y="8" width="44" height="48" rx="6" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2.5"/><rect x="16" y="16" width="32" height="20" rx="3" fill="#fff" stroke="#CBD5E1"/><rect x="20" y="22" width="4" height="8" fill="#2563EB"/><rect x="30" y="22" width="4" height="8" fill="#DC2626"/><rect x="40" y="22" width="4" height="8" fill="#16A34A"/><path d="m33 40-4 7h5l-3 6" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="pc4">Coffret variateur</b><span data-i="pc4d">حماية DC / AC ومانع صواعق</span></div><div class="cp"><div class="cpI" style="background:#FDECEF"><svg viewBox="0 0 64 64"><path d="M6 20c14 0 14 24 28 24h8" stroke="#DC2626" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M6 32c12 0 12 20 26 20h10" stroke="#1F2937" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="40" y="38" width="14" height="10" rx="3" fill="#2563EB"/><rect x="40" y="47" width="14" height="10" rx="3" fill="#64748B"/></svg></div><b data-i="pc5">الكوابل والتمديدات</b><span data-i="pc5d">كوابل شمسية + كابل تغذية المضخة</span></div><div class="cp"><div class="cpI" style="background:#E9F9EF"><svg viewBox="0 0 64 64"><rect x="27" y="4" width="10" height="34" fill="#E2E8F0" stroke="#64748B" stroke-width="2"/><rect x="23" y="36" width="18" height="22" rx="4" fill="#0369A1"/><path d="M26 44h12M26 50h12" stroke="#7DD3FC" stroke-width="2"/><path d="M48 14c4 6 6 9 6 12a6 6 0 0 1-12 0c0-3 2-6 6-12z" fill="#38BDF8"/><path d="M12 22c3 4 4 6 4 8a4 4 0 0 1-8 0c0-2 1-4 4-8z" fill="#38BDF8"/></svg></div><b data-i="pc6">تركيب وتشغيل على البير</b><span data-i="pc6d">ربط، ضبط الـ variateur وتجربة الدبي</span></div></div>
     </section>
 
     <section class="how pSteps">
@@ -1215,14 +1250,14 @@ const T={ar:{},fr:{
  pK:"La station adaptée à votre pompe",pH:"Quelle est la puissance de votre pompe ?",pS:"Choisissez la puissance (CV) et le gouvernorat : la station adaptée s'affiche avec son prix.",
  pCvL:"Puissance de la pompe",pGovL:"Où se trouve le forage ?",pStK:"Nos stations de pompage",pStH:"Prix clé en main, tout compris",
  pKitK:"clé en main · tout est inclus",pKitH:"Que contient votre station ?",
- pc1:"Panneaux AIKO 645 Wc",pc1d:"N-type haut rendement",pc2:"Variateur solaire VEICHI",pc2d:"MPPT intégré · protections marche à sec, surtension, surchauffe",
+ pc1:"Panneaux AIKO 645 Wc",pc1d:"N-type haut rendement",pc2:"Variateur solaire VEICHI",pc2d:"Pilote la vitesse de la pompe · protections marche à sec, surtension, surchauffe",
  pc3:"Structure IPE 80 en acier galvanisé",pc3d:"Robuste, ancrée sur massifs béton",pc4:"Coffret variateur",pc4d:"Protections DC / AC et parafoudre",
  pc5:"Câblage & cheminement",pc5d:"Câbles solaires + câble d'alimentation de la pompe",pc6:"Pose & mise en service sur forage",pc6d:"Raccordement, paramétrage du variateur, essais de débit",
  ps1t:"Envoyez-nous votre besoin",ps1d:"Puissance de la pompe et lieu du forage, par WhatsApp.",ps2t:"Visite technique",ps2d:"Un technicien PROELEC vérifie le forage et l'emplacement des panneaux.",
  ps3t:"Installation clé en main",ps3d:"Pose, paramétrage, essais de débit — l'eau coule.",
  pCtaH:"Vous ne connaissez pas la puissance de votre pompe ?",pCtaP:"Envoyez-nous une photo de la plaque de la pompe ou la profondeur du forage : notre équipe vous indique la bonne station.",
  pDisc:"Prix TTC. Transport et déplacement hors Sfax : +500 DT. Dimensionnement final selon le forage (profondeur, débit) après visite technique.",
- bbPump:"💧 Choisir ma station"}};
+ bbPump:"💧 Choisir ma station",pdvH:"Téléchargez le devis de votre station en PDF",pdvS:"Un devis détaillé à votre nom : station, équipements et prix — à imprimer ou à partager."}};
 document.querySelectorAll("[data-i]").forEach(e=>T.ar[e.dataset.i]=e.dataset.html?e.innerHTML:e.textContent);
 T.ar.errV="أدخل مبلغ فاتورتك."; T.ar.dvN="الاسم واللقب"; T.ar.dvT="رقم الهاتف (اختياري)"; T.ar.errG="اختار ولايتك.";
 const PER={ar:{1:"كل شهر",2:"كل شهرين",3:"كل 3 أشهر",12:"في السنة"},fr:{1:"par mois",2:"tous les 2 mois",3:"tous les 3 mois",12:"par an"}};
@@ -1498,7 +1533,7 @@ function frWords(n){n=Math.round(n);const u=["zéro","un","deux","trois","quatre
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dd=d=>d.toLocaleDateString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric"});
 function logoSvg(){const g=document.getElementById("lgP");return `<svg viewBox="0 0 350.2 329" xmlns="http://www.w3.org/2000/svg">${g?g.innerHTML:""}</svg>`;}
-function dvFoot(pg){return `<div class="dvFoot"><span class="pg">${pg}/2</span>${CFG.banks}<br>PROELEC – Sfax, Rue Gremda Km 0.5, Imm. VINCI A83 – Tél : ${CFG.phone} – WhatsApp : ${CFG.waPhone} – ${CFG.email}</div>`;}
+function dvFoot(pg,tot=2){return `<div class="dvFoot"><span class="pg">${pg}/${tot}</span>${CFG.banks}<br>PROELEC – Sfax, Rue Gremda Km 0.5, Imm. VINCI A83 – Tél : ${CFG.phone} – WhatsApp : ${CFG.waPhone} – ${CFG.email}</div>`;}
 function devisChart(r){
   const W=686,H=170,pl=36,pr=8,pt=8,pb=22,prodM=CFG.prof.map(p=>p*r.prod),cons=r.mKwh,max=Math.max(...prodM,cons)*1.15,step=niceStep(max/4),top=Math.ceil(max/step)*step;
   const y=v=>pt+(H-pt-pb)*(1-v/top),bw=(W-pl-pr)/12;let s=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="display:block" xmlns="http://www.w3.org/2000/svg" font-family="Arial">`;
@@ -1636,6 +1671,7 @@ function fillPGov(){const cur=$("pGov").value;
   if(cur)$("pGov").value=cur;}
 function drawPump(){
   const a=ar(),g=pGovV(),tr=g&&g[1]!==CFG.homeGov?CFG.travel:0;
+  if($("pdvSel"))pdvSelTxt();
   $("pCv").innerHTML=PUMPS.map((x,i)=>`<button type="button" data-k="${i}" class="${PS.sel===i?"on":""}"><span class="num">${x.cv}</span><small>CV</small></button>`).join("")+
     `<button type="button" class="idk" data-k="idk">🤔 ${a?"ما نعرفش قوة المضخة — اسأل مهندس":"Je ne connais pas la puissance — demander conseil"}</button>`;
   $("pRail").classList.toggle("hasSel",PS.sel!==null);
@@ -1676,7 +1712,7 @@ function askPump(){const a=ar(),g=pGovV();track("whatsapp-pompage-conseil","What
     (a?"ما نعرفش قوة المضخة متاعي. نحب مهندس يعاونّي نختار المحطة المناسبة (نجم نبعث صورة من plaque المضخة وعمق البير).":"Je ne connais pas la puissance de ma pompe. J'aimerais l'aide d'un ingénieur pour choisir la station (je peux envoyer une photo de la plaque et la profondeur du forage)."));}
 $("pCv").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.k==="idk")return askPump();pickPump(+b.dataset.k,true);});
 $("pRail").addEventListener("click",e=>{const w=e.target.closest("[data-wa]");if(w){e.stopPropagation();return sendPump(+w.dataset.wa);}const c=e.target.closest(".ps");if(c&&PS.sel!==+c.dataset.k)pickPump(+c.dataset.k,false);});
-$("pGov").onchange=()=>{drawPump();track("pompage-gouvernorat","Pompage : gouvernorat choisi");};
+$("pGov").onchange=()=>{$("pGov").classList.remove("bad");pdvMsg("");drawPump();track("pompage-gouvernorat","Pompage : gouvernorat choisi");};
 $("pAskTop").onclick=askPump; $("pAskBot").onclick=askPump;
 
 /* ---------- switch Résidentiel / Pompage ---------- */
@@ -1689,6 +1725,83 @@ function setMode(m,noScroll){const pump=m==="pump";
   if(!noScroll)window.scrollTo({top:0,behavior:"smooth"});}
 document.querySelectorAll("#modeSw button").forEach(b=>b.onclick=()=>setMode(b.dataset.m));
 document.addEventListener("click",e=>{const l=e.target.closest('a[href="#pPick"]');if(!l)return;e.preventDefault();$("pPick").scrollIntoView({behavior:"smooth",block:"start"});});
+
+/* ---------- DEVIS PDF POMPAGE ---------- */
+function pdvSelTxt(){const a=ar(),g=pGovV(),x=PS.sel!==null?PUMPS[PS.sel]:null;
+  $("pdvSel").innerHTML=x?`💧 ${a?"المحطة":"Station"} <b class="num">${x.cv} CV</b> · <span class="num">${x.n} × AIKO 645 Wc</span> · 📍 ${g?(a?g[0]:g[1]):(a?"اختار الولاية فوق":"choisissez le gouvernorat")}`
+    :(a?"☝️ اختار قوة المضخة والولاية فوق باش يتحضّر الـ Devis.":"☝️ Choisissez la puissance de la pompe et le gouvernorat ci-dessus.");}
+const pdvMsg=(t,e)=>{$("pdvMsg").innerHTML=t;$("pdvMsg").classList.toggle("e",!!e);};
+function pumpDevisHTML(x,g,cl){
+  const now=new Date(),until=new Date(now.getTime()+CFG.devisValidity*864e5),tr=g[1]!==CFG.homeGov?CFG.travel:0,tot=x.p+tr,kwT=fmt(x.kw,x.kw%1?1:0);
+  const comp=[
+    [`Modules photovoltaïques ${x.b} ${x.w} Wc`,`N-type haut rendement · ${fmt(x.k,2)} kWc`,x.n],
+    [`Variateur solaire VEICHI ${kwT} kW`,`Pour pompe ${x.cv} CV · protections marche à sec, surtension, surchauffe`,1],
+    ["Structure porteuse IPE 80 en acier galvanisé","Ancrage sur massifs béton · visserie",1],
+    ["Coffret variateur","Protections DC / AC · parafoudre",1],
+    ["Câblage & cheminement","Câbles solaires DC · câble d'alimentation de la pompe · gaines","1 lot"],
+    ["Pose & mise en service sur forage","Montage, raccordements, paramétrage du variateur, essais de débit","Forfait"]];
+  const rows=comp.map((c,k)=>`<tr><td class="id">1.${k+1}</td><td>${c[0]}<small>${c[1]}</small></td><td class="c n">${c[2]}</td><td class="r inc">✓ Inclus</td></tr>`).join("");
+  const trRow=tr?`<tr class="ad"><td class="id">2</td><td>Transport du matériel & déplacement de l'équipe<small>Chantier hors Sfax · ${esc(g[1])}</small></td><td class="c">Forfait</td><td class="r n">+ ${fmt(tr)} DT</td></tr>`:"";
+  return `<div class="dvp pw"><div class="dvTop"><div class="dvBrand">${logoSvg()}<div class="tl"><b>Pompage solaire · clé en main</b>Étude · fourniture · pose · mise en service sur forage<br><span class="iso">ISO 9001 · ISO 14001 · ISO 45001</span></div></div>
+    <div class="dvTitle"><h1>DEVIS</h1><div class="es">ESTIMATIF · POMPAGE SOLAIRE</div><table><tr><td>N°</td><td><b>${cl.ref}</b></td></tr><tr><td>Date</td><td><b>${dd(now)}</b></td></tr><tr><td>Valable jusqu'au</td><td><b>${dd(until)}</b></td></tr></table></div><div class="dvBar"></div></div>
+   <div class="dvBody">
+    <div class="dvParts">
+      <div class="dvBox"><h4>ÉMETTEUR</h4><div class="c"><div class="nm">PROELEC</div>Sfax – Rue Gremda Km 0.5, Imm. VINCI A83<br><span>Tél :</span> ${CFG.phone} · <span>WhatsApp :</span> ${CFG.waPhone}<br><span>E-mail :</span> ${CFG.email}<br><span>MF :</span> ${CFG.mf} · <span>RC :</span> ${CFG.rc}</div></div>
+      <div class="dvBox"><h4 class="o">CLIENT</h4><div class="c"><div class="nm">${esc(cl.name)}</div>${cl.tel?`<span>Tél :</span> ${esc(cl.tel)}<br>`:""}<span>Gouvernorat du forage :</span> ${esc(g[1])}<br><span>Pompe :</span> ${x.cv} CV<br><span>Objet :</span> Station de pompage solaire clé en main</div></div>
+    </div>
+    <table class="dvT"><tr><th style="width:38px">N°</th><th>Désignation</th><th class="c" style="width:70px">Qté</th><th class="r" style="width:120px">Montant TTC</th></tr>
+      <tr class="pk"><td class="id">1</td><td>Station de pompage solaire ${x.cv} CV – ${fmt(x.k,2)} kWc – clé en main<small>Fourniture, pose, raccordement, paramétrage et mise en service sur le forage du client</small></td><td class="c">1</td><td class="r n">${fmt(x.p)} DT</td></tr>
+      ${rows}${trRow}</table>
+    <div class="dvSum">
+      <div><div class="dvPay"><h5>MODES DE PAIEMENT</h5>
+        <div class="ln"><span>Paiement comptant</span><b class="n">${fmt(tot)} DT</b></div>
+        <div class="ln"><span>Autres modalités</span><b>Négociables</b></div></div>
+        <div class="dvWords">Arrêté le présent devis à la somme de : <b>${(w=>w[0].toUpperCase()+w.slice(1))(frWords(tot))} dinars TTC</b>.</div></div>
+      <div class="dvTot">
+        ${tr?`<div><span>Station ${x.cv} CV</span><span class="n">${fmt(x.p)} DT</span></div><div><span>Transport & déplacement</span><span class="n">+ ${fmt(tr)} DT</span></div>`:""}
+        <div><span>Prix toutes taxes comprises</span><span>TTC</span></div>
+        <div class="g"><span>TOTAL TTC</span><b class="n">${fmt(tot)} DT</b></div></div>
+    </div>
+    <div class="dvCols">
+      <div class="dvBox"><h4 class="o">GARANTIES & SERVICE</h4><div class="c"><ul>
+        <li>Modules AIKO : garantie constructeur de performance 30 ans</li>
+        <li>Variateur VEICHI et installation : garantie PROELEC</li>
+        <li>Assistance technique et SAV assurés par PROELEC, partout en Tunisie</li>
+        <li>Réservation de la visite : <b>WhatsApp ${CFG.waPhone}</b> · réf. <b>${cl.ref}</b></li></ul></div></div>
+      <div class="dvBox"><h4>CONDITIONS</h4><div class="c"><ul>
+        <li>Devis estimatif établi à partir des informations saisies par le client.</li>
+        <li>Dimensionnement final selon le forage (profondeur, débit) après visite technique.</li>
+        <li>Validité : ${CFG.devisValidity} jours (jusqu'au ${dd(until)}) · transport hors Sfax : + ${fmt(CFG.travel)} DT.</li></ul></div></div>
+    </div>
+    <div class="dvSig"><div>Cachet & signature – PROELEC<br><img src="${STAMP}" alt=""></div><div>Bon pour accord – Client<small>Date, cachet & signature précédés de la mention « Bon pour accord »</small></div></div>
+   </div>${dvFoot(1,1)}</div>`;}
+async function makePumpDevis(){
+  const a=ar();
+  if(PS.sel===null){$("pPick").scrollIntoView({behavior:"smooth",block:"start"});pdvMsg(a?"☝️ اختار قوة المضخة متاعك فوق، ومن بعد عاود اضغط.":"☝️ Choisissez d'abord la puissance de votre pompe, puis réessayez.",1);return;}
+  const name=$("pdvName").value.trim(),tel=$("pdvTel").value.trim(),g=pGovV();
+  if(name.length<2){$("pdvName").classList.add("bad");$("pdvName").focus();pdvMsg(a?"✍️ اكتب اسمك باش يطلع الـ Devis باسمك.":"✍️ Indiquez votre nom pour personnaliser le devis.",1);return;}
+  if(!g){$("pGov").classList.add("bad");$("pPick").scrollIntoView({behavior:"smooth",block:"start"});pdvMsg(a?"📍 اختار ولاية البير فوق باش نحسبو مصاريف النقل، ومن بعد عاود اضغط.":"📍 Choisissez le gouvernorat du forage ci-dessus (transport), puis réessayez.",1);return;}
+  const x=PUMPS[PS.sel],d=new Date(),ref="DP-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+"-"+String(Math.floor(1000+Math.random()*9000));
+  const btn=$("pdvBtn");btn.disabled=true;pdvMsg(a?"⏳ قاعدين نحضّرو الـ Devis متاعك…":"⏳ Préparation de votre devis…");
+  $("dvHost").innerHTML=pumpDevisHTML(x,g,{name,tel,ref});
+  track("devis-pdf-pompage","Devis PDF pompage généré");
+  try{
+    await loadLibs(); if(document.fonts&&document.fonts.ready) await document.fonts.ready;
+    await Promise.all([...$("dvHost").querySelectorAll("img")].map(im=>im.complete?1:new Promise(r=>{im.onload=im.onerror=r;})));
+    const pdf=new window.jspdf.jsPDF({unit:"mm",format:"a4",compress:true}),pages=$("dvHost").querySelectorAll(".dvp");
+    for(let k=0;k<pages.length;k++){const cv=await window.html2canvas(pages[k],{scale:2,backgroundColor:"#ffffff",logging:false,useCORS:true,windowWidth:1200});
+      if(k)pdf.addPage();pdf.addImage(cv.toDataURL("image/jpeg",0.9),"JPEG",0,0,210,297,undefined,"FAST");}
+    pdf.setProperties({title:`Devis PROELEC ${ref}`,author:"PROELEC",subject:"Devis estimatif pompage solaire"});
+    if(inApp()){const url=URL.createObjectURL(pdf.output("blob"));if(!window.open(url,"_blank"))location.href=url;
+      pdvMsg(a?"✅ الـ Devis جاهز. كان ما تحلّش، افتح الصفحة في Chrome ولا Safari (⋯ ← Ouvrir dans le navigateur) وعاود.":"✅ Devis prêt. S'il ne s'ouvre pas, ouvrez la page dans Chrome ou Safari (⋯ → Ouvrir dans le navigateur) et réessayez.");}
+    else{pdf.save(`Devis_PROELEC_Pompage_${ref}.pdf`);pdvMsg(a?`✅ تمّ تحميل الـ Devis <b class="num">${ref}</b>. ابعثلنا الرقم على واتساب باش نحجزولك الزيارة.`:`✅ Devis <b class="num">${ref}</b> téléchargé. Envoyez-nous ce numéro sur WhatsApp pour réserver la visite.`);}
+    $("dvHost").innerHTML="";
+  }catch(e){
+    pdvMsg(a?"🖨️ اختار «Enregistrer en PDF» في نافذة الطباعة.":"🖨️ Choisissez « Enregistrer en PDF » dans la fenêtre d'impression.");printFallback();
+  }finally{btn.disabled=false;}
+}
+$("pdvBtn").onclick=makePumpDevis;
+$("pdvName").addEventListener("input",()=>{$("pdvName").classList.remove("bad");pdvMsg("");});
 
 /* ====================== language ====================== */
 function applyLang(){
