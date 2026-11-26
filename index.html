@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0A1222">
 <title>PROELEC – الطاقة الشمسية وضخ الماء | Solaire & pompage</title>
-<meta name="description" content="PROELEC: منظومة شمسية clé en main بداية من 7 500 DT أو 120 DT في الشهر مع قرض الستاغ. احسب توفيرك في 30 ثانية.">
+<meta name="description" content="PROELEC: منظومة شمسية clé en main بداية من 7 500 DT أو 116 DT في الشهر مع قرض الستاغ. احسب توفيرك في 30 ثانية.">
 <meta property="og:title" content="PROELEC ☀️ احسب منظومتك الشمسية في 30 ثانية">
-<meta property="og:description" content="عروض PROMO · clé en main · ضمان 30 سنة · قرض الستاغ من 120 DT/شهر">
+<meta property="og:description" content="عروض PROMO · clé en main · ضمان 30 سنة · قرض الستاغ من 116 DT/شهر">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -779,7 +779,7 @@ body:not(.pump) #bbPump{display:none!important}
     <div>
       <span class="flash"><span class="t">PROMO</span><span data-i="flash">تخفيضات تصل إلى</span><b class="num">−1 000 DT</b></span>
       <h1><span data-i="h1a">فاتورة الستاغ غالية؟</span><br><span class="hl" data-i="h1b">الشمس تخلّصها عليك</span></h1>
-      <p data-i="lead" data-html="1">منظومة شمسية كاملة <b>clé en main</b> بداية من <b class="num minP">7 500 DT</b>، أو <b class="num minM">120 DT</b> في الشهر مع قرض الستاغ.</p>
+      <p data-i="lead" data-html="1">منظومة شمسية كاملة <b>clé en main</b> بداية من <b class="num minP">7 500 DT</b>، أو <b class="num minM">116 DT</b> في الشهر مع قرض الستاغ.</p>
       <div class="sceneM"><svg class="scene" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Installation photovoltaïque">
 <defs>
 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE3FF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
@@ -879,7 +879,7 @@ body:not(.pump) #bbPump{display:none!important}
   <div class="stats resOnly">
     <div class="st"><b>30 <small data-i="yrs">سنة</small></b><span data-i="s1">ضمان على المنظومة</span></div>
     <div class="st"><b>3 <small>ISO</small></b><span data-i="s2">جودة · بيئة · سلامة</span></div>
-    <div class="st"><b><span class="num minMn">120</span> <small>DT</small></b><span data-i="s3">أقل قسط شهري مع قرض الستاغ</span></div>
+    <div class="st"><b><span class="num minMn">116</span> <small>DT</small></b><span data-i="s3">أقل قسط شهري مع قرض الستاغ</span></div>
     <div class="st"><b>24 <small data-i="gv">ولاية</small></b><span data-i="s4">نخدمو في كامل الجمهورية</span></div>
   </div>
 
@@ -1190,8 +1190,9 @@ const CFG = {
   m2PerPanel: 3.1, escal: 0.03, degr: 0.005, years: 25, co2: 0.45,
   whatsapp: "21653467977",
   callmebotKey: "",
-  // Crédits STEG (7 ans) : le plus petit crédit qui couvre le prix est proposé
-  credit: [ { amount: 7500, pm: 120 }, { amount: 10000, pm: 163 } ],
+  // Crédits STEG / Banque Zitouna (Istisna'a, 7 ans, 42 échéances bimestrielles, taux de profit 7,62 %)
+  // b2m = échéance officielle par 2 mois (formulaires PROSOL ELEC). Le plus petit crédit qui couvre le prix est proposé
+  credit: [ { amount: 7500, b2m: 231.516 }, { amount: 10000, b2m: 308.713 } ],
   creditYears: 7,
   // Honnêteté : au-delà de maxPayback ans de retour, on dit au client que ce n'est pas rentable
   okPayback: 9, maxPayback: 12,
@@ -1225,7 +1226,7 @@ const GOVS=[["بنزرت","Bizerte"],["تونس","Tunis"],["أريانة","Arian
 /* ====================== i18n ====================== */
 const T={ar:{},fr:{
  tag:"Énergie solaire · clé en main",flash:"Remises jusqu'à",h1a:"Votre facture STEG est trop chère ?",h1b:"Le soleil la paie pour vous",
- lead:"Une installation solaire complète <b>clé en main</b> à partir de <b class=\"num minP\">7 500 DT</b>, ou <b class=\"num minM\">120 DT</b> par mois avec le crédit STEG.",
+ lead:"Une installation solaire complète <b>clé en main</b> à partir de <b class=\"num minP\">7 500 DT</b>, ou <b class=\"num minM\">116 DT</b> par mois avec le crédit STEG.",
  start:"Calculez vos économies en 30 s",seeOff:"Voir les offres 🔥",t1:"Garantie 30 ans",t3:"Appli de monitoring",
  offK:"Offres limitées 🔥",offH:"Choisissez votre installation",swipe:"Glissez ← →",
  yrs:"ans",s1:"de garantie",s2:"Qualité · environnement · sécurité",s3:"mensualité minimale avec le crédit STEG",gv:"gouv.",s4:"partout en Tunisie",
@@ -1270,7 +1271,7 @@ const S={type:"res",mode:"dt",per:2,pick:null,brand:"std"};
 let last=null;
 
 /* ====================== offers ====================== */
-function credit(price){const pl=CFG.credit.find(x=>x.amount>=price)||CFG.credit[CFG.credit.length-1];const c=Math.min(pl.amount,price),pm=pl.pm*c/pl.amount;return{credit:c,amount:pl.amount,apport:Math.max(0,price-c),per2m:pm*2,pm};}
+function credit(price){const pl=CFG.credit.find(x=>x.amount>=price)||CFG.credit[CFG.credit.length-1];const c=Math.min(pl.amount,price),per2m=pl.b2m*c/pl.amount;return{credit:c,amount:pl.amount,apport:Math.max(0,price-c),per2m,pm:per2m/2};}
 function drawOffers(r){
   const a=ar();
   let list=PACKS.map((p,i)=>({...p,idx:i}));
