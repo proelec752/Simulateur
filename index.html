@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0A1222">
-<title>PROELEC – محاكي الطاقة الشمسية | Simulateur solaire</title>
+<title>PROELEC – الطاقة الشمسية وضخ الماء | Solaire & pompage</title>
 <meta name="description" content="PROELEC: منظومة شمسية clé en main بداية من 7 500 DT أو 120 DT في الشهر مع قرض الستاغ. احسب توفيرك في 30 ثانية.">
 <meta property="og:title" content="PROELEC ☀️ احسب منظومتك الشمسية في 30 ثانية">
 <meta property="og:description" content="عروض PROMO · clé en main · ضمان 30 سنة · قرض الستاغ من 120 DT/شهر">
@@ -25,7 +25,7 @@ body{font-family:"Readex Pro",system-ui,sans-serif;background:var(--bg);color:va
 button,input,select{font:inherit;color:inherit}
 .num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;display:inline-block}
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-section{scroll-margin-top:72px}
+section{scroll-margin-top:136px}
 
 /* header */
 .hd{position:sticky;top:0;z-index:40;background:rgba(10,18,34,.97);border-bottom:1px solid rgba(35,56,92,.7)}
@@ -625,6 +625,107 @@ footer{color:#64748B}
 .dvSteps div{background:#0B1B3A;color:#fff;border-radius:12px;padding:10px 12px;font-size:10.5px;color:#C7D2E5}
 .dvSteps b{display:block;color:#fff;font-size:12px}
 .dvSteps em{font-style:normal;display:inline-block;width:20px;height:20px;border-radius:50%;background:#F06A1B;color:#fff;text-align:center;line-height:20px;font-weight:800;margin-bottom:4px}
+
+/* ===== switch Résidentiel / Pompage ===== */
+.modeSw{position:sticky;top:60px;z-index:39;background:rgba(255,255,255,.96);border-bottom:1px solid #E6EAF0;box-shadow:0 6px 16px rgba(15,23,42,.05)}
+.modeSw .wrap{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:8px;padding-bottom:8px}
+.modeSw button{display:flex;align-items:center;gap:10px;border:2px solid #E2E8F0;background:#fff;border-radius:16px;padding:7px 10px;cursor:pointer;text-align:start;min-height:56px;transition:border-color .15s,background .15s,transform .12s}
+.modeSw button:active{transform:scale(.98)}
+.modeSw .mi{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:20px;flex:none;background:#F1F5F9;transition:background .15s}
+.modeSw b{display:block;font-size:14.5px;color:#0B1B3A;line-height:1.25}
+.modeSw small{display:block;font-size:11.5px;color:#64748B;line-height:1.3}
+.modeSw button[data-m=res].on{border-color:#F59E0B;background:linear-gradient(135deg,#FFF3E2,#fff 70%)}
+.modeSw button[data-m=res].on .mi{background:linear-gradient(135deg,#FFB020,#F06A1B)}
+.modeSw button[data-m=pump].on{border-color:#0EA5E9;background:linear-gradient(135deg,#E0F7FF,#fff 70%)}
+.modeSw button[data-m=pump].on .mi{background:linear-gradient(135deg,#38BDF8,#0D9488)}
+.modeSw button:not(.on){opacity:.85}
+@media(max-width:380px){.modeSw small{display:none}.modeSw button{min-height:48px}}
+body.pump .resOnly{display:none!important}
+body:not(.pump) .pumpOnly{display:none!important}
+body.pump{background:linear-gradient(180deg,#E3F6FC 0,#EAF4FF 560px,#F3F7FC 1400px,#F3F7FC)}
+body.pump .bb .info,body.pump #bbGo,body.pump #bbWa{display:none!important}
+#bbPump{flex:1}
+body:not(.pump) #bbPump{display:none!important}
+
+/* ===== POMPAGE (thème eau) ===== */
+.btn.wat{background:linear-gradient(90deg,#0EA5E9,#0D9488);color:#fff;box-shadow:0 12px 28px rgba(14,165,233,.28)}
+.pHero{position:relative;padding:22px 0 10px}
+.pHero::before{content:"";position:absolute;inset:-60px 0 auto;height:420px;pointer-events:none;background:radial-gradient(45% 55% at 70% 35%,rgba(14,165,233,.22),transparent 70%)}
+.pHero>*{position:relative}
+.pTag{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,#0284C7,#0D9488);color:#fff;border-radius:12px;padding:7px 12px;font-size:14px;font-weight:600}
+.pHero h1{font-size:clamp(31px,8.4vw,58px);line-height:1.12;margin:14px 0 10px;font-weight:800;color:#0B1B3A;letter-spacing:-.3px}
+.hlW{background:linear-gradient(90deg,#0EA5E9,#0D9488);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pHero p{color:#475569;font-size:clamp(15.5px,4vw,19px)}
+.pHero p b{color:#0B1B3A}
+.pScene{margin:16px 0 4px}
+.pScene svg{width:100%;height:auto;display:block;filter:drop-shadow(0 14px 30px rgba(2,132,199,.18))}
+.wFlow circle{animation:flw 1.4s ease-in-out infinite}
+.wFlow circle:nth-child(2){animation-delay:.25s}.wFlow circle:nth-child(3){animation-delay:.5s}.wFlow circle:nth-child(4){animation-delay:.75s}
+.wFall{animation:wf 1s linear infinite}
+@keyframes wf{0%{stroke-dashoffset:0}100%{stroke-dashoffset:-12}}
+.pTrust{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pTrust span{font-size:12.5px;background:#fff;border:1px solid #BAE6FD;border-radius:999px;padding:6px 11px;color:#475569}
+.pTrust b{color:#0B1B3A;font-weight:600}
+.pKick{font-size:12px;letter-spacing:1px;color:#0284C7;font-weight:700}
+.pPick{position:relative;overflow:hidden;background:#fff;border:1px solid #E2E8F0;border-radius:26px;padding:20px 16px;margin-top:8px;box-shadow:0 12px 32px rgba(2,132,199,.10)}
+.pPick::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,#38BDF8,#0EA5E9,#0D9488)}
+.pPick h2{font-size:clamp(21px,5.6vw,28px);line-height:1.25;color:#0B1B3A}
+.pPick .sub{color:#475569;font-size:14px;margin-top:2px}
+.pPick .fl .n{background:linear-gradient(135deg,#38BDF8,#0D9488);color:#fff}
+.cvC{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cvC button{min-height:54px;border:1.5px solid #E2E8F0;background:#fff;border-radius:14px;cursor:pointer;font-size:17px;font-weight:700;color:#0B1B3A;display:flex;align-items:baseline;justify-content:center;gap:4px}
+.cvC button small{font-size:12px;font-weight:600;color:#64748B}
+.cvC button.on{border-color:#0EA5E9;background:#E0F7FF;color:#0369A1;box-shadow:0 0 0 3px rgba(14,165,233,.15)}
+.cvC button.idk{grid-column:1/-1;font-size:14px;font-weight:600;color:#0369A1;background:#F0F9FF;border-style:dashed;border-color:#7DD3FC;min-height:46px}
+#pGov{background-color:#fff;border-color:#E2E8F0;color:#0B1B3A}
+#pGov:focus{border-color:#0EA5E9}
+.pRail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 16px 10px;margin:0 -16px;scrollbar-width:none;overscroll-behavior-x:contain}
+.pRail::-webkit-scrollbar{display:none}
+.ps{flex:0 0 82%;max-width:330px;scroll-snap-align:center;background:#fff;border:1px solid #E2E8F0;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(15,23,42,.08);cursor:pointer;transition:transform .2s,opacity .2s,box-shadow .2s}
+.ps.sel{border:3px solid #0EA5E9;box-shadow:0 0 0 6px rgba(14,165,233,.15),0 18px 40px rgba(15,23,42,.15)}
+.pRail.hasSel .ps:not(.sel){opacity:.62;transform:scale(.97)}
+.psTop{position:relative;padding:16px 18px 14px;background:linear-gradient(135deg,#0369A1,#0D9488);color:#fff;overflow:hidden}
+.psTop::after{content:"";position:absolute;inset:auto -20px -36px auto;width:130px;height:90px;border-radius:50%;background:rgba(255,255,255,.10)}
+.psTop svg.drop{position:absolute;top:12px;inset-inline-end:14px;width:40px;height:48px;opacity:.9}
+.psCv{display:flex;align-items:baseline;gap:6px}
+.psCv b{font-size:46px;font-weight:800;line-height:1}
+.psCv span{font-size:18px;font-weight:700;color:#A5F3FC}
+.psTop small{display:block;font-size:12.5px;color:#CFFAFE;margin-top:3px}
+.psBadge{display:inline-block;margin-top:8px;background:#fff;color:#0369A1;font-size:12px;font-weight:800;border-radius:8px;padding:2px 9px}
+.psBody{padding:14px 18px 16px;display:flex;flex-direction:column;flex:1}
+.psRow{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:#64748B;padding:6px 0;border-bottom:1px dashed #E2E8F0}
+.psRow b{color:#0B1B3A;font-weight:600;text-align:end}
+.psPrice{margin-top:12px;padding:10px 12px;border-radius:14px;background:#F0F9FF;border:1px solid #BAE6FD}
+.psPrice .now{margin-top:0}
+.psPrice .now b{font-size:38px;color:#0B1B3A}
+.psTr{font-size:12.5px;color:#0369A1;margin-top:4px}
+.psTr.inc{color:#15803D}
+.ps .incl{margin:12px 0 14px}
+.ps .incl li::before{color:#0D9488}
+.ps .btn{margin-top:auto;min-height:50px;font-size:15px;width:100%}
+.ps:not(.sel) .btn.wat{background:#E0F7FF;color:#0369A1;box-shadow:none;border:1.5px solid #BAE6FD}
+.pSwipe{font-size:12px;color:#64748B;white-space:nowrap}
+.pKit .cp{border-color:#E0F2FE}
+.pSteps .s3n{background:linear-gradient(135deg,#38BDF8,#0D9488);color:#fff}
+.pDisc{font-size:11.5px;color:#64748B;margin-top:14px;line-height:1.7}
+.pCta{margin-top:18px;border-radius:24px;padding:20px 18px;background:linear-gradient(135deg,#0C4A6E,#0F766E);color:#fff;position:relative;overflow:hidden;box-shadow:0 16px 40px rgba(12,74,110,.25)}
+.pCta h3{font-size:21px;line-height:1.3;margin-bottom:6px}
+.pCta p{font-size:14px;color:#CFFAFE;margin-bottom:14px}
+.pCta .btn{width:100%}
+@media(min-width:760px){
+  .pRail{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:12px 0 0;gap:16px}
+  .ps{max-width:none}.pSwipe{display:none}
+  .pPick{padding:28px}
+  .pPickG{display:grid;grid-template-columns:1.3fr 1fr;gap:0 26px}
+  .cvC{grid-template-columns:repeat(6,1fr)}
+  .pScene{display:none}
+}
+.pArt{display:none}
+@media(min-width:960px){
+  .pHeroG{display:grid;grid-template-columns:1.15fr 1fr;gap:30px;align-items:center;padding:30px 0 10px}
+  .pArt{display:block}
+  .pArt svg{width:100%;max-width:460px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 18px 40px rgba(2,132,199,.22))}
+}
 @media print{
   body.printDv>*:not(#dvHost){display:none!important}
   body.printDv{padding:0;background:#fff}
@@ -642,10 +743,14 @@ footer{color:#64748B}
   <div class="isoChips"><span>ISO 9001</span><span>ISO 14001</span><span>ISO 45001</span></div>
   <div class="lang"><button data-l="ar" class="on">عربي</button><button data-l="fr">FR</button></div>
 </div></header>
+<nav class="modeSw" id="modeSw" aria-label="type d'installation"><div class="wrap">
+  <button type="button" data-m="res" class="on"><span class="mi">🏠</span><span><b data-i="mR">منازل ومحلات</b><small data-i="mRs">طاقة شمسية مربوطة بالستاغ</small></span></button>
+  <button type="button" data-m="pump"><span class="mi">💧</span><span><b data-i="mP">ضخ الماء بالشمس</b><small data-i="mPs">محطات ضخ للآبار والفلاحة</small></span></button>
+</div></nav>
 
 <main class="wrap" id="top">
 
-  <section class="hero">
+  <section class="hero resOnly">
     <div>
       <span class="flash"><span class="t">PROMO</span><span data-i="flash">تخفيضات تصل إلى</span><b class="num">−1 000 DT</b></span>
       <h1><span data-i="h1a">فاتورة الستاغ غالية؟</span><br><span class="hl" data-i="h1b">الشمس تخلّصها عليك</span></h1>
@@ -734,7 +839,7 @@ footer{color:#64748B}
 <div class="stamp"><small>PROMO</small><b class="num">−1 000</b><small>DT</small></div></div>
   </section>
 
-  <section id="offres">
+  <section id="offres" class="resOnly">
     <div class="sh"><div><div class="kick" id="offK" data-i="offK">عروض محدودة 🔥</div><h2 id="offH" data-i="offH">اختار منظومتك</h2></div><span class="swipe" data-i="swipe">اسحب ← →</span></div>
     <div class="fitNote" id="fitNote"></div>
     <div class="rail" id="rail"></div>
@@ -742,11 +847,11 @@ footer{color:#64748B}
   </section>
 
 
-  <section id="kit" class="kit">
+  <section id="kit" class="kit resOnly">
     <div class="sh"><div><div class="kick" data-i="kitK">clé en main · كل شيء مشمول</div><h2 data-i="kitH">شنوّة فيها المنظومة متاعك؟</h2></div></div>
     <div class="cps"><div class="cp"><div class="cpI" style="background:#E8F1FF"><svg viewBox="0 0 64 64"><defs><linearGradient id="ic1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B8BEB"/><stop offset="1" stop-color="#173F94"/></linearGradient></defs><path d="M10 46 18 12h36l-8 34z" fill="url(#ic1)" stroke="#CBD5E1" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 29h36M12.5 37.5h36M16 20.5h36M30 12l-6 34M42 12l-6 34" stroke="#9CC4FF" stroke-width="1.3"/><path d="M22 16l-3 12" stroke="#fff" stroke-width="2.5" opacity=".6" stroke-linecap="round"/><path d="M26 46v8M38 46v8M20 54h24" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/></svg></div><b data-i="c1">لوحات شمسية AIKO / LONGi</b><span data-i="c1d">N-type عالية المردود</span></div><div class="cp"><div class="cpI" style="background:#FFF1E6"><svg viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2.5"/><path d="M14 13a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v3H14z" fill="#F06A1B"/><rect x="20" y="22" width="24" height="14" rx="2.5" fill="#0F172A"/><path d="M23 32l5-4 4 2 4-5 5 3" stroke="#34D399" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="24" cy="45" r="3" fill="#22C55E"/><circle cx="32" cy="45" r="3" fill="#FBBF24"/><path d="M22 58v3M42 58v3" stroke="#94A3B8" stroke-width="3"/></svg></div><b data-i="c2">محوّل الطاقة (Onduleur)</b><span data-i="c2d">يحوّل الطاقة ويربطها بالستاغ</span></div><div class="cp"><div class="cpI" style="background:#EEF2F7"><svg viewBox="0 0 64 64"><path d="M8 34 46 16l10 2-38 18z" fill="#3B82F6" opacity=".25"/><path d="M8 34 46 16M18 36 56 18" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/><path d="M14 35v20M50 17v38M14 55 50 27M8 56h48" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/><circle cx="14" cy="35" r="2.5" fill="#F06A1B"/><circle cx="50" cy="17" r="2.5" fill="#F06A1B"/></svg></div><b data-i="c3">حامل اللوحات من الحديد المغلفن (Structure)</b><span data-i="c3d">متين ومقاوم للصدأ والرياح</span></div><div class="cp"><div class="cpI" style="background:#FFF8E1"><svg viewBox="0 0 64 64"><rect x="10" y="8" width="44" height="48" rx="6" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2.5"/><rect x="16" y="16" width="32" height="20" rx="3" fill="#fff" stroke="#CBD5E1"/><rect x="19" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="29" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="39" y="19" width="6" height="14" rx="1.5" fill="#F8FAFC" stroke="#94A3B8"/><rect x="20" y="22" width="4" height="5" fill="#2563EB"/><rect x="30" y="22" width="4" height="5" fill="#DC2626"/><rect x="40" y="22" width="4" height="5" fill="#16A34A"/><path d="m33 40-4 7h5l-3 6" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="c4">صناديق حماية AC / DC</b><span data-i="c4d">قواطع ومانع صواعق لسلامتك</span></div><div class="cp"><div class="cpI" style="background:#FDECEF"><svg viewBox="0 0 64 64"><path d="M6 20c14 0 14 24 28 24h8" stroke="#DC2626" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M6 32c12 0 12 20 26 20h10" stroke="#1F2937" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="40" y="38" width="14" height="10" rx="3" fill="#2563EB"/><rect x="40" y="47" width="14" height="10" rx="3" fill="#64748B"/><path d="M54 43h5M54 52h5" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/><path d="m44 8-6 10h7l-5 9" stroke="#F59E0B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="c5">كوابل خاصة بالطاقة الشمسية</b><span data-i="c5d">تتحمّل الحرارة وأشعة الشمس، بموصلات آمنة</span></div><div class="cp"><div class="cpI" style="background:#E9F9EF"><svg viewBox="0 0 64 64"><rect x="16" y="4" width="32" height="56" rx="7" fill="#0F172A"/><rect x="19" y="10" width="26" height="44" rx="4" fill="#fff"/><path d="M22 42l5-7 5 3 5-9 6-3v19H22z" fill="#FFB020" opacity=".35"/><path d="M22 42l5-7 5 3 5-9 6-3" stroke="#F06A1B" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="22" y="14" width="12" height="4" rx="2" fill="#22C55E"/><rect x="22" y="47" width="20" height="3" rx="1.5" fill="#E2E8F0"/></svg></div><b data-i="c6">تطبيق المراقبة</b><span data-i="c6d">تابع إنتاجك وتوفيرك من تليفونك</span></div></div>
   </section>
-  <div class="stats">
+  <div class="stats resOnly">
     <div class="st"><b>30 <small data-i="yrs">سنة</small></b><span data-i="s1">ضمان على المنظومة</span></div>
     <div class="st"><b>3 <small>ISO</small></b><span data-i="s2">جودة · بيئة · سلامة</span></div>
     <div class="st"><b><span class="num minMn">120</span> <small>DT</small></b><span data-i="s3">أقل قسط شهري مع قرض الستاغ</span></div>
@@ -754,7 +859,7 @@ footer{color:#64748B}
   </div>
 
 
-  <section class="how">
+  <section class="how resOnly">
     <div class="sh"><div><div class="kick" data-i="howK">بسيطة وواضحة</div><h2 data-i="howH">كيفاش تمشي الحكاية؟</h2></div></div>
     <div class="steps3">
       <div class="s3"><span class="s3n">1</span><b data-i="h1t">تحسب في 30 ثانية</b><span data-i="h1d">تدخل مبلغ فاتورتك وتشوف المنظومة المناسبة وثمنها.</span></div>
@@ -763,7 +868,7 @@ footer{color:#64748B}
     </div>
   </section>
 
-  <section id="sim">
+  <section id="sim" class="resOnly">
     <div class="sh"><div><div class="kick" data-i="simK">حساب مجاني · النتيجة فورًا</div></div></div>
     <div class="sim lt">
       <h2 data-i="simH">احسب منظومتك في 30 ثانية</h2>
@@ -799,7 +904,7 @@ footer{color:#64748B}
     </div>
   </section>
 
-  <section id="res" class="lt">
+  <section id="res" class="lt resOnly">
     <div id="honest"></div>
     <div class="resGrid">
       <div>
@@ -856,6 +961,152 @@ footer{color:#64748B}
     </div>
   </section>
 
+
+  <!-- ===================== POMPAGE SOLAIRE ===================== -->
+  <section id="pompage" class="pumpOnly">
+    <div class="pHero pHeroG">
+      <div>
+        <span class="pTag" data-i="ptag">💧 ضخ الماء بالطاقة الشمسية · clé en main</span>
+        <h1><span data-i="ph1a">الماء من البير…</span><br><span class="hlW" data-i="ph1b">تطلّعو الشمس، بلاش مازوط</span></h1>
+        <p data-i="plead" data-html="1">محطة ضخ بالطاقة الشمسية <b>clé en main</b> للبير متاعك: لوحات، variateur، structure، تركيب وتشغيل — بداية من <b class="num">12 700 DT</b>.</p>
+        <div class="pScene"><svg viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Station de pompage solaire">
+<defs>
+<linearGradient id="msky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8DEFF"/><stop offset="1" stop-color="#EFFAFF"/></linearGradient>
+<radialGradient id="msun"><stop offset="0" stop-color="#FFE27A"/><stop offset=".6" stop-color="#FFB020"/><stop offset="1" stop-color="#FF8A1F"/></radialGradient>
+<linearGradient id="msoil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8C595"/><stop offset="1" stop-color="#B07C4F"/></linearGradient>
+<linearGradient id="mwat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#0369A1"/></linearGradient>
+<linearGradient id="mcell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F7FE0"/><stop offset="1" stop-color="#173F94"/></linearGradient>
+<pattern id="mgrid" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="14" height="10" fill="url(#mcell)"/><path d="M14 0V10M0 10H14" stroke="#9CC4FF" stroke-width=".8" opacity=".7"/></pattern>
+<clipPath id="mclip"><rect width="420" height="300" rx="28"/></clipPath>
+</defs>
+<g clip-path="url(#mclip)">
+<rect width="420" height="300" fill="url(#msky)"/>
+<g class="sunRot" style="transform-origin:352px 52px"><g stroke="#FFB020" stroke-width="5" stroke-linecap="round" opacity=".85"><path d="M352 8v11M352 85v11M308 52h11M385 52h11M321 21l8 8M375 75l8 8M321 83l8-8M375 29l8-8"/></g></g>
+<circle cx="352" cy="52" r="27" fill="url(#msun)"/>
+<path d="M58 44c8-13 28-13 33 0 13-2 18 13 7 18H54c-11-2-9-18 4-18z" fill="#fff" opacity=".9"/>
+<rect y="170" width="420" height="130" fill="url(#msoil)"/>
+<path d="M0 214h420M0 238h420" stroke="#9A6B42" stroke-width="1.2" opacity=".35" stroke-dasharray="6 7"/>
+<path d="M0 262c30-6 60 6 90 0s60 6 90 0 60 6 90 0 60 6 90 0 60 6 60 0V300H0z" fill="url(#mwat)"/>
+<path d="M0 163c70-8 150-8 420 0v10H0z" fill="#5BC46A"/>
+<!-- structure + panneaux -->
+<path d="M44 168 66 112M128 168 140 98M84 168 98 106" stroke="#64748B" stroke-width="5" stroke-linecap="round"/>
+<path d="M22 132 140 88l22 26L44 160z" fill="url(#mgrid)" stroke="#D5DEEA" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M60 136l56-22" stroke="#fff" stroke-width="3" opacity=".45" stroke-linecap="round"/>
+<!-- câble -> variateur -->
+<path d="M150 112c14 6 22 14 26 26" stroke="#E11D48" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M156 106c16 6 26 16 28 32" stroke="#1F2937" stroke-width="3" fill="none" stroke-linecap="round"/>
+<g transform="translate(166 132)"><rect width="38" height="40" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/><rect width="38" height="9" rx="4" fill="#0EA5E9"/><rect x="7" y="14" width="24" height="11" rx="2" fill="#0F172A"/><text x="19" y="22.5" text-anchor="middle" font-size="7" font-weight="700" fill="#34D399" font-family="Arial">50Hz</text><circle cx="12" cy="32" r="2.4" fill="#22C55E"/><circle cx="20" cy="32" r="2.4" fill="#FBBF24"/></g>
+<!-- câble pompe -->
+<path d="M204 160h28v100" stroke="#1F2937" stroke-width="2.5" fill="none"/>
+<!-- forage -->
+<rect x="236" y="150" width="20" height="134" fill="#94A3B8" opacity=".55"/>
+<rect x="241" y="148" width="10" height="118" fill="#E2E8F0" stroke="#64748B" stroke-width="1.5"/>
+<rect x="237" y="262" width="18" height="30" rx="4" fill="#0369A1" stroke="#0C4A6E" stroke-width="2"/>
+<path d="M240 272h12M240 280h12" stroke="#7DD3FC" stroke-width="2"/>
+<!-- conduite vers bassin -->
+<path d="M246 148V128h92v18" stroke="#0284C7" stroke-width="7" fill="none" stroke-linejoin="round"/>
+<g class="wFlow" fill="#E0F7FF"><circle cx="246" cy="200" r="2.6"/><circle cx="246" cy="170" r="2.6"/><circle cx="270" cy="128" r="2.6"/><circle cx="305" cy="128" r="2.6"/></g>
+<path class="wFall" d="M338 148v14" stroke="#38BDF8" stroke-width="5" stroke-dasharray="4 2" stroke-linecap="round"/>
+<!-- bassin -->
+<path d="M306 156h70l-6 18h-58z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2"/>
+<path d="M310 160h62l-3 8h-56z" fill="#38BDF8"/>
+<!-- cultures -->
+<g fill="#22A447"><circle cx="388" cy="158" r="9"/><circle cx="404" cy="152" r="11"/><circle cx="292" cy="158" r="7"/></g>
+<path d="M388 167v6M404 163v10M292 165v8" stroke="#7C4A1E" stroke-width="2.5"/>
+<text x="246" y="298" text-anchor="middle" font-size="9" font-weight="700" fill="#E0F2FE" font-family="Arial">💧</text>
+</g></svg></div>
+        <div class="heroBtns">
+          <a class="btn wat" href="#pPick"><span data-i="pGo">اختار قوة المضخة متاعك 💧</span></a>
+          <button class="btn sec" type="button" id="pAskTop"><span data-i="pAsk">اسأل مهندس على واتساب</span></button>
+        </div>
+        <div class="pTrust"><span>🛡️ <b data-i="pt1">ضمان 30 سنة على اللوحات</b></span><span>⚙️ <b>VEICHI · AIKO</b></span><span>🗺️ <b data-i="pt3">نخدمو في كامل الجمهورية</b></span></div>
+      </div>
+      <div class="pArt"><svg viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Station de pompage solaire">
+<defs>
+<linearGradient id="dsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8DEFF"/><stop offset="1" stop-color="#EFFAFF"/></linearGradient>
+<radialGradient id="dsun"><stop offset="0" stop-color="#FFE27A"/><stop offset=".6" stop-color="#FFB020"/><stop offset="1" stop-color="#FF8A1F"/></radialGradient>
+<linearGradient id="dsoil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8C595"/><stop offset="1" stop-color="#B07C4F"/></linearGradient>
+<linearGradient id="dwat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#0369A1"/></linearGradient>
+<linearGradient id="dcell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F7FE0"/><stop offset="1" stop-color="#173F94"/></linearGradient>
+<pattern id="dgrid" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="14" height="10" fill="url(#dcell)"/><path d="M14 0V10M0 10H14" stroke="#9CC4FF" stroke-width=".8" opacity=".7"/></pattern>
+<clipPath id="dclip"><rect width="420" height="300" rx="28"/></clipPath>
+</defs>
+<g clip-path="url(#dclip)">
+<rect width="420" height="300" fill="url(#dsky)"/>
+<g class="sunRot" style="transform-origin:352px 52px"><g stroke="#FFB020" stroke-width="5" stroke-linecap="round" opacity=".85"><path d="M352 8v11M352 85v11M308 52h11M385 52h11M321 21l8 8M375 75l8 8M321 83l8-8M375 29l8-8"/></g></g>
+<circle cx="352" cy="52" r="27" fill="url(#dsun)"/>
+<path d="M58 44c8-13 28-13 33 0 13-2 18 13 7 18H54c-11-2-9-18 4-18z" fill="#fff" opacity=".9"/>
+<rect y="170" width="420" height="130" fill="url(#dsoil)"/>
+<path d="M0 214h420M0 238h420" stroke="#9A6B42" stroke-width="1.2" opacity=".35" stroke-dasharray="6 7"/>
+<path d="M0 262c30-6 60 6 90 0s60 6 90 0 60 6 90 0 60 6 90 0 60 6 60 0V300H0z" fill="url(#dwat)"/>
+<path d="M0 163c70-8 150-8 420 0v10H0z" fill="#5BC46A"/>
+<!-- structure + panneaux -->
+<path d="M44 168 66 112M128 168 140 98M84 168 98 106" stroke="#64748B" stroke-width="5" stroke-linecap="round"/>
+<path d="M22 132 140 88l22 26L44 160z" fill="url(#dgrid)" stroke="#D5DEEA" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M60 136l56-22" stroke="#fff" stroke-width="3" opacity=".45" stroke-linecap="round"/>
+<!-- câble -> variateur -->
+<path d="M150 112c14 6 22 14 26 26" stroke="#E11D48" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M156 106c16 6 26 16 28 32" stroke="#1F2937" stroke-width="3" fill="none" stroke-linecap="round"/>
+<g transform="translate(166 132)"><rect width="38" height="40" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/><rect width="38" height="9" rx="4" fill="#0EA5E9"/><rect x="7" y="14" width="24" height="11" rx="2" fill="#0F172A"/><text x="19" y="22.5" text-anchor="middle" font-size="7" font-weight="700" fill="#34D399" font-family="Arial">50Hz</text><circle cx="12" cy="32" r="2.4" fill="#22C55E"/><circle cx="20" cy="32" r="2.4" fill="#FBBF24"/></g>
+<!-- câble pompe -->
+<path d="M204 160h28v100" stroke="#1F2937" stroke-width="2.5" fill="none"/>
+<!-- forage -->
+<rect x="236" y="150" width="20" height="134" fill="#94A3B8" opacity=".55"/>
+<rect x="241" y="148" width="10" height="118" fill="#E2E8F0" stroke="#64748B" stroke-width="1.5"/>
+<rect x="237" y="262" width="18" height="30" rx="4" fill="#0369A1" stroke="#0C4A6E" stroke-width="2"/>
+<path d="M240 272h12M240 280h12" stroke="#7DD3FC" stroke-width="2"/>
+<!-- conduite vers bassin -->
+<path d="M246 148V128h92v18" stroke="#0284C7" stroke-width="7" fill="none" stroke-linejoin="round"/>
+<g class="wFlow" fill="#E0F7FF"><circle cx="246" cy="200" r="2.6"/><circle cx="246" cy="170" r="2.6"/><circle cx="270" cy="128" r="2.6"/><circle cx="305" cy="128" r="2.6"/></g>
+<path class="wFall" d="M338 148v14" stroke="#38BDF8" stroke-width="5" stroke-dasharray="4 2" stroke-linecap="round"/>
+<!-- bassin -->
+<path d="M306 156h70l-6 18h-58z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2"/>
+<path d="M310 160h62l-3 8h-56z" fill="#38BDF8"/>
+<!-- cultures -->
+<g fill="#22A447"><circle cx="388" cy="158" r="9"/><circle cx="404" cy="152" r="11"/><circle cx="292" cy="158" r="7"/></g>
+<path d="M388 167v6M404 163v10M292 165v8" stroke="#7C4A1E" stroke-width="2.5"/>
+<text x="246" y="298" text-anchor="middle" font-size="9" font-weight="700" fill="#E0F2FE" font-family="Arial">💧</text>
+</g></svg></div>
+    </div>
+
+    <section id="pPick">
+      <div class="pPick">
+        <div class="pKick" data-i="pK">المحطة المناسبة لمضختك</div>
+        <h2 data-i="pH">قدّاش قوة المضخة متاعك؟</h2>
+        <div class="sub" data-i="pS">اختار القوة (CV) والولاية، وتطلعلك المحطة المناسبة بثمنها.</div>
+        <div class="pPickG">
+          <div class="field"><div class="fl"><span class="n">1</span><span data-i="pCvL">قوة المضخة</span></div><div class="cvC" id="pCv"></div></div>
+          <div class="field"><div class="fl"><span class="n">2</span><span data-i="pGovL">وين البير؟</span></div><select id="pGov" aria-label="gouvernorat"></select></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pStations">
+      <div class="sh"><div><div class="pKick" data-i="pStK">محطات الضخ متاعنا</div><h2 data-i="pStH">ثمن clé en main، كل شيء مشمول</h2></div><span class="pSwipe" data-i="swipe">اسحب ← →</span></div>
+      <div class="pRail" id="pRail"></div>
+    </section>
+
+    <section class="pKit">
+      <div class="sh"><div><div class="pKick" data-i="pKitK">clé en main · كل شيء مشمول</div><h2 data-i="pKitH">شنوّة فيها المحطة متاعك؟</h2></div></div>
+      <div class="cps"><div class="cp"><div class="cpI" style="background:#E8F1FF"><svg viewBox="0 0 64 64"><defs><linearGradient id="pic1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B8BEB"/><stop offset="1" stop-color="#173F94"/></linearGradient></defs><path d="M10 46 18 12h36l-8 34z" fill="url(#pic1)" stroke="#CBD5E1" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 29h36M12.5 37.5h36M16 20.5h36M30 12l-6 34M42 12l-6 34" stroke="#9CC4FF" stroke-width="1.3"/><path d="M26 46v8M38 46v8M20 54h24" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/></svg></div><b data-i="pc1">لوحات شمسية AIKO 645 Wc</b><span data-i="pc1d">N-type عالية المردود</span></div><div class="cp"><div class="cpI" style="background:#E0F7FF"><svg viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2.5"/><path d="M14 13a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v3H14z" fill="#0EA5E9"/><rect x="20" y="22" width="24" height="14" rx="2.5" fill="#0F172A"/><text x="32" y="32.5" text-anchor="middle" font-size="8" font-weight="700" fill="#34D399" font-family="Arial">MPPT</text><circle cx="24" cy="45" r="3" fill="#22C55E"/><circle cx="32" cy="45" r="3" fill="#FBBF24"/></svg></div><b data-i="pc2">Variateur solaire VEICHI</b><span data-i="pc2d">MPPT مدمج · حماية كي البير يفرغ، ومن ارتفاع الجهد والسخانة</span></div><div class="cp"><div class="cpI" style="background:#EEF2F7"><svg viewBox="0 0 64 64"><path d="M8 34 46 16l10 2-38 18z" fill="#3B82F6" opacity=".25"/><path d="M8 34 46 16M18 36 56 18" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/><path d="M14 35v20M50 17v38M14 55 50 27M8 56h48" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/><rect x="10" y="54" width="8" height="5" fill="#A8A29E"/><rect x="46" y="54" width="8" height="5" fill="#A8A29E"/></svg></div><b data-i="pc3">حامل اللوحات من الحديد المغلفن (IPE 80)</b><span data-i="pc3d">متين ومثبّت على قواعد بالخرسانة</span></div><div class="cp"><div class="cpI" style="background:#FFF8E1"><svg viewBox="0 0 64 64"><rect x="10" y="8" width="44" height="48" rx="6" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2.5"/><rect x="16" y="16" width="32" height="20" rx="3" fill="#fff" stroke="#CBD5E1"/><rect x="20" y="22" width="4" height="8" fill="#2563EB"/><rect x="30" y="22" width="4" height="8" fill="#DC2626"/><rect x="40" y="22" width="4" height="8" fill="#16A34A"/><path d="m33 40-4 7h5l-3 6" stroke="#F59E0B" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b data-i="pc4">Coffret variateur</b><span data-i="pc4d">حماية DC / AC ومانع صواعق</span></div><div class="cp"><div class="cpI" style="background:#FDECEF"><svg viewBox="0 0 64 64"><path d="M6 20c14 0 14 24 28 24h8" stroke="#DC2626" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M6 32c12 0 12 20 26 20h10" stroke="#1F2937" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="40" y="38" width="14" height="10" rx="3" fill="#2563EB"/><rect x="40" y="47" width="14" height="10" rx="3" fill="#64748B"/></svg></div><b data-i="pc5">الكوابل والتمديدات</b><span data-i="pc5d">كوابل شمسية + كابل تغذية المضخة</span></div><div class="cp"><div class="cpI" style="background:#E9F9EF"><svg viewBox="0 0 64 64"><rect x="27" y="4" width="10" height="34" fill="#E2E8F0" stroke="#64748B" stroke-width="2"/><rect x="23" y="36" width="18" height="22" rx="4" fill="#0369A1"/><path d="M26 44h12M26 50h12" stroke="#7DD3FC" stroke-width="2"/><path d="M48 14c4 6 6 9 6 12a6 6 0 0 1-12 0c0-3 2-6 6-12z" fill="#38BDF8"/><path d="M12 22c3 4 4 6 4 8a4 4 0 0 1-8 0c0-2 1-4 4-8z" fill="#38BDF8"/></svg></div><b data-i="pc6">تركيب وتشغيل على البير</b><span data-i="pc6d">ربط، ضبط الـ variateur وتجربة الدبي</span></div></div>
+    </section>
+
+    <section class="how pSteps">
+      <div class="sh"><div><div class="pKick" data-i="howK">بسيطة وواضحة</div><h2 data-i="howH">كيفاش تمشي الحكاية؟</h2></div></div>
+      <div class="steps3">
+        <div class="s3"><span class="s3n">1</span><b data-i="ps1t">ابعثلنا حاجتك</b><span data-i="ps1d">قوة المضخة ووين البير، على واتساب.</span></div>
+        <div class="s3"><span class="s3n">2</span><b data-i="ps2t">زيارة تقنية</b><span data-i="ps2d">تقني من PROELEC يعاين البير وبلاصة اللوحات.</span></div>
+        <div class="s3"><span class="s3n">3</span><b data-i="ps3t">تركيب clé en main</b><span data-i="ps3d">تركيب، ضبط، تجربة الدبي — والماء يخرج.</span></div>
+      </div>
+      <div class="pCta">
+        <h3 data-i="pCtaH">ما تعرفش قوة المضخة متاعك؟</h3>
+        <p data-i="pCtaP">ابعثلنا صورة من plaque متاع المضخة ولا عمق البير، وفريقنا يقلّك المحطة المناسبة.</p>
+        <button class="btn wa" type="button" id="pAskBot"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span data-i="pAsk">اسأل مهندس على واتساب</span></button>
+      </div>
+      <div class="pDisc" data-i="pDisc">الأسعار TTC. النقل والتنقّل خارج صفاقس: +500 DT. الدراسة النهائية حسب البير (العمق والدبي) بعد الزيارة التقنية.</div>
+    </section>
+  </section>
+
   <section class="iso lt">
     <div><div class="kick" data-i="isoK">شركة مُعتمدة</div><h2 data-i="isoH">جودة معترف بيها دوليًا</h2><p data-i="isoP">PROELEC حاصلة على ثلاث شهادات ISO: نخدمو بمعايير المشاريع الكبرى، حتى في دارك.</p></div>
     <div class="seals"><div class="seal"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="url(#sg)" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="3 4"/><text x="60" y="52" text-anchor="middle" fill="#FFB020" font-size="16" font-weight="700" font-family="Readex Pro">ISO</text><text x="60" y="78" text-anchor="middle" fill="#0B1B3A" font-size="25" font-weight="800" font-family="Readex Pro">9001</text></svg><b data-i="i1">الجودة</b></div><div class="seal"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="url(#sg)" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="3 4"/><text x="60" y="52" text-anchor="middle" fill="#FFB020" font-size="16" font-weight="700" font-family="Readex Pro">ISO</text><text x="60" y="78" text-anchor="middle" fill="#0B1B3A" font-size="25" font-weight="800" font-family="Readex Pro">14001</text></svg><b data-i="i2">البيئة</b></div><div class="seal"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="55" fill="none" stroke="url(#sg)" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="3 4"/><text x="60" y="52" text-anchor="middle" fill="#FFB020" font-size="16" font-weight="700" font-family="Readex Pro">ISO</text><text x="60" y="78" text-anchor="middle" fill="#0B1B3A" font-size="25" font-weight="800" font-family="Readex Pro">45001</text></svg><b data-i="i3">الصحة والسلامة</b></div></div>
@@ -878,6 +1129,7 @@ footer{color:#64748B}
 
 <div class="bb" id="bb"><div class="in">
   <div class="info" id="bbInfo"></div>
+  <a class="btn wat" id="bbPump" href="#pPick"><span data-i="bbPump">💧 اختار محطتك</span></a>
   <a class="btn pri" id="bbGo" href="#sim"><span data-i="bbGo">احسب توفيرك مجانًا</span></a>
   <button class="btn wa" id="bbWa" type="button" style="display:none"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3z"/></svg><span data-i="bbWa">احجز زيارة</span></button>
 </div></div>
@@ -955,7 +1207,22 @@ const T={ar:{},fr:{
  v1:"Étude, pose, raccordement STEG — on s'occupe de tout",v2h:"Appli de monitoring",v2:"Suivez production et économies sur votre téléphone",v3h:"Service après-vente",v3:"Une équipe technique proche de vous",v4h:"Garantie 30 ans",v4:"Une installation garantie sur le long terme",
  foot:"Résultats indicatifs et non contractuels.",pk:"Votre demande est suivie par notre équipe",pd:"Service commercial · PROELEC",fp:"Service commercial photovoltaïque",fp2:"Service Commercial Photovoltaïque · PROELEC",kitK:"clé en main · tout est inclus",kitH:"Que contient votre installation ?",c1:"Panneaux AIKO / LONGi",c1d:"N-type haut rendement",c2:"Onduleur intelligent",c2d:"Convertit l'énergie et la raccorde à la STEG",c3:"Structure en acier galvanisé",c3d:"Robuste, inoxydable, résiste au vent",c4:"Coffrets de protection AC / DC",c4d:"Disjoncteurs et parafoudres pour votre sécurité",c5:"Câbles spéciaux photovoltaïque",c5d:"Résistent à la chaleur et aux UV, connecteurs sécurisés",c6:"Application de monitoring",c6d:"Suivez production et économies sur votre téléphone",bbGo:"Calculez vos économies",bbWa:"Réserver",
  invL:"Choisissez votre onduleur :",dvH:"Téléchargez votre devis en PDF",dvS:"Un devis détaillé à votre nom : prix, équipements et modes de paiement — à imprimer ou à partager.",dvB:"📥 Télécharger mon devis (PDF)",dvN:"Nom et prénom",dvT:"Téléphone (facultatif)",
- errV:"Entrez le montant de votre facture.",errG:"Choisissez votre gouvernorat."}};
+ errV:"Entrez le montant de votre facture.",errG:"Choisissez votre gouvernorat.",
+ mR:"Maisons & commerces",mRs:"Solaire raccordé STEG",mP:"Pompage solaire",mPs:"Stations pour puits & agriculture",
+ ptag:"💧 Pompage solaire · clé en main",ph1a:"L'eau de votre puits…",ph1b:"pompée par le soleil, sans gasoil",
+ plead:"Station de pompage solaire <b>clé en main</b> pour votre forage : panneaux, variateur, structure, pose et mise en service — à partir de <b class=\"num\">12 700 DT</b>.",
+ pGo:"Choisir la puissance de ma pompe 💧",pAsk:"Demander conseil sur WhatsApp",pt1:"Garantie 30 ans sur les modules",pt3:"Partout en Tunisie",
+ pK:"La station adaptée à votre pompe",pH:"Quelle est la puissance de votre pompe ?",pS:"Choisissez la puissance (CV) et le gouvernorat : la station adaptée s'affiche avec son prix.",
+ pCvL:"Puissance de la pompe",pGovL:"Où se trouve le forage ?",pStK:"Nos stations de pompage",pStH:"Prix clé en main, tout compris",
+ pKitK:"clé en main · tout est inclus",pKitH:"Que contient votre station ?",
+ pc1:"Panneaux AIKO 645 Wc",pc1d:"N-type haut rendement",pc2:"Variateur solaire VEICHI",pc2d:"MPPT intégré · protections marche à sec, surtension, surchauffe",
+ pc3:"Structure IPE 80 en acier galvanisé",pc3d:"Robuste, ancrée sur massifs béton",pc4:"Coffret variateur",pc4d:"Protections DC / AC et parafoudre",
+ pc5:"Câblage & cheminement",pc5d:"Câbles solaires + câble d'alimentation de la pompe",pc6:"Pose & mise en service sur forage",pc6d:"Raccordement, paramétrage du variateur, essais de débit",
+ ps1t:"Envoyez-nous votre besoin",ps1d:"Puissance de la pompe et lieu du forage, par WhatsApp.",ps2t:"Visite technique",ps2d:"Un technicien PROELEC vérifie le forage et l'emplacement des panneaux.",
+ ps3t:"Installation clé en main",ps3d:"Pose, paramétrage, essais de débit — l'eau coule.",
+ pCtaH:"Vous ne connaissez pas la puissance de votre pompe ?",pCtaP:"Envoyez-nous une photo de la plaque de la pompe ou la profondeur du forage : notre équipe vous indique la bonne station.",
+ pDisc:"Prix TTC. Transport et déplacement hors Sfax : +500 DT. Dimensionnement final selon le forage (profondeur, débit) après visite technique.",
+ bbPump:"💧 Choisir ma station"}};
 document.querySelectorAll("[data-i]").forEach(e=>T.ar[e.dataset.i]=e.dataset.html?e.innerHTML:e.textContent);
 T.ar.errV="أدخل مبلغ فاتورتك."; T.ar.dvN="الاسم واللقب"; T.ar.dvT="رقم الهاتف (اختياري)"; T.ar.errG="اختار ولايتك.";
 const PER={ar:{1:"كل شهر",2:"كل شهرين",3:"كل 3 أشهر",12:"في السنة"},fr:{1:"par mois",2:"tous les 2 mois",3:"tous les 3 mois",12:"par an"}};
@@ -1350,12 +1617,85 @@ async function makeDevis(){
 $("dvBtn").onclick=makeDevis;
 $("dvName").addEventListener("input",()=>{$("dvName").classList.remove("bad");dvMsg("");});
 
+
+/* ====================== POMPAGE SOLAIRE ====================== */
+// Prix de vente TTC clé en main, hors transport (+CFG.travel hors Sfax)
+const PUMPS=[
+  {cv:"5,5", kw:5.5, n:14, p:12700},
+  {cv:"7,5", kw:7.5, n:14, p:13000},
+  {cv:"10",  kw:11,  n:24, p:21500},
+  {cv:"12,5",kw:11,  n:24, p:21500},
+  {cv:"13,5",kw:11,  n:24, p:21500},
+  {cv:"15",  kw:15,  n:26, p:23700}
+].map(x=>({...x,w:645,b:"AIKO",k:x.n*645/1000}));
+const PS={sel:null};
+const DROP='<svg class="drop" viewBox="0 0 40 48"><path d="M20 2C28 14 36 22 36 31a16 16 0 0 1-32 0C4 22 12 14 20 2z" fill="#fff" opacity=".22"/><path d="M13 31a7 7 0 0 0 7 7" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/></svg>';
+function pGovV(){const v=$("pGov").value;return GOVS.find(g=>g[1]===v)||null;}
+function fillPGov(){const cur=$("pGov").value;
+  $("pGov").innerHTML=`<option value="" ${cur?"":"selected"}>${ar()?"📍 اختار الولاية":"📍 Choisissez le gouvernorat"}</option>`+GOVS.map(g=>`<option value="${g[1]}">${ar()?g[0]:g[1]}</option>`).join("");
+  if(cur)$("pGov").value=cur;}
+function drawPump(){
+  const a=ar(),g=pGovV(),tr=g&&g[1]!==CFG.homeGov?CFG.travel:0;
+  $("pCv").innerHTML=PUMPS.map((x,i)=>`<button type="button" data-k="${i}" class="${PS.sel===i?"on":""}"><span class="num">${x.cv}</span><small>CV</small></button>`).join("")+
+    `<button type="button" class="idk" data-k="idk">🤔 ${a?"ما نعرفش قوة المضخة — اسأل مهندس":"Je ne connais pas la puissance — demander conseil"}</button>`;
+  $("pRail").classList.toggle("hasSel",PS.sel!==null);
+  $("pRail").innerHTML=PUMPS.map((x,i)=>{const sel=PS.sel===i,kwT=fmt(x.kw,x.kw%1?1:0);
+    const trT=!g?`🚚 ${a?`+${fmt(CFG.travel)} DT نقل خارج صفاقس`:`+${fmt(CFG.travel)} DT transport hors Sfax`}`
+      :tr?`🚚 ${a?`النقل لولاية ${g[0]} مشمول (+${fmt(tr)} DT)`:`Transport vers ${g[1]} inclus (+${fmt(tr)} DT)`}`
+      :`✓ ${a?"بدون مصاريف نقل (صفاقس)":"Sans frais de transport (Sfax)"}`;
+    return `<div class="ps ${sel?"sel":""}" data-k="${i}">
+     <div class="psTop">${DROP}<div class="psCv"><b class="num">${x.cv}</b><span>CV</span></div>
+      <small>${a?"محطة ضخ لمضخة":"Station pour pompe"} <span class="num">${x.cv} CV</span></small>
+      ${sel?`<span class="psBadge">✓ ${a?"المناسبة لمضختك":"Adaptée à votre pompe"}</span>`:""}</div>
+     <div class="psBody">
+      <div class="psRow"><span>☀️ ${a?"اللوحات":"Modules"}</span><b class="num">${x.n} × ${x.b} ${x.w} Wc</b></div>
+      <div class="psRow"><span>⚡ ${a?"القوة":"Puissance crête"}</span><b class="num">${fmt(x.k,2)} kWc</b></div>
+      <div class="psRow"><span>🎛️ Variateur</span><b class="num">VEICHI ${kwT} kW</b></div>
+      <div class="psRow"><span>🏗️ Structure</span><b>IPE 80 · ${a?"حديد مغلفن":"acier galvanisé"}</b></div>
+      <div class="psPrice"><div class="now"><b class="num">${fmt(x.p+tr)}</b><small>DT TTC</small></div><div class="psTr ${g&&!tr?"inc":""}">${trT}</div></div>
+      <ul class="incl"><li>clé en main · ${a?"تركيب وتشغيل على البير":"pose & mise en service"}</li><li>Coffret variateur + ${a?"كوابل وتمديدات":"câblage"}</li><li>${a?"ضمان 30 سنة على اللوحات":"Garantie 30 ans modules"}</li></ul>
+      <button class="btn wat" type="button" data-wa="${i}">${a?"نحب هذي المحطة · واتساب":"Je veux cette station · WhatsApp"}</button>
+     </div></div>`;}).join("");
+}
+function pickPump(i,scroll){PS.sel=i;drawPump();track("pompage-choix-"+PUMPS[i].cv.replace(",","-"),"Pompage : choix "+PUMPS[i].cv+" CV");
+  if(scroll)requestAnimationFrame(()=>{const c=$("pRail").querySelector(".ps.sel");if(!c)return;
+    if(innerWidth<760){$("pStations").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>c.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"}),350);}
+    else c.scrollIntoView({behavior:"smooth",block:"center"});});}
+function openWa(txt){const l=document.createElement("a");l.href=`https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(txt)}`;l.target="_blank";l.rel="noopener";document.body.appendChild(l);l.click();l.remove();}
+function sendPump(i){const a=ar(),x=PUMPS[i],g=pGovV(),tr=g&&g[1]!==CFG.homeGov?CFG.travel:0;
+  track("whatsapp-pompage","WhatsApp : demande station de pompage");
+  openWa(`🔔 ${a?"طلب محطة ضخ بالطاقة الشمسية":"Demande de station de pompage solaire"} – PROELEC\n`+
+    `💧 ${a?"المضخة":"Pompe"}: ${x.cv} CV\n`+
+    `☀️ ${x.n} × ${x.b} ${x.w} Wc (${fmt(x.k,2)} kWc)\n`+
+    `🎛️ Variateur VEICHI ${fmt(x.kw,x.kw%1?1:0)} kW\n`+
+    `📍 ${g?(a?g[0]:g[1]):"—"}\n`+
+    `💰 ${a?"الثمن":"Prix"} clé en main: ${fmt(x.p+tr)} DT TTC${tr?` (${a?"النقل مشمول":"transport inclus"})`:(!g?` (+${fmt(CFG.travel)} DT ${a?"نقل خارج صفاقس":"transport hors Sfax"})`:"")}\n\n`+
+    (a?"نحب نعمل زيارة تقنية للبير.":"Je souhaite une visite technique de mon forage."));}
+function askPump(){const a=ar(),g=pGovV();track("whatsapp-pompage-conseil","WhatsApp : conseil pompage");
+  openWa(`💧 ${a?"طلب نصيحة – ضخ الماء بالطاقة الشمسية":"Demande de conseil – pompage solaire"} – PROELEC\n📍 ${g?(a?g[0]:g[1]):"—"}\n\n`+
+    (a?"ما نعرفش قوة المضخة متاعي. نحب مهندس يعاونّي نختار المحطة المناسبة (نجم نبعث صورة من plaque المضخة وعمق البير).":"Je ne connais pas la puissance de ma pompe. J'aimerais l'aide d'un ingénieur pour choisir la station (je peux envoyer une photo de la plaque et la profondeur du forage)."));}
+$("pCv").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.k==="idk")return askPump();pickPump(+b.dataset.k,true);});
+$("pRail").addEventListener("click",e=>{const w=e.target.closest("[data-wa]");if(w){e.stopPropagation();return sendPump(+w.dataset.wa);}const c=e.target.closest(".ps");if(c&&PS.sel!==+c.dataset.k)pickPump(+c.dataset.k,false);});
+$("pGov").onchange=()=>{drawPump();track("pompage-gouvernorat","Pompage : gouvernorat choisi");};
+$("pAskTop").onclick=askPump; $("pAskBot").onclick=askPump;
+
+/* ---------- switch Résidentiel / Pompage ---------- */
+function setMode(m,noScroll){const pump=m==="pump";
+  document.body.classList.toggle("pump",pump);
+  document.querySelectorAll("#modeSw button").forEach(b=>b.classList.toggle("on",b.dataset.m===m));
+  document.querySelector('meta[name="theme-color"]').setAttribute("content",pump?"#0369A1":"#0A1222");
+  try{history.replaceState(null,"",pump?"#pompage":location.pathname+location.search);}catch(e){}
+  if(pump)track("mode-pompage","Mode : pompage solaire");
+  if(!noScroll)window.scrollTo({top:0,behavior:"smooth"});}
+document.querySelectorAll("#modeSw button").forEach(b=>b.onclick=()=>setMode(b.dataset.m));
+document.addEventListener("click",e=>{const l=e.target.closest('a[href="#pPick"]');if(!l)return;e.preventDefault();$("pPick").scrollIntoView({behavior:"smooth",block:"start"});});
+
 /* ====================== language ====================== */
 function applyLang(){
   document.documentElement.lang=L; document.documentElement.dir=ar()?"rtl":"ltr";
   document.querySelectorAll("[data-i]").forEach(e=>{const v=t(e.dataset.i);if(v==null)return;if(e.dataset.html)e.innerHTML=v;else e.textContent=v;});
   document.querySelectorAll("[data-ph]").forEach(e=>e.placeholder=t(e.dataset.ph));
-  fillGov(); fillMins(); drawOffers(); drawQuick(); if(last) calc();
+  fillGov(); fillMins(); drawOffers(); drawQuick(); fillPGov(); drawPump(); if(last) calc();
 }
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".lang button").forEach(x=>x.classList.remove("on"));b.classList.add("on");L=b.dataset.l;applyLang();});
 /* prix minimum + mensualité minimum (affichés en haut) calculés depuis la config */
@@ -1375,7 +1715,8 @@ if(CFG.goatcounter){const g=document.createElement("script");g.async=true;g.src=
 $("val").addEventListener("input",()=>track("simulateur-saisie","Simulateur : a commencé à saisir"),{once:true});
 $("offres").addEventListener("click",e=>{if(e.target.closest(".of"))track("offres-clic","Offres : clic sur une carte");});
 
-fillGov(); fillMins(); drawOffers(); drawQuick();
+fillGov(); fillMins(); drawOffers(); drawQuick(); fillPGov(); drawPump();
+if(/^#(pompage|pPick|pStations)/.test(location.hash))setMode("pump",true);
 </script>
 </body>
 </html>
